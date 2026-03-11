@@ -525,24 +525,37 @@
               <div><span style="color: #4D9FFF; font-weight: 600;">8</span> Followers</div>
             </div>
           </div>
-          <div style="padding: 16px; background: #14141C; overflow-y: auto; height: calc(100% - 200px);">
-            <div style="background: #0A0A0F; border-radius: 8px; padding: 12px; margin-bottom: 16px;">
-              <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">Stats</div>
+          <div style="padding: 16px; background: #14141C; overflow-y: auto; height: calc(100% - 200px); border-bottom: 8px solid #0A0A0F;">
+            <div style="background: #0A0A0F; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+              <div style="font-size: 10px; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Stats</div>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
                 <div style="text-align: center;">
                   <div style="font-size: 16px; font-weight: 700; color: #00D26A;">26</div>
-                  <div style="font-size: 10px; color: var(--text-secondary);">Bets Won</div>
+                  <div style="font-size: 9px; color: var(--text-secondary);">Won</div>
                 </div>
                 <div style="text-align: center;">
                   <div style="font-size: 16px; font-weight: 700; color: #FF6B6B;">9</div>
-                  <div style="font-size: 10px; color: var(--text-secondary);">Bets Lost</div>
+                  <div style="font-size: 9px; color: var(--text-secondary);">Lost</div>
                 </div>
               </div>
             </div>
-            <div style="background: rgba(77,159,255,0.05); border: 1px solid #4D9FFF; border-radius: 8px; padding: 10px;">
-              <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px; text-transform: uppercase; font-weight: 600;">Reputation</div>
-              <div style="font-size: 18px; font-weight: 700; color: #4D9FFF;">74.2%</div>
-              <div style="font-size: 10px; color: var(--text-secondary); margin-top: 4px;">Excellent - Verified</div>
+            <div style="background: rgba(77,159,255,0.05); border: 1px solid rgba(77,159,255,0.2); border-radius: 8px; padding: 10px; margin-bottom: 12px;">
+              <div style="font-size: 10px; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Reputation</div>
+              <div style="font-size: 16px; font-weight: 700; color: #4D9FFF; margin-bottom: 2px;">74.2%</div>
+              <div style="font-size: 9px; color: var(--text-secondary);">Excellent • Verified</div>
+            </div>
+            <div style="background: rgba(0,210,106,0.05); border: 1px solid rgba(0,210,106,0.2); border-radius: 8px; padding: 10px; margin-bottom: 12px;">
+              <div style="font-size: 10px; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Monthly</div>
+              <div style="display: flex; justify-content: space-between;">
+                <div>
+                  <div style="font-size: 14px; font-weight: 700; color: #00D26A;">5W - 2L</div>
+                  <div style="font-size: 8px; color: var(--text-secondary);">This month</div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-size: 12px; font-weight: 700; color: #FFB800;">+$320</div>
+                  <div style="font-size: 8px; color: var(--text-secondary);">ROI</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -596,35 +609,72 @@
       <div class="phone-frame">
         <div class="phone-notch"></div>
         <div class="phone-content">
-          <div style="padding: 12px 16px; border-bottom: 1px solid var(--border);">
+          <div style="padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
             <div style="font-size: 14px; font-weight: 600;">Feed</div>
+            <div style="font-size: 10px; color: #FF6B6B; background: rgba(255,107,107,0.1); padding: 4px 8px; border-radius: 4px;">● LIVE</div>
           </div>
-          <div style="padding: 0; background: #14141C; overflow-y: auto; height: calc(100% - 110px);">
-            <!-- Open Challenges Section -->
-            <div style="border-bottom: 1px solid var(--border); padding: 12px 16px; background: rgba(77,159,255,0.05);">
-              <div style="display: flex; gap: 8px; align-items: flex-start;">
-                <div style="font-size: 18px;">🔥</div>
-                <div>
-                  <div style="font-size: 13px; font-weight: 600;">Open Challenges</div>
-                  <div style="font-size: 11px; color: var(--text-secondary);">Step up. Who dares wins.</div>
-                </div>
-              </div>
-            </div>
-            <!-- Bet Post -->
+          <div style="padding: 0; background: #14141C; overflow-y: auto; height: calc(100% - 110px); border-bottom: 8px solid #0A0A0F;">
+            <!-- Challenge 1 -->
             <div style="border-bottom: 1px solid var(--border); padding: 12px 16px;">
-              <div style="display: flex; gap: 8px; margin-bottom: 10px; align-items: center;">
-                <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #4D9FFF 0%, #2d6fff 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 12px;">M</div>
-                <span style="font-size: 12px; font-weight: 600;">Mike_P</span>
-                <span style="font-size: 11px; color: var(--text-secondary);">vs</span>
-                <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #FF6B6B 0%, #ff5252 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 12px;">S</span>
-                <span style="font-size: 12px; font-weight: 600;">Sarah_B</span>
+              <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #FF6B6B 0%, #ff5252 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 12px;">H</div>
+                <div style="flex: 1;">
+                  <div style="font-size: 12px; font-weight: 600;">Hippo</div>
+                  <div style="font-size: 10px; color: var(--text-secondary);">2h ago</div>
+                </div>
+                <div style="font-size: 10px; background: rgba(255,184,0,0.1); color: #FFB800; padding: 2px 6px; border-radius: 3px;">CHALLENGE</div>
               </div>
-              <div style="font-size: 12px; margin-bottom: 8px; color: var(--text-secondary);">Rams beat 49ers by 3+</div>
-              <div style="display: flex; gap: 12px; justify-content: space-between; font-size: 11px;">
-                <span style="color: #FFB800;">💰 $250</span>
-                <span style="color: #00D26A;">✓ PENDING</span>
-                <span style="color: var(--text-secondary);">1h ago</span>
+              <div style="font-size: 11px; margin-bottom: 8px;">I can lose 30 lbs in 60 days 💪</div>
+              <div style="background: rgba(77,159,255,0.05); border-left: 3px solid #4D9FFF; padding: 6px 8px; font-size: 10px; margin-bottom: 6px;">$500 stake • 3 takers</div>
+            </div>
+            <!-- Bet 1 -->
+            <div style="border-bottom: 1px solid var(--border); padding: 12px 16px;">
+              <div style="display: flex; gap: 6px; margin-bottom: 8px; align-items: center; font-size: 11px;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: #4D9FFF; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 10px;">M</div>
+                <span style="font-weight: 600;">Mike_P</span>
+                <span style="color: var(--text-secondary);">vs</span>
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: #FF6B6B; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 10px;">S</span>
+                <span style="font-weight: 600;">Sarah_B</span>
               </div>
+              <div style="font-size: 11px; margin-bottom: 6px; color: var(--text-secondary);">Rams beat 49ers by 3+</div>
+              <div style="display: flex; gap: 10px; font-size: 10px; color: #FFB800;">$250 • PENDING • 3h</div>
+            </div>
+            <!-- Bet 2 -->
+            <div style="border-bottom: 1px solid var(--border); padding: 12px 16px;">
+              <div style="display: flex; gap: 6px; margin-bottom: 8px; align-items: center; font-size: 11px;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: #FFB800; display: flex; align-items: center; justify-content: center; color: #000; font-weight: 600; font-size: 10px;">J</div>
+                <span style="font-weight: 600;">Jake_T</span>
+                <span style="color: var(--text-secondary);">vs</span>
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: #00D26A; display: flex; align-items: center; justify-content: center; color: #000; font-weight: 600; font-size: 10px;">D</div>
+                <span style="font-weight: 600;">Dan_K</span>
+              </div>
+              <div style="font-size: 11px; margin-bottom: 6px; color: var(--text-secondary);">Lakers over 215.5 pts</div>
+              <div style="display: flex; gap: 10px; font-size: 10px; color: #00D26A;">$500 • SETTLED • Won</div>
+            </div>
+            <!-- Challenge 2 -->
+            <div style="border-bottom: 1px solid var(--border); padding: 12px 16px;">
+              <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #FFB800 0%, #ff9500 100%); display: flex; align-items: center; justify-content: center; color: #000; font-weight: 600; font-size: 12px;">S</div>
+                <div style="flex: 1;">
+                  <div style="font-size: 12px; font-weight: 600;">Sarah_B</div>
+                  <div style="font-size: 10px; color: var(--text-secondary);">5h ago</div>
+                </div>
+                <div style="font-size: 10px; background: rgba(255,184,0,0.1); color: #FFB800; padding: 2px 6px; border-radius: 3px;">CHALLENGE</div>
+              </div>
+              <div style="font-size: 11px; margin-bottom: 8px;">Pick 3 College Football props 🏈</div>
+              <div style="background: rgba(77,159,255,0.05); border-left: 3px solid #4D9FFF; padding: 6px 8px; font-size: 10px; margin-bottom: 6px;">$100 each • 7 takers</div>
+            </div>
+            <!-- Bet 3 -->
+            <div style="padding: 12px 16px;">
+              <div style="display: flex; gap: 6px; margin-bottom: 8px; align-items: center; font-size: 11px;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: #FF6B6B; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 10px;">A</div>
+                <span style="font-weight: 600;">Alex_R</span>
+                <span style="color: var(--text-secondary);">vs</span>
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: #4D9FFF; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 10px;">M</div>
+                <span style="font-weight: 600;">Mike_P</span>
+              </div>
+              <div style="font-size: 11px; margin-bottom: 6px; color: var(--text-secondary);">Chiefs moneyline + -3.5 teaser</div>
+              <div style="display: flex; gap: 10px; font-size: 10px; color: #FFB800;">$1k • ACTIVE • 8h</div>
             </div>
           </div>
         </div>
