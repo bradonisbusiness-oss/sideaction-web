@@ -329,6 +329,14 @@
       margin-top: 14px;
     }
 
+    /* Mailchimp Form Styles */
+    #mc_embed_signup { background: transparent !important; clear: none !important; }
+    #mc_embed_signup .mc-field-group { margin-bottom: 0 !important; }
+    #mc_embed_signup input[type="email"] { width: 100% !important; min-width: 220px !important; }
+    #mc_embed_signup .clear { display: flex !important; gap: 10px !important; }
+    #mce-responses { display: none !important; }
+    #mc_embed_signup .indicates-required { display: none !important; }
+
     /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
@@ -426,11 +434,24 @@
   <section class="cta-section" id="waitlist">
     <h2>Get in early.</h2>
     <p>SideAction is in beta. Join the waitlist and be first to know when it drops.</p>
-    <form class="waitlist-form" onsubmit="handleSubmit(event)">
-      <input type="email" placeholder="your@email.com" required />
-      <button type="submit">Join Waitlist</button>
-    </form>
-    <div class="success-msg" id="successMsg">✅ You're on the list. We'll be in touch.</div>
+    <div id="mc_embed_shell" style="max-width: 440px; margin: 0 auto;">
+      <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+      <div id="mc_embed_signup">
+        <form action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+          <div id="mc_embed_signup_scroll">
+            <div class="mc-field-group">
+              <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" placeholder="your@email.com" style="flex: 1; min-width: 220px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; color: var(--text); font-size: 15px; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s;">
+            </div>
+            <div aria-hidden="true" style="position: absolute; left: -5000px;">
+              <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
+            </div>
+            <div class="clear" style="display: flex; gap: 10px; margin-top: 10px;">
+              <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Join Waitlist" style="background: var(--primary); color: #fff; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: opacity 0.2s;">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -439,13 +460,8 @@
     <p>© 2026 SideAction. Every deal on record.</p>
   </footer>
 
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      document.querySelector('.waitlist-form').style.display = 'none';
-      document.getElementById('successMsg').style.display = 'block';
-    }
-  </script>
+  <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+  <script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));</script>
 
 </body>
 </html>
