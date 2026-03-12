@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>SideAction — Bet. Track. Collect.</title>
+ <meta name="description" content="No more 'I don't remember.' Every deal is on record. Track bets, build your reputation, and find sponsors for your wildest challenges." />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <style>
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+ :root {
+ --bg: #0A0A0F;
+ --surface: #14141C;
+ --border: #2A2A38;
+ --primary: #4D9FFF;
+ --primary-dim: rgba(77, 159, 255, 0.12);
+ --text: #FFFFFF;
+ --text-secondary: #8888A0;
+ --text-tertiary: #555568;
+ --success: #00D26A;
+ --gold: #FFB800;
+ }
+
+ body {
+ background: var(--bg);
+ color: var(--text);
+ font-family: 'Inter', sans-serif;
+ min-height: 100vh;
+ overflow-x: hidden;
+ }
+
+ /* NAV */
+ nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 20px 40px;
+ border-bottom: 1px solid var(--border);
+ position: sticky;
+ top: 0;
+ background: rgba(10,10,15,0.9);
+ backdrop-filter: blur(12px);
+ z-index: 100;
+ }
+
+ .nav-logo {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ text-decoration: none;
+ }
+
+ .nav-logo img {
+ width: 36px;
+ height: 36px;
+ }
+
+ .nav-logo span {
+ font-size: 20px;
+ font-weight: 700;
+ color: var(--text);
+ }
+
+ .nav-logo .accent { color: var(--primary); }
+
+ .nav-cta {
+ background: var(--primary);
+ color: #fff;
+ border: none;
+ padding: 10px 22px;
+ border-radius: 10px;
+ font-size: 14px;
+ font-weight: 600;
+ cursor: pointer;
+ text-decoration: none;
+ transition: opacity 0.2s;
+ }
+
+ .nav-cta:hover { opacity: 0.85; }
+
+ /* HERO */
+ .hero {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
+ padding: 100px 24px 80px;
+ max-width: 700px;
+ margin: 0 auto;
+ }
+
+ .hero-logo {
+ width: 100px;
+ height: 100px;
+ margin-bottom: 28px;
+ object-fit: contain;
+ }
+
+ .hero-tag {
+ font-size: 13px;
+ font-weight: 600;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ color: var(--primary);
+ margin-bottom: 16px;
+ }
+
+ .hero h1 {
+ font-size: clamp(36px, 6vw, 60px);
+ font-weight: 800;
+ line-height: 1.1;
+ letter-spacing: -1.5px;
+ margin-bottom: 12px;
+ }
+
+ .hero h1 .accent { color: var(--primary); }
+
+ .hero-hook {
+ font-size: clamp(18px, 3vw, 24px);
+ font-weight: 700;
+ color: var(--text);
+ margin-bottom: 16px;
+ letter-spacing: 1px;
+ }
+
+ .hero p {
+ font-size: 17px;
+ color: var(--text-secondary);
+ line-height: 1.6;
+ max-width: 500px;
+ margin-bottom: 40px;
+ }
+
+ .hero-actions {
+ display: flex;
+ gap: 14px;
+ flex-wrap: wrap;
+ justify-content: center;
+ }
+
+ .btn-primary {
+ background: var(--primary);
+ color: #fff;
+ border: none;
+ padding: 15px 32px;
+ border-radius: 14px;
+ font-size: 16px;
+ font-weight: 600;
+ cursor: pointer;
+ text-decoration: none;
+ transition: opacity 0.2s;
+ }
+
+ .btn-primary:hover { opacity: 0.85; }
+
+ .btn-secondary {
+ background: transparent;
+ color: var(--text);
+ border: 1px solid var(--border);
+ padding: 15px 32px;
+ border-radius: 14px;
+ font-size: 16px;
+ font-weight: 600;
+ cursor: pointer;
+ text-decoration: none;
+ transition: border-color 0.2s;
+ }
+
+ .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+ /* FEATURES */
+ .features {
+ max-width: 1000px;
+ margin: 0 auto;
+ padding: 80px 24px;
+ }
+
+ .section-label {
+ text-align: center;
+ font-size: 12px;
+ font-weight: 600;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ color: var(--text-tertiary);
+ margin-bottom: 12px;
+ }
+
+ .section-title {
+ text-align: center;
+ font-size: clamp(24px, 4vw, 36px);
+ font-weight: 700;
+ margin-bottom: 48px;
+ letter-spacing: -0.5px;
+ }
+
+ .features-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 16px;
+ }
+
+ .feature-card {
+ background: var(--surface);
+ border: 1px solid var(--border);
+ border-radius: 18px;
+ padding: 28px;
+ transition: border-color 0.2s;
+ }
+
+ .feature-card:hover { border-color: var(--primary); }
+
+ .feature-icon {
+ font-size: 28px;
+ margin-bottom: 16px;
+ }
+
+ .feature-card h3 {
+ font-size: 18px;
+ font-weight: 700;
+ margin-bottom: 10px;
+ }
+
+ .feature-card p {
+ font-size: 14px;
+ color: var(--text-secondary);
+ line-height: 1.6;
+ }
+
+ /* SOCIAL PROOF */
+ .proof {
+ background: var(--surface);
+ border-top: 1px solid var(--border);
+ border-bottom: 1px solid var(--border);
+ padding: 60px 24px;
+ text-align: center;
+ }
+
+ .proof-stats {
+ display: flex;
+ justify-content: center;
+ gap: 60px;
+ flex-wrap: wrap;
+ max-width: 700px;
+ margin: 0 auto;
+ }
+
+ .proof-stat h2 {
+ font-size: 42px;
+ font-weight: 800;
+ color: var(--primary);
+ }
+
+ .proof-stat p {
+ font-size: 14px;
+ color: var(--text-secondary);
+ margin-top: 4px;
+ }
+
+ /* CTA SECTION */
+ .cta-section {
+ text-align: center;
+ padding: 100px 24px;
+ max-width: 600px;
+ margin: 0 auto;
+ }
+
+ .cta-section h2 {
+ font-size: clamp(28px, 5vw, 44px);
+ font-weight: 800;
+ letter-spacing: -1px;
+ margin-bottom: 16px;
+ }
+
+ .cta-section p {
+ font-size: 17px;
+ color: var(--text-secondary);
+ margin-bottom: 36px;
+ line-height: 1.6;
+ }
+
+ /* WAITLIST FORM */
+ .waitlist-form {
+ display: flex;
+ gap: 10px;
+ max-width: 440px;
+ margin: 0 auto;
+ flex-wrap: wrap;
+ justify-content: center;
+ }
+
+ .waitlist-form input {
+ flex: 1;
+ min-width: 220px;
+ background: var(--surface);
+ border: 1px solid var(--border);
+ border-radius: 12px;
+ padding: 14px 18px;
+ color: var(--text);
+ font-size: 15px;
+ font-family: 'Inter', sans-serif;
+ outline: none;
+ transition: border-color 0.2s;
+ }
+
+ .waitlist-form input:focus { border-color: var(--primary); }
+ .waitlist-form input::placeholder { color: var(--text-tertiary); }
+
+ .waitlist-form button {
+ background: var(--primary);
+ color: #fff;
+ border: none;
+ padding: 14px 28px;
+ border-radius: 12px;
+ font-size: 15px;
+ font-weight: 600;
+ cursor: pointer;
+ font-family: 'Inter', sans-serif;
+ transition: opacity 0.2s;
+ }
+
+ .waitlist-form button:hover { opacity: 0.85; }
+
+ .success-msg {
+ display: none;
+ color: var(--success);
+ font-size: 15px;
+ font-weight: 600;
+ margin-top: 14px;
+ }
+
+ /* Mailchimp Form Styles */
+ #mc_embed_signup { background: transparent !important; clear: none !important; }
+ #mc_embed_signup .mc-field-group { margin-bottom: 0 !important; }
+ #mc_embed_signup input[type="email"] { width: 100% !important; min-width: 220px !important; }
+ #mc_embed_signup .clear { display: flex !important; gap: 10px !important; }
+ #mce-responses { display: none !important; }
+ #mc_embed_signup .indicates-required { display: none !important; }
+
+ /* FOOTER */
+ footer {
+ border-top: 1px solid var(--border);
+ padding: 32px 40px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 12px;
+ }
+
+ footer .footer-logo {
+ font-size: 16px;
+ font-weight: 700;
+ color: var(--text);
+ }
+
+ footer .footer-logo .accent { color: var(--primary); }
+
+ footer p {
+ font-size: 13px;
+ color: var(--text-tertiary);
+ }
+
+ /* MOCKUPS */
+ .mockups {
+ max-width: 1100px;
+ margin: 0 auto;
+ padding: 80px 24px;
+ }
+
+ .mockups-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 40px;
+ margin-top: 48px;
+ justify-items: center;
+ }
+
+ .phone-frame {
+ width: 280px;
+ background: #000;
+ border-radius: 40px;
+ padding: 12px;
+ box-shadow: 0 20px 60px rgba(77, 159, 255, 0.1), 0 0 80px rgba(77, 159, 255, 0.05);
+ border: 1px solid rgba(77, 159, 255, 0.2);
+ position: relative;
+ }
+
+ .phone-notch {
+ height: 28px;
+ background: #000;
+ border-radius: 0 0 24px 24px;
+ margin: 0 auto 0;
+ width: 140px;
+ position: relative;
+ z-index: 1;
+ }
+
+ .phone-content {
+ background: var(--bg);
+ border-radius: 32px;
+ overflow: hidden;
+ height: 560px;
+ display: flex;
+ flex-direction: column;
+ }
+
+ .phone-home {
+ height: 8px;
+ background: #000;
+ margin-top: 8px;
+ border-radius: 8px;
+ width: 120px;
+ margin-left: auto;
+ margin-right: auto;
+ }
+
+ .mockup-header {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ }
+
+ /* Text overflow fixes */
+ .mockup-text {
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ }
+
+ .mockup-multi-line {
+ overflow: hidden;
+ display: -webkit-box;
+ -webkit-line-clamp: 2;
+ -webkit-box-orient: vertical;
+ word-break: break-word;
+ }
+
+ @media (max-width: 600px) {
+ nav { padding: 16px 20px; }
+ footer { padding: 24px 20px; justify-content: center; text-align: center; }
+ .proof-stats { gap: 36px; }
+ .mockups-grid {
+ grid-template-columns: 1fr;
+ gap: 24px;
+ }
+ }
+ </style>
+</head>
+<body>
+
+ <!-- NAV -->
+ <nav>
+ <a class="nav-logo" href="/">
+ <img src="./logo.png" alt="SideAction logo" />
+ <span>Side<span class="accent">Action</span></span>
+ </a>
+ <a class="nav-cta" href="#waitlist">Get Early Access</a>
+ </nav>
+
+ <!-- HERO -->
+ <section class="hero">
+ <img class="hero-logo" src="./logo.png" alt="SideAction logo" />
+ <div class="hero-tag">Now in Beta</div>
+ <h1>Side<span class="accent">Action</span></h1>
+ <div class="hero-hook">Bet. Track. Collect.</div>
+ <p>No more "I don't remember." Every deal is on record. Track bets, build your reputation, and find sponsors for your wildest challenges.</p>
+ <div class="hero-actions">
+ <a class="btn-primary" href="#waitlist">Get Early Access</a>
+ <a class="btn-secondary" href="#mockups">See It In Action</a>
+ </div>
+ </section>
+
+ <!-- FEATURES -->
+ <section class="features" id="features">
+ <div class="section-label">Why SideAction</div>
+ <h2 class="section-title">Every deal, locked in.</h2>
+ <div class="features-grid">
+ <div class="feature-card">
+ <div class="feature-icon">📋</div>
+ <h3>Track Every Bet</h3>
+ <p>Log bets, prop challenges, and loans the moment they're made. Both parties confirm. No more disputed details.</p>
+ </div>
+ <div class="feature-card">
+ <div class="feature-icon">🏆</div>
+ <h3>Build Your Reputation</h3>
+ <p>Your public profile shows your track record — bets won, settled, disputed. Good history opens doors. Bad history follows you.</p>
+ </div>
+ <div class="feature-card">
+ <div class="feature-icon">🔥</div>
+ <h3>Open Challenges</h3>
+ <p>Post a challenge publicly. Let anyone back it or take the other side. Person A sets the rules and caps the entries.</p>
+ </div>
+ <div class="feature-card">
+ <div class="feature-icon">💰</div>
+ <h3>Find Sponsors</h3>
+ <p>The best prop bets attract attention. Brands can sponsor challenges directly — putting real money behind your boldest moves.</p>
+ </div>
+ <div class="feature-card">
+ <div class="feature-icon">👥</div>
+ <h3>Crew & Day Ones</h3>
+ <p>Your inner circle vs your wider network. Two tiers of connections so you know who's real and who's just along for the ride.</p>
+ </div>
+ <div class="feature-card">
+ <div class="feature-icon">📣</div>
+ <h3>Social Feed</h3>
+ <p>Watch wild prop bets unfold in real time. React, comment, and share. The best challenges go viral.</p>
+ </div>
+ </div>
+ </section>
+
+ <!-- MOCKUPS -->
+ <section class="mockups" id="mockups">
+ <div class="section-label">Real Users. Real Tracking.</div>
+ <h2 class="section-title">See it in action</h2>
+ <div class="mockups-grid">
+ <!-- Profile Mockup -->
+ <div class="phone-frame">
+ <div class="phone-notch"></div>
+ <div class="phone-content">
+ <div style="padding: 16px; border-bottom: 1px solid var(--border); text-align: center; background: linear-gradient(135deg, rgba(77,159,255,0.1) 0%, transparent 100%);">
+ <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mike_P" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px; display: block;" />
+ <div style="font-size: 15px; font-weight: 700; margin-bottom: 2px; overflow: hidden; text-overflow: ellipsis;">Mike_P</div>
+ <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 10px; overflow: hidden; text-overflow: ellipsis;">@mike_p • Poker</div>
+ <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; font-size: 11px;">
+ <div><div style="color: #4D9FFF; font-weight: 700; font-size: 13px;">847</div><div style="color: var(--text-secondary);">Crew</div></div>
+ <div><div style="color: #4D9FFF; font-weight: 700; font-size: 13px;">1.2k</div><div style="color: var(--text-secondary);">Follow</div></div>
+ <div><div style="color: #4D9FFF; font-weight: 700; font-size: 13px;">234</div><div style="color: var(--text-secondary);">Day 1s</div></div>
+ </div>
+ </div>
+ <div style="padding: 16px; background: #14141C; overflow-y: auto; height: calc(100% - 200px); border-bottom: 8px solid #0A0A0F;">
+ <div style="background: #0A0A0F; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+ <div style="font-size: 10px; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Stats</div>
+ <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+ <div style="text-align: center;">
+ <div style="font-size: 16px; font-weight: 700; color: #00D26A;">26</div>
+ <div style="font-size: 9px; color: var(--text-secondary);">Won</div>
+ </div>
+ <div style="text-align: center;">
+ <div style="font-size: 16px; font-weight: 700; color: #FF6B6B;">9</div>
+ <div style="font-size: 9px; color: var(--text-secondary);">Lost</div>
+ </div>
+ </div>
+ </div>
+ <div style="background: rgba(77,159,255,0.05); border: 1px solid rgba(77,159,255,0.2); border-radius: 8px; padding: 10px; margin-bottom: 12px;">
+ <div style="font-size: 10px; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Rep</div>
+ <div style="font-size: 18px; font-weight: 700; color: #00D26A;">100%</div>
+ <div style="font-size: 9px; color: var(--text-secondary);">Perfect</div>
+ </div>
+ </div>
+ </div>
+ <div class="phone-home"></div>
+ </div>
+
+ <!-- Challenge Mockup -->
+ <div class="phone-frame">
+ <div class="phone-notch"></div>
+ <div class="phone-content">
+ <div style="padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px;">
+ <div style="font-size: 20px;">←</div>
+ <div style="font-size: 14px; font-weight: 600;">Challenge</div>
+ </div>
+ <div style="padding: 16px; background: #14141C; overflow-y: auto; height: calc(100% - 110px);">
+ <div style="display: flex; gap: 12px; margin-bottom: 16px; align-items: flex-start;">
+ <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Hippo" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0;" />
+ <div style="min-width: 0;">
+ <div style="font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis;">Hippo</div>
+ <div style="font-size: 12px; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis;">@hippo_bets</div>
+ </div>
+ </div>
+ <div style="background: rgba(77,159,255,0.05); border: 1px solid rgba(77,159,255,0.3); border-radius: 10px; padding: 14px; margin-bottom: 16px;">
+ <div style="font-size: 15px; font-weight: 700; margin-bottom: 8px; word-break: break-word;">Lose 30 lbs 60 days</div>
+ <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.4;">Fitness challenge. All takers.</div>
+ <div style="display: flex; justify-content: space-between;">
+ <span style="font-weight: 600;">Stake</span>
+ <span style="color: #FFB800; font-weight: 700;">$500</span>
+ </div>
+ </div>
+ <div style="background: #0A0A0F; border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+ <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">Details</div>
+ <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px;">
+ <span style="color: var(--text-secondary);">Deadline</span>
+ <span>60 Days</span>
+ </div>
+ <div style="display: flex; justify-content: space-between; font-size: 13px;">
+ <span style="color: var(--text-secondary);">In</span>
+ <span style="font-weight: 600;">3 / 5</span>
+ </div>
+ </div>
+ <div style="background: rgba(0,210,106,0.1); border: 1px solid rgba(0,210,106,0.3); border-radius: 8px; padding: 10px; text-align: center;">
+ <div style="font-size: 12px; font-weight: 600; color: #00D26A;">PENDING</div>
+ </div>
+ </div>
+ </div>
+ <div class="phone-home"></div>
+ </div>
+
+ <!-- Feed Mockup -->
+ <div class="phone-frame">
+ <div class="phone-notch"></div>
+ <div class="phone-content">
+ <div style="padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+ <div style="font-size: 14px; font-weight: 600;">Feed</div>
+ <div style="font-size: 10px; color: #FF6B6B; background: rgba(255,107,107,0.1); padding: 4px 8px; border-radius: 4px;">● LIVE</div>
+ </div>
+ <div style="padding: 0; background: #14141C; overflow-y: auto; height: calc(100% - 110px); border-bottom: 8px solid #0A0A0F;">
+ <!-- Challenge 1 -->
+ <div style="border-bottom: 1px solid var(--border); padding: 12px 16px;">
+ <div style="display: flex; gap: 8px; margin-bottom: 8px; align-items: center;">
+ <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Hippo" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; flex-shrink: 0;" />
+ <div style="flex: 1; min-width: 0;">
+ <div style="font-size: 12px; font-weight: 600; overflow: hidden; text-overflow: ellipsis;">Hippo</div>
+ <div style="font-size: 10px; color: var(--text-secondary);">2h ago</div>
+ </div>
+ <div style="font-size: 10px; background: rgba(255,184,0,0.1); color: #FFB800; padding: 2px 6px; border-radius: 3px; white-space: nowrap;">CHALL</div>
+ </div>
+ <div style="font-size: 11px; margin-bottom: 8px; word-break: break-word;">Lose 30 lbs 60 days 💪</div>
+ <div style="background: rgba(77,159,255,0.05); border-left: 3px solid #4D9FFF; padding: 6px 8px; font-size: 10px;">$500 • 3 in</div>
+ </div>
+ <!-- Bet 1 -->
+ <div style="border-bottom: 1px solid var(--border); padding: 12px 16px;">
+ <div style="display: flex; gap: 6px; margin-bottom: 8px; align-items: center; font-size: 10px; flex-wrap: wrap;">
+ <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mike_P" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover;" />
+ <span style="font-weight: 600; overflow: hidden; text-overflow: ellipsis; max-width: 70px;">Mike</span>
+ <span style="color: var(--text-secondary);">vs</span>
+ <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah_B" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover;" />
+ <span style="font-weight: 600; overflow: hidden; text-overflow: ellipsis; max-width: 70px;">Sarah</span>
+ </div>
+ <div style="font-size: 10px; margin-bottom: 6px; color: var(--text-secondary); word-break: break-word;">Rams beat 49ers</div>
+ <div style="display: flex; gap: 10px; font-size: 10px; color: #FFB800;">$250 • PEND</div>
+ </div>
+ <!-- Bet 2 -->
+ <div style="border-bottom: 1px solid var(--border); padding: 12px 16px;">
+ <div style="display: flex; gap: 6px; margin-bottom: 8px; align-items: center; font-size: 10px; flex-wrap: wrap;">
+ <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Jake_T" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover;" />
+ <span style="font-weight: 600; overflow: hidden; text-overflow: ellipsis; max-width: 70px;">Jake</span>
+ <span style="color: var(--text-secondary);">vs</span>
+ <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Dan_K" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover;" />
+ <span style="font-weight: 600; overflow: hidden; text-overflow: ellipsis; max-width: 70px;">Dan</span>
+ </div>
+ <div style="font-size: 10px; margin-bottom: 6px; color: var(--text-secondary); word-break: break-word;">Lakers 215.5 pts</div>
+ <div style="display: flex; gap: 10px; font-size: 10px; color: #00D26A;">$500 • WON</div>
+ </div>
+ </div>
+ </div>
+ <div class="phone-home"></div>
+ </div>
+ </section>
+
+ <!-- WAITLIST -->
+ <section class="cta-section" id="waitlist">
+ <h2>Get in early.</h2>
+ <p>SideAction is in beta. Join the waitlist and be first to know when it drops.</p>
+ <div id="mc_embed_shell" style="max-width: 440px; margin: 0 auto;">
+ <div id="mc_embed_signup">
+ <form action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+ <div id="mc_embed_signup_scroll" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+ <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" placeholder="your@email.com" style="flex: 1; min-width: 200px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; color: var(--text); font-size: 15px; font-family: 'Inter', sans-serif; outline: none;">
+ <input type="submit" name="subscribe" id="mc-embedded-subscribe" value="Join Waitlist" style="background: var(--primary); color: #fff; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; white-space: nowrap;">
+ <div aria-hidden="true" style="position: absolute; left: -5000px;">
+ <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ </section>
+
+ <!-- FOOTER -->
+ <footer>
+ <div class="footer-logo">Side<span class="accent">Action</span></div>
+ <p>© 2026 SideAction. Every deal on record.</p>
+ </footer>
+
+</body>
+</html>
