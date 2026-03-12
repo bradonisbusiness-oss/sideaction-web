@@ -48,3 +48,18 @@ Read PROJECT_MEMORY.md before starting any task.
 - Keep changes reversible
 - Prefer clarity over cleverness
 - Do not make unrelated improvements unless requested
+## Mandatory workflow
+
+Before making any code changes:
+
+1. State the task
+2. List the exact files you will edit
+3. Explain the minimal change required
+
+Then perform the edit.
+
+After editing:
+
+1. List the files changed
+2. Describe exactly what changed
+3. Confirm nothing else was modified
