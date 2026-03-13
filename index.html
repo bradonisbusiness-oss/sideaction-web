@@ -146,6 +146,20 @@
       justify-content: center;
     }
 
+    .hero-examples {
+      margin-top: 24px;
+      color: #9CA3AF;
+      font-size: 14px;
+    }
+
+    .hero-examples div {
+      margin-bottom: 12px;
+    }
+
+    .hero-examples span {
+      color: #fff;
+    }
+
     .btn-primary {
       background: var(--primary);
       color: #fff;
@@ -368,75 +382,10 @@
       color: var(--text-tertiary);
     }
 
-    /* MOCKUPS */
-    .mockups {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 80px 24px;
-    }
-
-    .mockups-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin-top: 48px;
-      justify-items: center;
-    }
-
-    .phone-frame {
-      width: 280px;
-      background: #000;
-      border-radius: 40px;
-      padding: 12px;
-      box-shadow: 0 20px 60px rgba(77, 159, 255, 0.1), 0 0 80px rgba(77, 159, 255, 0.05);
-      border: 1px solid rgba(77, 159, 255, 0.2);
-      position: relative;
-    }
-
-    .phone-notch {
-      height: 28px;
-      background: #000;
-      border-radius: 0 0 24px 24px;
-      margin: 0 auto 0;
-      width: 140px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .phone-content {
-      background: var(--bg);
-      border-radius: 32px;
-      overflow: hidden;
-      height: 560px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .phone-home {
-      height: 8px;
-      background: #000;
-      margin-top: 8px;
-      border-radius: 8px;
-      width: 120px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .mockup-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
     @media (max-width: 600px) {
       nav { padding: 16px 20px; }
       footer { padding: 24px 20px; justify-content: center; text-align: center; }
       .proof-stats { gap: 36px; }
-      .mockups-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
     }
   </style>
 </head>
@@ -445,7 +394,6 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="/">
-      <img src="./logo.png" alt="SideAction logo" style="height:40px;width:auto;object-fit:contain;" />
       <span>Side<span class="accent">Action</span></span>
     </a>
     <a class="nav-cta" href="#waitlist">Get Early Access</a>
@@ -453,17 +401,28 @@
 
 <!-- HERO -->
 <section class="hero">
+ <img src="./bull-skull-logo.png" alt="SideAction logo" style="height:220px;width:auto;object-fit:contain;margin-bottom:24px;">
+ <div class="hero-tag">Now in Beta</div>
+ <h1>Side<span class="accent">Action</span></h1>
+ <div class="hero-hook">Bet. Track. Collect.</div>
 
-  <img src="./hero-logo.png" alt="SideAction logo" style="height:180px;width:auto;object-fit:contain;margin-bottom:24px;">
+ <p>No more "I don't remember." Every deal is on record. Track bets, build your reputation, and find sponsors for your wildest challenges.</p>
 
-  <h1>Side<span class="accent">Action</span></h1>
-    <div class="hero-hook">Bet. Track. Collect.</div>
-    <p>No more "I don't remember." Every deal is on record. Track bets, build your reputation, and find sponsors for your wildest challenges.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="#waitlist">Get Early Access</a>
-      <a class="btn-secondary" href="#mockups">See It In Action</a>
-    </div>
-  </section>
+ <div class="hero-examples">
+ <div>Run a marathon under 3:30 — <span>$1,000</span></div>
+ <div>No alcohol for 90 days — <span>$2,500</span></div>
+ <div>I can dunk again by July — <span>$1,500</span></div>
+ </div>
+
+ <div class="hero-actions">
+ <a class="btn-primary" href="#waitlist">Get Early Access</a>
+ <a class="btn-secondary" href="#waitlist">Join Waitlist</a>
+ </div>
+
+ <div style="margin-top:12px;color:#6B7280;font-size:13px;">
+ Join the beta — early users are already posting challenges.
+ </div>
+</section>
 
   <!-- FEATURES -->
   <section class="features" id="features">
@@ -499,170 +458,6 @@
         <div class="feature-icon">📣</div>
         <h3>Social Feed</h3>
         <p>Watch wild prop bets unfold in real time. React, comment, and share. The best challenges go viral.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- MOCKUPS -->
-  <section class="mockups" id="mockups">
-    <div class="section-label">Real Users. Real Tracking.</div>
-    <h2 class="section-title">See it in action</h2>
-    <div class="mockups-grid">
-      <!-- Profile Mockup -->
-      <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <div class="phone-content">
-          <div style="padding: 16px; border-bottom: 1px solid var(--border); text-align: center; background: linear-gradient(135deg, rgba(77,159,255,0.1) 0%, transparent 100%);">
-            <div style="width: 56px; height: 56px; border-radius: 50%; background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400') center/cover; margin: 0 auto 10px;"></div>
-            <div style="font-size: 16px; font-weight: 700; margin-bottom: 2px;">Mike_P</div>
-            <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 10px;">@mike_p • Poker Pro</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; font-size: 11px;">
-              <div><div style="color: #4D9FFF; font-weight: 700; font-size: 13px;">847</div><div style="color: var(--text-secondary);">Crew</div></div>
-              <div><div style="color: #4D9FFF; font-weight: 700; font-size: 13px;">1.2k</div><div style="color: var(--text-secondary);">Followers</div></div>
-              <div><div style="color: #4D9FFF; font-weight: 700; font-size: 13px;">234</div><div style="color: var(--text-secondary);">Day Ones</div></div>
-            </div>
-          </div>
-          <div style="padding: 16px; background: #14141C; overflow-y: auto; height: calc(100% - 200px); border-bottom: 8px solid #0A0A0F;">
-            <div style="background: #0A0A0F; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
-              <div style="font-size: 10px; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Stats</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                <div style="text-align: center;">
-                  <div style="font-size: 16px; font-weight: 700; color: #00D26A;">26</div>
-                  <div style="font-size: 9px; color: var(--text-secondary);">Won</div>
-                </div>
-                <div style="text-align: center;">
-                  <div style="font-size: 16px; font-weight: 700; color: #FF6B6B;">9</div>
-                  <div style="font-size: 9px; color: var(--text-secondary);">Lost</div>
-                </div>
-              </div>
-            </div>
-            <div style="background: rgba(77,159,255,0.05); border: 1px solid rgba(77,159,255,0.2); border-radius: 8px; padding: 10px; margin-bottom: 12px;">
-              <div style="font-size: 10px; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Reputation</div>
-              <div style="font-size: 18px; font-weight: 700; color: #00D26A;">100%</div>
-              <div style="font-size: 9px; color: var(--text-secondary);">Perfect • All bets settled</div>
-            </div>
-          </div>
-        </div>
-        <div class="phone-home"></div>
-      </div>
-
-      <!-- Challenge Mockup -->
-      <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <div class="phone-content">
-          <div style="padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px;">
-            <div style="font-size: 20px;">←</div>
-            <div style="font-size: 14px; font-weight: 600;">Challenge</div>
-          </div>
-          <div style="padding: 16px; background: #14141C; overflow-y: auto; height: calc(100% - 110px);">
-            <div style="display: flex; gap: 12px; margin-bottom: 16px; align-items: flex-start;">
-              <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #FF6B6B 0%, #ff5252 100%); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; color: #fff;">H</div>
-              <div>
-                <div style="font-size: 14px; font-weight: 600;">Hippo</div>
-                <div style="font-size: 12px; color: var(--text-secondary);">@hippo_bets</div>
-              </div>
-            </div>
-            <div style="background: rgba(77,159,255,0.05); border: 1px solid rgba(77,159,255,0.3); border-radius: 10px; padding: 14px; margin-bottom: 16px;">
-              <div style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">I can lose 30 lbs in 60 days</div>
-              <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">Personal fitness challenge. All takers welcome.</div>
-              <div style="display: flex; justify-content: space-between;">
-                <span style="font-weight: 600;">Stake</span>
-                <span style="color: #FFB800; font-weight: 700;">$500</span>
-              </div>
-            </div>
-            <div style="background: #0A0A0F; border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
-              <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">Details</div>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px;">
-                <span style="color: var(--text-secondary);">Deadline</span>
-                <span>60 Days</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; font-size: 13px;">
-                <span style="color: var(--text-secondary);">Participants</span>
-                <span style="font-weight: 600;">3 / 5</span>
-              </div>
-            </div>
-            <div style="background: rgba(0,210,106,0.1); border: 1px solid rgba(0,210,106,0.3); border-radius: 8px; padding: 10px; text-align: center;">
-              <div style="font-size: 12px; font-weight: 600; color: #00D26A;">Status: PENDING</div>
-            </div>
-          </div>
-        </div>
-        <div class="phone-home"></div>
-      </div>
-
-      <!-- Feed Mockup -->
-      <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <div class="phone-content">
-          <div style="padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
-            <div style="font-size: 14px; font-weight: 600;">Feed</div>
-            <div style="font-size: 10px; color: #FF6B6B; background: rgba(255,107,107,0.1); padding: 4px 8px; border-radius: 4px;">● LIVE</div>
-          </div>
-          <div style="padding: 0; background: #14141C; overflow-y: auto; height: calc(100% - 110px); border-bottom: 8px solid #0A0A0F;">
-            <!-- Challenge 1 -->
-            <div style="border-bottom: 1px solid var(--border); padding: 12px 16px;">
-              <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-                <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #FF6B6B 0%, #ff5252 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 12px;">H</div>
-                <div style="flex: 1;">
-                  <div style="font-size: 12px; font-weight: 600;">Hippo</div>
-                  <div style="font-size: 10px; color: var(--text-secondary);">2h ago</div>
-                </div>
-                <div style="font-size: 10px; background: rgba(255,184,0,0.1); color: #FFB800; padding: 2px 6px; border-radius: 3px;">CHALLENGE</div>
-              </div>
-              <div style="font-size: 11px; margin-bottom: 8px;">I can lose 30 lbs in 60 days 💪</div>
-              <div style="background: rgba(77,159,255,0.05); border-left: 3px solid #4D9FFF; padding: 6px 8px; font-size: 10px; margin-bottom: 6px;">$500 stake • 3 takers</div>
-            </div>
-            <!-- Bet 1 -->
-            <div style="border-bottom: 1px solid var(--border); padding: 12px 16px;">
-              <div style="display: flex; gap: 6px; margin-bottom: 8px; align-items: center; font-size: 11px;">
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #4D9FFF; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 10px;">M</div>
-                <span style="font-weight: 600;">Mike_P</span>
-                <span style="color: var(--text-secondary);">vs</span>
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #FF6B6B; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 10px;">S</span>
-                <span style="font-weight: 600;">Sarah_B</span>
-              </div>
-              <div style="font-size: 11px; margin-bottom: 6px; color: var(--text-secondary);">Rams beat 49ers by 3+</div>
-              <div style="display: flex; gap: 10px; font-size: 10px; color: #FFB800;">$250 • PENDING • 3h</div>
-            </div>
-            <!-- Bet 2 -->
-            <div style="border-bottom: 1px solid var(--border); padding: 12px 16px;">
-              <div style="display: flex; gap: 6px; margin-bottom: 8px; align-items: center; font-size: 11px;">
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #FFB800; display: flex; align-items: center; justify-content: center; color: #000; font-weight: 600; font-size: 10px;">J</div>
-                <span style="font-weight: 600;">Jake_T</span>
-                <span style="color: var(--text-secondary);">vs</span>
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #00D26A; display: flex; align-items: center; justify-content: center; color: #000; font-weight: 600; font-size: 10px;">D</div>
-                <span style="font-weight: 600;">Dan_K</span>
-              </div>
-              <div style="font-size: 11px; margin-bottom: 6px; color: var(--text-secondary);">Lakers over 215.5 pts</div>
-              <div style="display: flex; gap: 10px; font-size: 10px; color: #00D26A;">$500 • SETTLED • Won</div>
-            </div>
-            <!-- Challenge 2 -->
-            <div style="border-bottom: 1px solid var(--border); padding: 12px 16px;">
-              <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-                <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #FFB800 0%, #ff9500 100%); display: flex; align-items: center; justify-content: center; color: #000; font-weight: 600; font-size: 12px;">S</div>
-                <div style="flex: 1;">
-                  <div style="font-size: 12px; font-weight: 600;">Sarah_B</div>
-                  <div style="font-size: 10px; color: var(--text-secondary);">5h ago</div>
-                </div>
-                <div style="font-size: 10px; background: rgba(255,184,0,0.1); color: #FFB800; padding: 2px 6px; border-radius: 3px;">CHALLENGE</div>
-              </div>
-              <div style="font-size: 11px; margin-bottom: 8px;">Pick 3 College Football props 🏈</div>
-              <div style="background: rgba(77,159,255,0.05); border-left: 3px solid #4D9FFF; padding: 6px 8px; font-size: 10px; margin-bottom: 6px;">$100 each • 7 takers</div>
-            </div>
-            <!-- Bet 3 -->
-            <div style="padding: 12px 16px;">
-              <div style="display: flex; gap: 6px; margin-bottom: 8px; align-items: center; font-size: 11px;">
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #FF6B6B; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 10px;">A</div>
-                <span style="font-weight: 600;">Alex_R</span>
-                <span style="color: var(--text-secondary);">vs</span>
-                <div style="width: 24px; height: 24px; border-radius: 50%; background: #4D9FFF; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; font-size: 10px;">M</div>
-                <span style="font-weight: 600;">Mike_P</span>
-              </div>
-              <div style="font-size: 11px; margin-bottom: 6px; color: var(--text-secondary);">Chiefs moneyline + -3.5 teaser</div>
-              <div style="display: flex; gap: 10px; font-size: 10px; color: #FFB800;">$1k • ACTIVE • 8h</div>
-            </div>
-          </div>
-        </div>
-        <div class="phone-home"></div>
       </div>
     </div>
   </section>
