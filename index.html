@@ -423,6 +423,81 @@
       justify-content: center;
     }
 
+    .invite-page {
+      min-height: calc(100vh - 85px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px 72px;
+    }
+
+    .invite-card {
+      width: 100%;
+      max-width: 560px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .invite-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--primary-dim);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .invite-card h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .invite-card p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .invite-profile {
+      background: #0F1017;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 24px;
+    }
+
+    .invite-handle {
+      color: var(--primary);
+      font-size: 15px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .invite-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .invite-note {
+      color: var(--text-tertiary);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
     @media (max-width: 600px) {
       nav { padding: 16px 20px; }
       footer { padding: 24px 20px; justify-content: center; text-align: center; }
@@ -430,6 +505,9 @@
       .mockups-grid {
         grid-template-columns: 1fr;
         gap: 24px;
+      }
+      .invite-card {
+        padding: 24px 18px;
       }
     }
   </style>
@@ -444,6 +522,26 @@
     </a>
     <a class="nav-cta" href="#waitlist">Get Early Access</a>
   </nav>
+
+  <section class="invite-page" id="invite-page">
+    <div class="invite-card">
+      <div class="invite-badge">SideAction Invite</div>
+      <h1 id="invite-title">You are invited to SideAction</h1>
+      <p id="invite-copy">Track bets, settle receipts, and build your rep without the usual "I never said that" nonsense.</p>
+
+      <div class="invite-profile">
+        <img src="./logo.png" alt="SideAction logo" style="width:72px;height:72px;object-fit:contain;">
+        <div class="invite-handle" id="invite-handle">@sideaction</div>
+      </div>
+
+      <div class="invite-actions">
+        <a class="btn-primary" id="open-app-btn" href="sideaction://invite/sideaction">Open in SideAction App</a>
+        <a class="btn-secondary" id="fallback-btn" href="/#waitlist">Get Early Access</a>
+      </div>
+
+      <div class="invite-note">If the app is not installed yet, join the waitlist and we will get you in fast.</div>
+    </div>
+  </section>
 
   <!-- HERO -->
   <section class="hero">
@@ -698,5 +796,42 @@
     <p>© 2026 SideAction. Every deal on record.</p>
   </footer>
 
+  <script>
+    (function () {
+      const path = window.location.pathname || "/";
+      const inviteMatch = path.match(/^\/invite\/([^/?#]+)/i);
+      if (!inviteMatch) return;
+
+      const username = decodeURIComponent(inviteMatch[1]).replace(/^@/, "");
+      const invitePage = document.getElementById("invite-page");
+      const nav = document.querySelector("nav");
+      const hero = document.querySelector(".hero");
+      const features = document.querySelector("#features");
+      const mockups = document.querySelector("#mockups");
+      const waitlist = document.querySelector("#waitlist");
+      const footer = document.querySelector("footer");
+
+      [hero, features, mockups, waitlist].forEach((el) => {
+        if (el) el.style.display = "none";
+      });
+
+      if (nav) {
+        nav.querySelector(".nav-cta").setAttribute("href", "/#waitlist");
+      }
+
+      if (footer) {
+        footer.style.marginTop = "0";
+      }
+
+      invitePage.style.display = "flex";
+      document.title = `Join ${username} on SideAction`;
+
+      document.getElementById("invite-title").textContent = `Join ${username} on SideAction`;
+      document.getElementById("invite-copy").textContent = `${username} invited you to lock in bets, keep receipts, and settle everything on record.`;
+      document.getElementById("invite-handle").textContent = `@${username}`;
+      document.getElementById("open-app-btn").setAttribute("href", `sideaction://invite/${username}`);
+      document.getElementById("fallback-btn").setAttribute("href", "/#waitlist");
+    })();
+  </script>
 </body>
 </html>
