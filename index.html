@@ -545,7 +545,8 @@
         <a class="btn-secondary" id="fallback-btn" href="/#waitlist">Get Early Access</a>
       </div>
 
-      <div class="invite-note">If the app is not installed yet, join the waitlist and we will get you in fast.</div>
+      <div class="invite-note">If you already have the app, tap Open in SideAction App. If you do not have it yet, join the waitlist and we will get you in fast.</div>
+      <div class="invite-note" id="manual-note" style="margin-top:10px;">After you sign up, search for <strong id="manual-handle">@sideaction</strong> inside the app.</div>
     </div>
   </section>
 
@@ -660,6 +661,7 @@
       document.getElementById("invite-title").textContent = `Join ${username} on SideAction`;
       document.getElementById("invite-copy").textContent = `${username} invited you to lock in bets, keep receipts, and settle everything on record.`;
       document.getElementById("invite-handle").textContent = `@${username}`;
+      document.getElementById("manual-handle").textContent = `@${username}`;
       document.getElementById("open-app-btn").setAttribute("href", `sideaction://invite/${username}`);
       document.getElementById("fallback-btn").setAttribute("href", "/#waitlist");
     })();
