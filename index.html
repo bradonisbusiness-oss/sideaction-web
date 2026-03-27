@@ -347,6 +347,48 @@
       line-height: 1.6;
     }
 
+    .invite-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 0 auto 28px;
+      text-align: left;
+    }
+
+    .invite-flow-step {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .invite-flow-step span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: var(--primary-dim);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .invite-flow-step h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .invite-flow-step p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
     /* WAITLIST FORM */
     .waitlist-form {
       display: flex;
@@ -587,7 +629,8 @@
       footer { padding: 24px 20px; justify-content: center; text-align: center; }
       .proof-stats { gap: 36px; }
       .mockups-grid,
-      .hero-qualifier-grid {
+      .hero-qualifier-grid,
+      .invite-flow {
         grid-template-columns: 1fr;
         gap: 24px;
       }
@@ -892,6 +935,23 @@
   <section class="cta-section" id="waitlist">
     <h2>Join the next private invite wave.</h2>
     <p>If you already make bets or side deals with friends, join the waitlist now. No payment info. No spam. Just first access when the next beta spots open.</p>
+    <div class="invite-flow" aria-label="How private beta invites work">
+      <div class="invite-flow-step">
+        <span>1</span>
+        <h3>Join the waitlist</h3>
+        <p>Drop your email. That is it. No app install and no payment info today.</p>
+      </div>
+      <div class="invite-flow-step">
+        <span>2</span>
+        <h3>We review fit</h3>
+        <p>Early spots go to people already making bets, props, or side deals with friends.</p>
+      </div>
+      <div class="invite-flow-step">
+        <span>3</span>
+        <h3>Get your invite</h3>
+        <p>When the next beta wave opens, the best-fit people get private access first.</p>
+      </div>
+    </div>
     <div id="mc_embed_shell" style="max-width: 440px; margin: 0 auto;">
       <div id="mc_embed_signup">
         <form action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
