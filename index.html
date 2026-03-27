@@ -805,6 +805,41 @@
       line-height: 1.5;
     }
 
+    .mobile-sticky-cta {
+      display: none;
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 120;
+      background: rgba(20, 20, 28, 0.96);
+      border: 1px solid rgba(77, 159, 255, 0.24);
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+    }
+
+    .mobile-sticky-cta strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .mobile-sticky-cta span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .mobile-sticky-cta .btn-primary {
+      width: 100%;
+      text-align: center;
+      padding: 14px 18px;
+    }
+
     @media (max-width: 768px) {
       nav {
         padding: 16px 20px;
@@ -894,6 +929,14 @@
       #mc-embedded-subscribe {
         width: 100% !important;
         min-width: 0 !important;
+      }
+
+      .mobile-sticky-cta {
+        display: block;
+      }
+
+      body {
+        padding-bottom: 108px;
       }
 
       footer {
@@ -1150,6 +1193,12 @@
     </div>
   </section>
 
+  <div class="mobile-sticky-cta" aria-label="Mobile waitlist shortcut">
+    <strong>Want first beta access?</strong>
+    <span>Join the waitlist before you bounce. Takes 10 seconds.</span>
+    <a class="btn-primary" href="#waitlist">Join the waitlist</a>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">If you’re going to make the bet, put it on record.</div>
@@ -1170,10 +1219,15 @@
       const mockups = document.querySelector("#mockups");
       const waitlist = document.querySelector("#waitlist");
       const footer = document.querySelector("footer");
+      const stickyCta = document.querySelector(".mobile-sticky-cta");
 
       [hero, features, mockups, waitlist].forEach((el) => {
         if (el) el.style.display = "none";
       });
+
+      if (stickyCta) {
+        stickyCta.style.display = "none";
+      }
 
       if (nav) {
         nav.querySelector(".nav-cta").setAttribute("href", "/#waitlist");
