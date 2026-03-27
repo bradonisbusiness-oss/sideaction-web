@@ -144,6 +144,42 @@
       gap: 14px;
       flex-wrap: wrap;
       justify-content: center;
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .hero-quick-join {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-quick-join input[type="email"] {
+      flex: 1;
+      min-width: 240px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 15px 18px;
+      color: var(--text);
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .hero-quick-join input[type="email"]:focus { border-color: var(--primary); }
+    .hero-quick-join input[type="email"]::placeholder { color: var(--text-tertiary); }
+
+    .hero-subnote {
+      width: 100%;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.5;
     }
 
     .hero-proof {
@@ -770,8 +806,15 @@
     <div class="hero-hook">Lock the terms. Track the result. See who paid.</div>
     <p>SideAction keeps every bet, challenge, and side deal in one place so nobody can change the story after the game ends.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#waitlist">Join the Waitlist</a>
+      <form class="hero-quick-join" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="_blank" novalidate>
+        <input type="email" name="EMAIL" required placeholder="Enter your email for early access" aria-label="Email address for SideAction waitlist">
+        <input type="submit" class="btn-primary" value="Get Early Access">
+        <div aria-hidden="true" style="position: absolute; left: -5000px;">
+          <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
+        </div>
+      </form>
       <a class="btn-secondary" href="#how-it-works">See How It Works</a>
+      <div class="hero-subnote">Takes 10 seconds. No spam. Early invites first.</div>
     </div>
     <ul class="hero-proof">
       <li>Terms locked before it starts</li>
