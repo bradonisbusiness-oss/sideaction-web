@@ -402,6 +402,37 @@
       line-height: 1.7;
     }
 
+    .faq-section {
+      padding: 0 24px 32px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .faq-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      text-align: left;
+    }
+
+    .faq-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .faq-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
     /* CTA SECTION */
     .cta-section {
       text-align: center;
@@ -778,9 +809,14 @@
       .story-section,
       .use-cases,
       .mockups,
+      .faq-section,
       .cta-section {
         padding-left: 20px;
         padding-right: 20px;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
       }
 
       .story-row,
@@ -982,6 +1018,25 @@
       <div class="use-card">
         <h3>Punishments & Side Deals</h3>
         <p>Any deal gets more serious when everyone can see the terms, the proof, and the result.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" aria-label="Common questions">
+    <div class="section-label">Common objections</div>
+    <h2 class="section-title">The fast answers before you join.</h2>
+    <div class="faq-grid">
+      <div class="faq-card">
+        <h3>Is this only for sports bets?</h3>
+        <p>No. Sports is the wedge. SideAction also fits gym bets, content challenges, business dares, punishments, and any side deal where people need the terms and proof in one place.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Do we need to bet real money?</h3>
+        <p>No. Use cash, chores, punishments, bragging rights, or anything else your group cares about. The point is making the terms clear and the follow-through visible.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Why not just use the group chat?</h3>
+        <p>Because chats bury the original terms, screenshots get lost, and nobody agrees later. SideAction keeps the bet, the proof, and the payout status on record from start to finish.</p>
       </div>
     </div>
   </section>
