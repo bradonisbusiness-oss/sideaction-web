@@ -202,49 +202,6 @@
       font-weight: 600;
     }
 
-    .hero-next-steps {
-      width: 100%;
-      max-width: 560px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .hero-step {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px 14px;
-      text-align: left;
-    }
-
-    .hero-step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: var(--primary-dim);
-      color: var(--primary);
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .hero-step strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-
-    .hero-step span {
-      display: block;
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--text-secondary);
-    }
 
     .hero-proof {
       list-style: none;
@@ -319,76 +276,6 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.18);
     }
 
-    .hero-clarity {
-      width: 100%;
-      max-width: 760px;
-      margin: 18px auto 0;
-      padding: 18px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      text-align: left;
-    }
-
-    .hero-clarity-title {
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 12px;
-    }
-
-    .hero-clarity-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .hero-clarity-card {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 14px;
-      background: rgba(10,10,15,0.35);
-    }
-
-    .hero-clarity-card strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    .hero-clarity-card ul {
-      list-style: none;
-      display: grid;
-      gap: 8px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .hero-clarity-card li {
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--text-secondary);
-      position: relative;
-      padding-left: 18px;
-    }
-
-    .hero-clarity-card li::before {
-      position: absolute;
-      left: 0;
-      font-weight: 800;
-    }
-
-    .hero-clarity-card.is li::before {
-      content: "✓";
-      color: var(--success);
-    }
-
-    .hero-clarity-card.is-not li::before {
-      content: "—";
-      color: var(--text-tertiary);
-    }
 
     .hero-example-label {
       display: inline-flex;
@@ -1236,7 +1123,6 @@
         text-align: center;
       }
 
-      .hero-next-steps,
       .hero-proof,
       .hero-assurance {
         grid-template-columns: 1fr;
@@ -1244,20 +1130,17 @@
         width: 100%;
       }
 
-      .hero-step,
       .hero-proof li,
       .hero-assurance li {
         width: 100%;
       }
 
       .hero-example-grid,
-      .hero-clarity-grid,
       .comparison-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-example,
-      .hero-clarity {
+      .hero-example {
         padding: 16px;
       }
 
@@ -1402,23 +1285,6 @@
         <li>Invite-only beta access</li>
       </ul>
     </div>
-    <div class="hero-next-steps" aria-label="What happens after you join">
-      <div class="hero-step">
-        <div class="hero-step-number">1</div>
-        <strong>Join the waitlist</strong>
-        <span>Drop your email so we know you want in.</span>
-      </div>
-      <div class="hero-step">
-        <div class="hero-step-number">2</div>
-        <strong>Get beta access first</strong>
-        <span>Waitlist members get first crack when invites open.</span>
-      </div>
-      <div class="hero-step">
-        <div class="hero-step-number">3</div>
-        <strong>Help shape the app</strong>
-        <span>Your feedback decides what gets built next.</span>
-      </div>
-    </div>
     <ul class="hero-proof">
       <li>Terms locked before it starts</li>
       <li>Proof saved in one place</li>
@@ -1432,27 +1298,6 @@
         <li>money owed or side deals</li>
         <li>punishments and bragging-right bets</li>
       </ul>
-    </div>
-    <div class="hero-clarity" aria-label="What SideAction is and is not">
-      <div class="hero-clarity-title">What you are signing up for</div>
-      <div class="hero-clarity-grid">
-        <div class="hero-clarity-card is">
-          <strong>SideAction is</strong>
-          <ul>
-            <li>a clean record for the terms, proof, and payout status</li>
-            <li>built for friend groups already making bets or side deals</li>
-            <li>private beta access to help shape the product early</li>
-          </ul>
-        </div>
-        <div class="hero-clarity-card is-not">
-          <strong>SideAction is not</strong>
-          <ul>
-            <li>a sportsbook or gambling app taking your money</li>
-            <li>another noisy social app you need to check all day</li>
-            <li>for people who never put anything on the line</li>
-          </ul>
-        </div>
-      </div>
     </div>
     <div class="hero-example" aria-label="Example SideAction record">
       <div class="hero-example-label">Example bet record</div>
