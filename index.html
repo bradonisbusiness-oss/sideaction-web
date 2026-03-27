@@ -287,6 +287,74 @@
       margin-right: 8px;
     }
 
+    .hero-example {
+      width: 100%;
+      max-width: 760px;
+      margin: 18px auto 0;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      text-align: left;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+    }
+
+    .hero-example-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .hero-example-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-example-copy {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      max-width: 620px;
+    }
+
+    .hero-example-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .hero-example-item {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero-example-item span {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+    }
+
+    .hero-example-item strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
     .btn-primary {
       background: var(--primary);
       color: #fff;
@@ -928,6 +996,14 @@
         width: 100%;
       }
 
+      .hero-example-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-example {
+        padding: 16px;
+      }
+
       .problem-band,
       .story-section,
       .use-cases,
@@ -1094,6 +1170,29 @@
         <li>money owed or side deals</li>
         <li>punishments and bragging-right bets</li>
       </ul>
+    </div>
+    <div class="hero-example" aria-label="Example SideAction record">
+      <div class="hero-example-label">Example bet record</div>
+      <div class="hero-example-title">So what actually lives inside SideAction?</div>
+      <p class="hero-example-copy">One clean record for the whole bet, so nobody has to scroll through group chat later trying to remember the rules, find proof, or argue about whether the loser paid.</p>
+      <div class="hero-example-grid">
+        <div class="hero-example-item">
+          <span>Terms locked</span>
+          <strong>"Lakers beat the Suns. Loser sends $50 by Monday."</strong>
+        </div>
+        <div class="hero-example-item">
+          <span>Who is in</span>
+          <strong>Jake vs Marcus + their group can see it.</strong>
+        </div>
+        <div class="hero-example-item">
+          <span>Proof attached</span>
+          <strong>Final score screenshot gets saved on the bet record.</strong>
+        </div>
+        <div class="hero-example-item">
+          <span>Status visible</span>
+          <strong>Won, lost, paid, or still unpaid. No mystery.</strong>
+        </div>
+      </div>
     </div>
   </section>
 
