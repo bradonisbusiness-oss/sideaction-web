@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SideAction — Bet. Track. Collect.</title>
+  <title>SideAction — The app for bets and side deals</title>
   <!-- TEST DEPLOY -->
-  <meta name="description" content="No more 'I don't remember.' Every deal is on record. Track bets, build your reputation, and find sponsors for your wildest challenges." />
+  <meta name="description" content="The app for people who make bets and side deals with friends. Lock in terms, keep receipts, and settle outcomes without arguments." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -397,6 +397,23 @@
       margin-top: 14px;
     }
 
+    .waitlist-trust {
+      list-style: none;
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    .waitlist-trust li {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     /* Mailchimp Form Styles */
     #mc_embed_signup { background: transparent !important; clear: none !important; }
     #mc_embed_signup .mc-field-group { margin-bottom: 0 !important; }
@@ -633,12 +650,12 @@
       <path d="M 55 55 L 50 70 L 55 68 Q 58 65 58 60 Q 58 56 55 55" fill="#4D9FFF"/>
     </svg>
     <img src="./logo.png" alt="SideAction logo" style="height:180px;width:auto;object-fit:contain;margin-bottom:24px;">
-    <div class="hero-tag">Now in Beta</div>
-    <h1>Side<span class="accent">Action</span></h1>
-    <div class="hero-hook">Bet. Track. Collect.</div>
-    <p>No more "I don't remember." Every deal is on record. Track bets, build your reputation, and find sponsors for your wildest challenges.</p>
+    <div class="hero-tag">Private Beta For Real Bettors</div>
+    <h1>The app for <span class="accent">bets and side deals</span></h1>
+    <div class="hero-hook">Lock it in. Keep receipts. Settle it clean.</div>
+    <p>For people who already bet with friends. SideAction puts the terms on record, tracks the outcome, and gives everyone proof when it is time to pay up.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#waitlist">Get Early Access</a>
+      <a class="btn-primary" href="#waitlist">Join the Private Waitlist</a>
       <a class="btn-secondary" href="#mockups">See It In Action</a>
     </div>
   </section>
@@ -873,18 +890,23 @@
 
   <!-- WAITLIST -->
   <section class="cta-section" id="waitlist">
-    <h2>Get in early.</h2>
-    <p>SideAction is in beta. Join the waitlist and be first to know when it drops.</p>
+    <h2>Join the next private invite wave.</h2>
+    <p>If you already make bets or side deals with friends, join the waitlist now. No payment info. No spam. Just first access when the next beta spots open.</p>
     <div id="mc_embed_shell" style="max-width: 440px; margin: 0 auto;">
       <div id="mc_embed_signup">
         <form action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
           <div id="mc_embed_signup_scroll" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-            <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" placeholder="your@email.com" style="flex: 1; min-width: 200px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; color: var(--text); font-size: 15px; font-family: 'Inter', sans-serif; outline: none;">
-            <input type="submit" name="subscribe" id="mc-embedded-subscribe" value="Join Waitlist" style="background: var(--primary); color: #fff; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; white-space: nowrap;">
+            <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" placeholder="Enter your email" style="flex: 1; min-width: 200px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; color: var(--text); font-size: 15px; font-family: 'Inter', sans-serif; outline: none;">
+            <input type="submit" name="subscribe" id="mc-embedded-subscribe" value="Get Beta Access" style="background: var(--primary); color: #fff; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; white-space: nowrap;">
             <div aria-hidden="true" style="position: absolute; left: -5000px;">
               <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
             </div>
           </div>
+          <ul class="waitlist-trust" aria-label="waitlist reassurance">
+            <li><span>✓</span><span>Beta invites only</span></li>
+            <li><span>✓</span><span>No payment info needed</span></li>
+            <li><span>✓</span><span>Built for real friend bets</span></li>
+          </ul>
         </form>
       </div>
     </div>
