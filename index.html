@@ -424,6 +424,49 @@
       line-height: 1.6;
     }
 
+    .waitlist-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin: 0 auto 28px;
+      max-width: 760px;
+      text-align: left;
+    }
+
+    .waitlist-step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .waitlist-step-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--primary-dim);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .waitlist-step h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .waitlist-step p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
     /* WAITLIST FORM */
     .waitlist-form {
       display: flex;
@@ -909,6 +952,23 @@
   <section class="cta-section" id="waitlist">
     <h2>Get early access before public launch.</h2>
     <p>Join the waitlist to get launch updates, early invites, and first access when SideAction opens.</p>
+    <div class="waitlist-steps">
+      <div class="waitlist-step">
+        <div class="waitlist-step-label">1</div>
+        <h3>Join in 10 seconds</h3>
+        <p>Drop your email. No app install yet. No extra work.</p>
+      </div>
+      <div class="waitlist-step">
+        <div class="waitlist-step-label">2</div>
+        <h3>Get first invites</h3>
+        <p>Waitlist members get the first shot when invites open.</p>
+      </div>
+      <div class="waitlist-step">
+        <div class="waitlist-step-label">3</div>
+        <h3>Shape the product</h3>
+        <p>Early users help decide what SideAction ships next.</p>
+      </div>
+    </div>
     <div id="mc_embed_shell" style="max-width: 440px; margin: 0 auto;">
       <div id="mc_embed_signup">
         <form action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
