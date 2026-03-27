@@ -182,6 +182,26 @@
       line-height: 1.5;
     }
 
+    .hero-assurance {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 4px;
+      list-style: none;
+    }
+
+    .hero-assurance li {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
     .hero-next-steps {
       width: 100%;
       max-width: 560px;
@@ -1136,14 +1156,16 @@
       }
 
       .hero-next-steps,
-      .hero-proof {
+      .hero-proof,
+      .hero-assurance {
         grid-template-columns: 1fr;
         flex-direction: column;
         width: 100%;
       }
 
       .hero-step,
-      .hero-proof li {
+      .hero-proof li,
+      .hero-assurance li {
         width: 100%;
       }
 
@@ -1292,7 +1314,12 @@
         </div>
       </form>
       <a class="btn-secondary" href="#how-it-works">See How It Works</a>
-      <div class="hero-subnote">Takes 10 seconds. No app download yet. Best for people already making sports bets, challenge bets, money bets, or punishments with friends.</div>
+      <div class="hero-subnote">Takes 10 seconds. Best for people already making sports bets, challenge bets, money bets, or punishments with friends.</div>
+      <ul class="hero-assurance" aria-label="Waitlist signup details">
+        <li>No app install yet</li>
+        <li>No payment info needed</li>
+        <li>Invite-only beta access</li>
+      </ul>
     </div>
     <div class="hero-next-steps" aria-label="What happens after you join">
       <div class="hero-step">
