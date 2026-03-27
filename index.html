@@ -170,6 +170,73 @@
 
     .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
 
+    .hero-qualifier {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px 72px;
+    }
+
+    .hero-qualifier-card {
+      background: linear-gradient(180deg, rgba(77,159,255,0.08), rgba(255,255,255,0.02));
+      border: 1px solid rgba(77,159,255,0.18);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    .hero-qualifier-header {
+      max-width: 620px;
+      margin: 0 auto 24px;
+      text-align: center;
+    }
+
+    .hero-qualifier-header h2 {
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.6px;
+    }
+
+    .hero-qualifier-header p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .hero-qualifier-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .hero-qualifier-item {
+      background: rgba(10,10,15,0.48);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .hero-qualifier-item span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .hero-qualifier-item h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-qualifier-item p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
     /* FEATURES */
     .features {
       max-width: 1000px;
@@ -502,12 +569,19 @@
       nav { padding: 16px 20px; }
       footer { padding: 24px 20px; justify-content: center; text-align: center; }
       .proof-stats { gap: 36px; }
-      .mockups-grid {
+      .mockups-grid,
+      .hero-qualifier-grid {
         grid-template-columns: 1fr;
         gap: 24px;
       }
       .invite-card {
         padding: 24px 18px;
+      }
+      .hero-qualifier {
+        padding: 0 20px 56px;
+      }
+      .hero-qualifier-card {
+        padding: 22px 18px;
       }
     }
   </style>
@@ -566,6 +640,32 @@
     <div class="hero-actions">
       <a class="btn-primary" href="#waitlist">Get Early Access</a>
       <a class="btn-secondary" href="#mockups">See It In Action</a>
+    </div>
+  </section>
+
+  <section class="hero-qualifier" aria-label="Who SideAction is best for right now">
+    <div class="hero-qualifier-card">
+      <div class="hero-qualifier-header">
+        <h2>What happens after you join?</h2>
+        <p>This beta is for people who already make bets or side deals. If that is you, the waitlist gets first private invites when the next group opens.</p>
+      </div>
+      <div class="hero-qualifier-grid">
+        <div class="hero-qualifier-item">
+          <span>Best fit</span>
+          <h3>You already bet with friends</h3>
+          <p>Sports bets, prop bets, punishments, challenge bets, and side deals are the sweet spot.</p>
+        </div>
+        <div class="hero-qualifier-item">
+          <span>Why now</span>
+          <h3>Early users shape the product</h3>
+          <p>First users help decide what gets built next, so the app fits real behavior instead of fake demo use.</p>
+        </div>
+        <div class="hero-qualifier-item">
+          <span>What you get</span>
+          <h3>First crack at private invites</h3>
+          <p>Join once, then wait for the next invite wave. No app install or payment info needed today.</p>
+        </div>
+      </div>
     </div>
   </section>
 
