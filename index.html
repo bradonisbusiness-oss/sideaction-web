@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SideAction — Settle Bets Without Screenshots</title>
+  <title>SideAction — Track Bets, Proof, and Payouts in One Place</title>
   <!-- TEST DEPLOY -->
-  <meta name="description" content="SideAction locks bet terms, proof, and payout status in one place so nobody can change the story later. Join the waitlist to get the first private beta invite." />
+  <meta name="description" content="SideAction locks bet terms, proof, and payout status in one place so nobody can change the story later. Join the waitlist for first private beta access." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -180,6 +180,50 @@
       font-size: 13px;
       color: var(--text-tertiary);
       line-height: 1.5;
+    }
+
+    .hero-next-steps {
+      width: 100%;
+      max-width: 560px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .hero-step {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 14px;
+      text-align: left;
+    }
+
+    .hero-step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--primary-dim);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .hero-step strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .hero-step span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
     }
 
     .hero-proof {
@@ -796,11 +840,14 @@
         text-align: center;
       }
 
+      .hero-next-steps,
       .hero-proof {
+        grid-template-columns: 1fr;
         flex-direction: column;
         width: 100%;
       }
 
+      .hero-step,
       .hero-proof li {
         width: 100%;
       }
@@ -890,7 +937,7 @@
       <img src="/bull-skull-logo.png" alt="SideAction logo" style="height:40px;width:auto;object-fit:contain;" />
       <span>Side<span class="accent">Action</span></span>
     </a>
-    <a class="nav-cta" href="#waitlist">Get Early Access</a>
+    <a class="nav-cta" href="#waitlist">Get Private Beta Access</a>
   </nav>
 
   <section class="invite-page" id="invite-page">
@@ -924,14 +971,31 @@
     <p>SideAction gives every bet, challenge, and side deal one clean record, so nobody has to dig through group chats or fight over screenshots later.</p>
     <div class="hero-actions">
       <form class="hero-quick-join" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="_blank" novalidate>
-        <input type="email" name="EMAIL" required placeholder="Enter your email for early access" aria-label="Email address for SideAction waitlist">
-        <input type="submit" class="btn-primary" value="Get Early Access">
+        <input type="email" name="EMAIL" required placeholder="Enter your email for private beta access" aria-label="Email address for SideAction waitlist">
+        <input type="submit" class="btn-primary" value="Get Private Beta Access">
         <div aria-hidden="true" style="position: absolute; left: -5000px;">
           <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
         </div>
       </form>
       <a class="btn-secondary" href="#how-it-works">See How It Works</a>
-      <div class="hero-subnote">Takes 10 seconds. No app download yet. Join now to get the first private beta invites.</div>
+      <div class="hero-subnote">Takes 10 seconds. No app download yet. Join now if you already make bets, challenges, or side deals with friends.</div>
+    </div>
+    <div class="hero-next-steps" aria-label="What happens after you join">
+      <div class="hero-step">
+        <div class="hero-step-number">1</div>
+        <strong>Join the waitlist</strong>
+        <span>Drop your email so we know you want in.</span>
+      </div>
+      <div class="hero-step">
+        <div class="hero-step-number">2</div>
+        <strong>Get beta access first</strong>
+        <span>Waitlist members get first crack when invites open.</span>
+      </div>
+      <div class="hero-step">
+        <div class="hero-step-number">3</div>
+        <strong>Help shape the app</strong>
+        <span>Your feedback decides what gets built next.</span>
+      </div>
     </div>
     <ul class="hero-proof">
       <li>Terms locked before it starts</li>
