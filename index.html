@@ -525,6 +525,86 @@
       font-weight: 600;
     }
 
+    .comparison-section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 72px 24px 24px;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .comparison-card {
+      border-radius: 22px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      text-align: left;
+    }
+
+    .comparison-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .comparison-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+
+    .comparison-card ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .comparison-card li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    .comparison-card li::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 800;
+    }
+
+    .comparison-card.chat {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .comparison-card.chat li::before {
+      content: "×";
+      color: #FF6B6B;
+    }
+
+    .comparison-card.sideaction {
+      border-color: rgba(77, 159, 255, 0.22);
+      background: linear-gradient(180deg, rgba(77,159,255,0.09), rgba(77,159,255,0.03));
+    }
+
+    .comparison-card.sideaction li {
+      color: var(--text);
+    }
+
+    .comparison-card.sideaction li::before {
+      content: "✓";
+      color: var(--success);
+    }
+
     .story-section {
       max-width: 1120px;
       margin: 0 auto;
@@ -1068,7 +1148,8 @@
       }
 
       .hero-example-grid,
-      .hero-clarity-grid {
+      .hero-clarity-grid,
+      .comparison-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1298,6 +1379,34 @@
       <div class="problem-pill">Keep the proof</div>
       <div class="problem-pill">Track who paid</div>
       <div class="problem-pill">See who won</div>
+    </div>
+  </section>
+
+  <section class="comparison-section" aria-label="Why SideAction converts better than group chat screenshots">
+    <div class="section-label">Why this matters</div>
+    <h2 class="section-title">Group chat keeps the drama. SideAction keeps the record.</h2>
+    <p class="section-copy">Most people do not need another betting app. They need one place that makes the terms, proof, and payout status obvious fast.</p>
+    <div class="comparison-grid">
+      <div class="comparison-card chat">
+        <h3>Without SideAction</h3>
+        <p>The bet starts in chat, then turns into detective work later.</p>
+        <ul>
+          <li>Original terms get buried under memes and trash talk</li>
+          <li>Screenshots live on random phones and disappear when needed</li>
+          <li>People remember the stake differently once money is due</li>
+          <li>Unpaid losses fade out because nobody wants to chase them</li>
+        </ul>
+      </div>
+      <div class="comparison-card sideaction">
+        <h3>With SideAction</h3>
+        <p>Everyone can see the same record from the start to the payout.</p>
+        <ul>
+          <li>Terms are locked before the game, challenge, or side deal starts</li>
+          <li>Proof stays attached to the actual bet record</li>
+          <li>Win, loss, paid, and unpaid status stay visible to the group</li>
+          <li>The app makes follow-through easier without extra arguing</li>
+        </ul>
+      </div>
     </div>
   </section>
 
