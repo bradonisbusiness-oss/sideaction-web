@@ -137,6 +137,40 @@
       margin-bottom: 18px;
     }
 
+    .hero-promise-strip {
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0 0 18px;
+    }
+
+    .hero-promise-item {
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(77,159,255,0.18);
+      background: rgba(77,159,255,0.08);
+    }
+
+    .hero-promise-item span {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .hero-promise-item strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
     .hero-fit-list {
       width: 100%;
       max-width: 640px;
@@ -1761,6 +1795,7 @@
       .hero-quick-filter,
       .hero-prequalifier,
       .hero-example-bets,
+      .hero-promise-strip,
       .inline-qualifier-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -1836,6 +1871,20 @@
     <h1>Stop the <span class="accent">"that's not what we bet"</span> fight</h1>
     <div class="hero-hook" id="hero-hook">Settle friend bets with one locked receipt before kickoff.</div>
     <p id="hero-body-copy">SideAction locks the line, stake, proof, and payout before the game starts, so nobody can change the spread, play dumb, or drag out pay-up after the final score.</p>
+    <div class="hero-promise-strip" aria-label="Main SideAction promise">
+      <div class="hero-promise-item">
+        <span>Lock it first</span>
+        <strong>Set the exact line, stake, and rule before the game starts.</strong>
+      </div>
+      <div class="hero-promise-item">
+        <span>Keep the proof</span>
+        <strong>Put screenshots, stats, and receipts in one shared record.</strong>
+      </div>
+      <div class="hero-promise-item">
+        <span>Track the pay-up</span>
+        <strong>See who settled and who is still dodging after the final score.</strong>
+      </div>
+    </div>
     <div class="hero-fit-list" aria-label="Best fit for SideAction">
       <div class="hero-fit-chip" id="hero-fit-chip-1"><span>Best for</span> Spreads, moneylines, and totals with friends</div>
       <div class="hero-fit-chip" id="hero-fit-chip-2"><span>Also for</span> Prop bets and same-game side wagers</div>
