@@ -1567,14 +1567,14 @@
   <!-- HERO -->
   <section class="hero">
     <img src="./logo.png" alt="SideAction logo" style="height:180px;width:auto;object-fit:contain;margin-bottom:24px;">
-    <div class="hero-tag">For people making real sports bets with friends in group chats, DMs, and text threads</div>
+    <div class="hero-tag" id="hero-tag">For people making real sports bets with friends in group chats, DMs, and text threads</div>
     <h1>Stop the <span class="accent">"that's not what we bet"</span> fight</h1>
-    <div class="hero-hook">Settle friend bets with one locked receipt before kickoff.</div>
-    <p>SideAction locks the line, stake, proof, and payout before the game starts, so nobody can change the spread, play dumb, or drag out pay-up after the final score.</p>
+    <div class="hero-hook" id="hero-hook">Settle friend bets with one locked receipt before kickoff.</div>
+    <p id="hero-body-copy">SideAction locks the line, stake, proof, and payout before the game starts, so nobody can change the spread, play dumb, or drag out pay-up after the final score.</p>
     <div class="hero-fit-list" aria-label="Best fit for SideAction">
-      <div class="hero-fit-chip"><span>Best for</span> Spreads, moneylines, and totals with friends</div>
-      <div class="hero-fit-chip"><span>Also for</span> Prop bets and same-game side wagers</div>
-      <div class="hero-fit-chip"><span>Still works for</span> Punishments and challenge bets</div>
+      <div class="hero-fit-chip" id="hero-fit-chip-1"><span>Best for</span> Spreads, moneylines, and totals with friends</div>
+      <div class="hero-fit-chip" id="hero-fit-chip-2"><span>Also for</span> Prop bets and same-game side wagers</div>
+      <div class="hero-fit-chip" id="hero-fit-chip-3"><span>Still works for</span> Punishments and challenge bets</div>
     </div>
     <div class="hero-actions">
       <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
@@ -1656,27 +1656,27 @@
     </div>
     <div class="hero-example-bets" aria-label="Example bets that fit SideAction">
       <div class="hero-example-bet">
-        <span>Game bet</span>
-        <p>Chiefs -3.5 for $100 and loser pays by Monday.</p>
+        <span id="hero-example-label-1">Game bet</span>
+        <p id="hero-example-copy-1">Chiefs -3.5 for $100 and loser pays by Monday.</p>
       </div>
       <div class="hero-example-bet">
-        <span>Prop bet</span>
-        <p>If Luka scores first, loser buys wings for the whole table.</p>
+        <span id="hero-example-label-2">Prop bet</span>
+        <p id="hero-example-copy-2">If Luka scores first, loser buys wings for the whole table.</p>
       </div>
       <div class="hero-example-bet">
-        <span>Challenge</span>
-        <p>Miss the gym goal this month and post the punishment video.</p>
+        <span id="hero-example-label-3">Challenge</span>
+        <p id="hero-example-copy-3">Miss the gym goal this month and post the punishment video.</p>
       </div>
       <div class="hero-example-bet">
-        <span>Side deal</span>
-        <p>Finish the sales target first or cover Friday night drinks.</p>
+        <span id="hero-example-label-4">Side deal</span>
+        <p id="hero-example-copy-4">Finish the sales target first or cover Friday night drinks.</p>
       </div>
     </div>
     <div class="hero-quick-filter" aria-label="Quick fit filter for SideAction">
       <div class="hero-quick-filter-card good">
         <span>Join now if</span>
-        <strong>You already make bets in group chats, texts, or DMs.</strong>
-        <p>SideAction is built to lock the terms, stake, and proof before the loser tries to rewrite the deal.</p>
+        <strong id="hero-quick-fit-title">You already make bets in group chats, texts, or DMs.</strong>
+        <p id="hero-quick-fit-copy">SideAction is built to lock the terms, stake, and proof before the loser tries to rewrite the deal.</p>
       </div>
       <div class="hero-quick-filter-card bad">
         <span>Skip if</span>
@@ -2122,6 +2122,28 @@
 
   <script>
     (function () {
+      const heroTag = document.getElementById('hero-tag');
+      const heroHook = document.getElementById('hero-hook');
+      const heroBodyCopy = document.getElementById('hero-body-copy');
+      const heroFitChips = [
+        document.getElementById('hero-fit-chip-1'),
+        document.getElementById('hero-fit-chip-2'),
+        document.getElementById('hero-fit-chip-3')
+      ];
+      const heroExampleLabels = [
+        document.getElementById('hero-example-label-1'),
+        document.getElementById('hero-example-label-2'),
+        document.getElementById('hero-example-label-3'),
+        document.getElementById('hero-example-label-4')
+      ];
+      const heroExampleCopies = [
+        document.getElementById('hero-example-copy-1'),
+        document.getElementById('hero-example-copy-2'),
+        document.getElementById('hero-example-copy-3'),
+        document.getElementById('hero-example-copy-4')
+      ];
+      const heroQuickFitTitle = document.getElementById('hero-quick-fit-title');
+      const heroQuickFitCopy = document.getElementById('hero-quick-fit-copy');
       const heroWaitlistSection = document.getElementById("hero-waitlist");
       const heroWaitlistEmailInput = document.querySelector('#hero-waitlist input[name="EMAIL"]');
       const heroWaitlistSourceField = document.querySelector('#hero-waitlist input[name="MMERGE6"]');
@@ -2166,6 +2188,22 @@
 
       const fitSourceCopy = {
         'sports-bets': {
+          heroTag: 'For people making real sports bets with friends in group chats, DMs, and text threads',
+          heroHook: 'Settle friend bets with one locked receipt before kickoff.',
+          heroBody: 'SideAction locks the line, stake, proof, and payout before the game starts, so nobody can change the spread, play dumb, or drag out pay-up after the final score.',
+          heroFitChips: [
+            '<span>Best for</span> Spreads, moneylines, and totals with friends',
+            '<span>Also for</span> Prop bets and same-game side wagers',
+            '<span>Still works for</span> Punishments and challenge bets'
+          ],
+          heroExamples: [
+            { label: 'Game bet', copy: 'Chiefs -3.5 for $100 and loser pays by Monday.' },
+            { label: 'Pay-up rule', copy: 'Loser covers wings if the favorite wins by 4 or more.' },
+            { label: 'Receipts', copy: 'Both sides can see the line, stake, and deadline before kickoff.' },
+            { label: 'No excuses', copy: 'After the final score, the loser cannot pretend the spread was different.' }
+          ],
+          quickFitTitle: 'You already make sports bets in group chats, texts, or DMs.',
+          quickFitCopy: 'SideAction is built to lock the line, stake, and proof before the loser tries to rewrite the deal.',
           title: 'Get beta access before your next game bet turns into a “that is not what we said” mess.',
           body: 'Join if you already make game bets with friends in texts, DMs, or group chats. We only need your email today. No app install. No payment info. Then we invite real sports bettors first.',
           button: 'Get Sports Bet Access',
@@ -2192,6 +2230,22 @@
           stickyCopy: 'Join the beta waitlist. No payment info.'
         },
         'prop-bets': {
+          heroTag: 'For people making prop bets and side wagers with friends in DMs, group chats, and text threads',
+          heroHook: 'Lock the exact trigger before the wording fight starts.',
+          heroBody: 'SideAction locks the prop, stake, proof, and payout before the moment happens, so nobody can say they meant a different stat, player, or deadline later.',
+          heroFitChips: [
+            '<span>Best for</span> Player props and same-game side wagers',
+            '<span>Also for</span> First-score, stat-line, and goofy live bets',
+            '<span>Still works for</span> Punishments tied to prop outcomes'
+          ],
+          heroExamples: [
+            { label: 'Player prop', copy: 'If Luka scores first, loser buys wings for the whole table.' },
+            { label: 'Stat trigger', copy: 'Under 24.5 points means loser pays by Monday at noon.' },
+            { label: 'Proof rule', copy: 'The exact player, stat, and cutoff are attached before tip-off.' },
+            { label: 'No wording games', copy: 'Nobody gets to say they meant rebounds instead of points after the game.' }
+          ],
+          quickFitTitle: 'You already make prop bets or random side wagers in chats.',
+          quickFitCopy: 'SideAction is built to lock the exact trigger, proof rule, and loser payout before anyone twists the wording.',
           title: 'Get beta access before your next prop bet turns into a “you know what I meant” argument.',
           body: 'Join if you already make player props, challenge bets, and funny side wagers with friends. We only need your email today. No app install. No payment info. Then we invite active prop bettors first.',
           button: 'Get Prop Bet Access',
@@ -2218,6 +2272,22 @@
           stickyCopy: 'Lock your beta spot before the next wording fight.'
         },
         'side-deals': {
+          heroTag: 'For people making side deals, punishments, and challenge bets in texts, DMs, and work chats',
+          heroHook: 'Lock the rule before the excuse starts.',
+          heroBody: 'SideAction locks the challenge, deadline, proof, and payoff before anyone forgets, stalls, or rewrites what the loser owes later.',
+          heroFitChips: [
+            '<span>Best for</span> Punishments, challenge bets, and side deals',
+            '<span>Also for</span> Gym goals, sales contests, and accountability wagers',
+            '<span>Still works for</span> Sports bets that end with a punishment'
+          ],
+          heroExamples: [
+            { label: 'Challenge', copy: 'Miss the gym goal this month and post the punishment video.' },
+            { label: 'Side deal', copy: 'Finish the sales target first or cover Friday night drinks.' },
+            { label: 'Deadline', copy: 'The rule, proof, and payoff date are locked before the challenge starts.' },
+            { label: 'No memory battle', copy: 'Nobody gets to act confused about what the loser owed after the week ends.' }
+          ],
+          quickFitTitle: 'You already make side deals, punishments, or accountability bets in chats.',
+          quickFitCopy: 'SideAction is built to lock the rule, deadline, proof, and payoff before anyone changes the story later.',
           title: 'Get beta access before your next side deal or punishment bet turns into a memory battle.',
           body: 'Join if you already make challenge bets, punishments, and side deals with friends or coworkers. We only need your email today. No app install. No payment info. Then we invite active side-deal users first.',
           button: 'Get Side Deal Access',
@@ -2312,6 +2382,31 @@
       const applyFitSourceCopy = (source) => {
         const fitCopy = fitSourceCopy[source];
         if (!fitCopy) return;
+
+        if (heroTag) heroTag.textContent = fitCopy.heroTag || 'For people making real bets with friends in group chats, DMs, and text threads';
+        if (heroHook) heroHook.textContent = fitCopy.heroHook || 'Settle friend bets with one locked receipt before kickoff.';
+        if (heroBodyCopy) heroBodyCopy.textContent = fitCopy.heroBody || 'SideAction locks the stake, proof, and payout before the game starts so nobody can rewrite the deal later.';
+
+        heroFitChips.forEach((chip, index) => {
+          if (chip && fitCopy.heroFitChips?.[index]) {
+            chip.innerHTML = fitCopy.heroFitChips[index];
+          }
+        });
+
+        heroExampleLabels.forEach((label, index) => {
+          if (label && fitCopy.heroExamples?.[index]?.label) {
+            label.textContent = fitCopy.heroExamples[index].label;
+          }
+        });
+
+        heroExampleCopies.forEach((copy, index) => {
+          if (copy && fitCopy.heroExamples?.[index]?.copy) {
+            copy.textContent = fitCopy.heroExamples[index].copy;
+          }
+        });
+
+        if (heroQuickFitTitle) heroQuickFitTitle.textContent = fitCopy.quickFitTitle || 'You already make bets in group chats, texts, or DMs.';
+        if (heroQuickFitCopy) heroQuickFitCopy.textContent = fitCopy.quickFitCopy || 'SideAction is built to lock the terms, stake, and proof before the loser tries to rewrite the deal.';
 
         if (heroFormHeaderTitle) heroFormHeaderTitle.textContent = fitCopy.title;
         if (heroFormHeaderCopy) heroFormHeaderCopy.textContent = fitCopy.body;
