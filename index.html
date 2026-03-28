@@ -1038,6 +1038,30 @@
       margin-bottom: 16px;
     }
 
+    .invite-waitlist {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .invite-waitlist-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .invite-waitlist-copy {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
     .invite-note {
       color: var(--text-tertiary);
       font-size: 13px;
@@ -1159,10 +1183,23 @@
 
       <div class="invite-actions">
         <a class="btn-primary" id="open-app-btn" href="sideaction://invite/sideaction">Open in SideAction App</a>
-        <a class="btn-secondary" id="fallback-btn" href="/#waitlist">Get Early Access</a>
+        <a class="btn-secondary" id="fallback-btn" href="#invite-waitlist">Get Early Access</a>
       </div>
 
       <div class="invite-note">If the app is not installed yet, join the waitlist and we will get you in fast.</div>
+
+      <div class="invite-waitlist" id="invite-waitlist">
+        <span class="invite-waitlist-label">No app yet?</span>
+        <p class="invite-waitlist-copy" id="invite-waitlist-copy">Join the beta waitlist and we will keep your invite context attached.</p>
+        <form class="waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="_blank" novalidate>
+          <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for invite beta waitlist">
+          <input type="hidden" name="MMERGE6" id="invite-referrer-field" value="sideaction">
+          <button type="submit" id="invite-submit-btn">Join Beta Waitlist</button>
+          <div aria-hidden="true" style="position: absolute; left: -5000px;">
+            <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -1647,7 +1684,23 @@
       document.getElementById("invite-handle").textContent = `@${username}`;
       document.getElementById("open-app-btn").setAttribute("href", `sideaction://invite/${username}`);
       document.getElementById("fallback-btn").textContent = `No app yet? Join ${username}'s beta waitlist`;
-      document.getElementById("fallback-btn").setAttribute("href", "/#waitlist");
+      document.getElementById("fallback-btn").setAttribute("href", "#invite-waitlist");
+
+      const inviteReferrerField = document.getElementById("invite-referrer-field");
+      const inviteWaitlistCopy = document.getElementById("invite-waitlist-copy");
+      const inviteSubmitBtn = document.getElementById("invite-submit-btn");
+
+      if (inviteReferrerField) {
+        inviteReferrerField.value = username;
+      }
+
+      if (inviteWaitlistCopy) {
+        inviteWaitlistCopy.textContent = `Join the beta waitlist now and we will keep ${username}'s invite attached when spots open.`;
+      }
+
+      if (inviteSubmitBtn) {
+        inviteSubmitBtn.textContent = `Join ${username}'s Waitlist`;
+      }
     })();
   </script>
 </body>
