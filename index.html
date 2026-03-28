@@ -910,6 +910,12 @@
       font-size: 15px;
       font-weight: 600;
       margin-top: 14px;
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    .success-msg.visible {
+      display: block;
     }
 
     .waitlist-trust {
@@ -1366,7 +1372,7 @@
       <div class="invite-waitlist" id="invite-waitlist">
         <span class="invite-waitlist-label">No app yet?</span>
         <p class="invite-waitlist-copy" id="invite-waitlist-copy">Join the beta waitlist and we will keep your invite context attached.</p>
-        <form class="waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="_blank" novalidate>
+        <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Keep an eye on your inbox for invite waves and product updates.">
           <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for invite beta waitlist">
           <input type="hidden" name="MMERGE6" id="invite-referrer-field" value="sideaction">
           <button type="submit" id="invite-submit-btn">Join Beta Waitlist</button>
@@ -1374,6 +1380,7 @@
             <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
           </div>
         </form>
+        <p class="success-msg" aria-live="polite"></p>
       </div>
     </div>
   </section>
@@ -1430,7 +1437,7 @@
         <strong>Join the beta if you want fewer pay-up fights and cleaner receipts.</strong>
         <p>Best for people who already bet with friends and want one place to lock the terms, track the loser, and settle without digging through texts.</p>
       </div>
-      <form class="waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="_blank" novalidate>
+      <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
         <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for beta waitlist">
         <input type="hidden" name="MMERGE6" value="hero">
         <button type="submit">Join Beta Waitlist</button>
@@ -1438,6 +1445,7 @@
           <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
         </div>
       </form>
+      <p class="success-msg" aria-live="polite"></p>
       <p style="margin: 12px 0 0; font-size: 12px; color: var(--text-tertiary); text-align: left;">We only use your email for beta invites and product updates. No payment info. No spam.</p>
       <ul class="hero-form-points" aria-label="Why join the beta waitlist now">
         <li><span>✓</span><div>Private beta spots go out in waves, so waitlist members get first shot.</div></li>
@@ -1809,7 +1817,7 @@
     </div>
     <div id="mc_embed_shell" style="max-width: 440px; margin: 0 auto;">
       <div id="mc_embed_signup">
-        <form action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <form action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate js-waitlist-form" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. We will email you when the next spots open.">
           <div id="mc_embed_signup_scroll" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
             <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" placeholder="Enter your email" style="flex: 1; min-width: 200px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; color: var(--text); font-size: 15px; font-family: 'Inter', sans-serif; outline: none;">
             <input type="hidden" name="MMERGE6" id="waitlist-source-field" value="cta">
@@ -1818,6 +1826,7 @@
               <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
             </div>
           </div>
+          <p class="success-msg" aria-live="polite" style="text-align: center;"></p>
           <p style="margin: 12px 0 0; font-size: 12px; color: var(--text-tertiary); text-align: center;">We only send beta invites and product updates. No payment info. No spam.</p>
           <ul class="waitlist-trust" aria-label="waitlist reassurance">
             <li><span>✓</span><span>Beta invites only</span></li>
@@ -1862,6 +1871,8 @@
     </div>
     <a href="#hero-waitlist" data-cta-source="mobile-sticky">Join Waitlist</a>
   </div>
+
+  <iframe name="mailchimp-hidden-frame" title="Mailchimp subscription target" style="display:none;width:0;height:0;border:0;"></iframe>
 
   <!-- FOOTER -->
   <footer>
@@ -1928,6 +1939,47 @@
               }
             }, 250);
           });
+        });
+      });
+    })();
+
+    (function () {
+      const forms = document.querySelectorAll('.js-waitlist-form');
+
+      forms.forEach((form) => {
+        const emailInput = form.querySelector('input[name="EMAIL"]');
+        const successMessage = form.parentElement?.querySelector('.success-msg');
+        const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+        const defaultButtonLabel = submitButton ? ('value' in submitButton ? submitButton.value : submitButton.textContent) : '';
+
+        form.addEventListener('submit', () => {
+          if (!emailInput || !emailInput.checkValidity()) return;
+
+          if (successMessage) {
+            successMessage.textContent = form.dataset.successMessage || 'You are on the beta waitlist.';
+            successMessage.classList.add('visible');
+          }
+
+          if (submitButton) {
+            if ('value' in submitButton) {
+              submitButton.value = 'You\'re In';
+            } else {
+              submitButton.textContent = 'You\'re In';
+            }
+            submitButton.setAttribute('aria-disabled', 'true');
+          }
+
+          emailInput.value = '';
+
+          window.setTimeout(() => {
+            if (!submitButton) return;
+            if ('value' in submitButton) {
+              submitButton.value = defaultButtonLabel;
+            } else {
+              submitButton.textContent = defaultButtonLabel;
+            }
+            submitButton.removeAttribute('aria-disabled');
+          }, 4000);
         });
       });
     })();
