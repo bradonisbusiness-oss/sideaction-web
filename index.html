@@ -134,7 +134,36 @@
       color: var(--text-secondary);
       line-height: 1.6;
       max-width: 500px;
-      margin-bottom: 40px;
+      margin-bottom: 18px;
+    }
+
+    .hero-fit-list {
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .hero-fit-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(77,159,255,0.18);
+      background: rgba(255,255,255,0.03);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .hero-fit-chip span {
+      color: var(--primary);
+      font-weight: 800;
     }
 
     .hero-actions {
@@ -1356,6 +1385,11 @@
     <h1>Stop the <span class="accent">“that’s not what we bet”</span> fight</h1>
     <div class="hero-hook">Lock the terms before the game starts. Keep one receipt after it ends.</div>
     <p>SideAction gives both sides one clear record of the bet, the stake, and the proof before anyone can change the story after they lose.</p>
+    <div class="hero-fit-list" aria-label="Best fit for SideAction">
+      <div class="hero-fit-chip"><span>Best for</span> Sports bets with friends</div>
+      <div class="hero-fit-chip"><span>Also for</span> Prop bets and side deals</div>
+      <div class="hero-fit-chip"><span>Works for</span> Punishments and challenge bets</div>
+    </div>
     <div class="hero-actions">
       <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Get Beta Access</a>
       <a class="btn-secondary" href="#sample-receipt">See Example Receipt</a>
