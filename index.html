@@ -1983,38 +1983,9 @@
 
       forms.forEach((form) => {
         const emailInput = form.querySelector('input[name="EMAIL"]');
-        const successMessage = form.parentElement?.querySelector('.success-msg');
-        const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
-        const defaultButtonLabel = submitButton ? ('value' in submitButton ? submitButton.value : submitButton.textContent) : '';
 
         form.addEventListener('submit', () => {
           if (!emailInput || !emailInput.checkValidity()) return;
-
-          if (successMessage) {
-            successMessage.textContent = form.dataset.successMessage || 'You are on the beta waitlist.';
-            successMessage.classList.add('visible');
-          }
-
-          if (submitButton) {
-            if ('value' in submitButton) {
-              submitButton.value = 'You\'re In';
-            } else {
-              submitButton.textContent = 'You\'re In';
-            }
-            submitButton.setAttribute('aria-disabled', 'true');
-          }
-
-          emailInput.value = '';
-
-          window.setTimeout(() => {
-            if (!submitButton) return;
-            if ('value' in submitButton) {
-              submitButton.value = defaultButtonLabel;
-            } else {
-              submitButton.textContent = defaultButtonLabel;
-            }
-            submitButton.removeAttribute('aria-disabled');
-          }, 4000);
         });
       });
     })();
