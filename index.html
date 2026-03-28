@@ -1258,7 +1258,7 @@
       <img src="./logo.png" alt="SideAction logo" style="height:40px;width:auto;object-fit:contain;" />
       <span>Side<span class="accent">Action</span></span>
     </a>
-    <a class="nav-cta" href="#waitlist">Join Beta Waitlist</a>
+    <a class="nav-cta" href="#waitlist" data-cta-source="nav">Join Beta Waitlist</a>
   </nav>
 
   <section class="invite-page" id="invite-page">
@@ -1302,7 +1302,7 @@
     <div class="hero-hook">Write it once. Share it once. Settle it without the back-and-forth.</div>
     <p>SideAction gives both sides one clean record of the bet, payout, and proof before anything starts, so nobody can act confused after they lose.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#waitlist">Join Beta Waitlist</a>
+      <a class="btn-primary" href="#waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
       <a class="btn-secondary" href="#sample-receipt">See a Locked Receipt</a>
     </div>
     <div class="hero-use-cases" aria-label="Most common SideAction use cases">
@@ -1706,7 +1706,7 @@
         <form action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
           <div id="mc_embed_signup_scroll" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
             <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" placeholder="Enter your email" style="flex: 1; min-width: 200px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; color: var(--text); font-size: 15px; font-family: 'Inter', sans-serif; outline: none;">
-            <input type="hidden" name="MMERGE6" value="cta">
+            <input type="hidden" name="MMERGE6" id="waitlist-source-field" value="cta">
             <input type="submit" name="subscribe" id="mc-embedded-subscribe" value="Join Beta Waitlist" style="background: var(--primary); color: #fff; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; white-space: nowrap;">
             <div aria-hidden="true" style="position: absolute; left: -5000px;">
               <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
@@ -1741,7 +1741,7 @@
     </div>
   </section>
 
-  <a class="desktop-float-cta" href="#waitlist" aria-label="Desktop waitlist shortcut">
+  <a class="desktop-float-cta" href="#waitlist" data-cta-source="desktop-float" aria-label="Desktop waitlist shortcut">
     <div class="desktop-float-cta-copy">
       <strong>Still betting in group chats?</strong>
       <span>Jump to the beta waitlist. No payment info.</span>
@@ -1754,7 +1754,7 @@
       <strong>Still betting in group chats?</strong>
       <span>Lock your beta spot before the next invite wave fills.</span>
     </div>
-    <a href="#waitlist">Join Waitlist</a>
+    <a href="#waitlist" data-cta-source="mobile-sticky">Join Waitlist</a>
   </div>
 
   <!-- FOOTER -->
@@ -1764,6 +1764,36 @@
   </footer>
 
   <script>
+    (function () {
+      const waitlistSection = document.getElementById("waitlist");
+      const waitlistEmailInput = document.getElementById("mce-EMAIL");
+      const waitlistSourceField = document.getElementById("waitlist-source-field");
+      const trackedWaitlistCtas = document.querySelectorAll('[data-cta-source][href="#waitlist"]');
+
+      trackedWaitlistCtas.forEach((cta) => {
+        cta.addEventListener("click", () => {
+          const source = cta.getAttribute("data-cta-source") || "cta";
+
+          if (waitlistSourceField) {
+            waitlistSourceField.value = source;
+          }
+
+          window.requestAnimationFrame(() => {
+            if (waitlistSection) {
+              waitlistSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+
+            window.setTimeout(() => {
+              if (waitlistEmailInput) {
+                waitlistEmailInput.focus({ preventScroll: true });
+                waitlistEmailInput.select();
+              }
+            }, 250);
+          });
+        });
+      });
+    })();
+
     (function () {
       const path = window.location.pathname || "/";
       const inviteMatch = path.match(/^\/invite\/([^/?#]+)/i);
