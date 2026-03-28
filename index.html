@@ -134,6 +134,40 @@
       justify-content: center;
     }
 
+    .hero-use-cases {
+      width: 100%;
+      max-width: 640px;
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .hero-use-case {
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+    }
+
+    .hero-use-case span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-use-case p {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
     .hero-proof {
       display: flex;
       flex-wrap: wrap;
@@ -1180,6 +1214,7 @@
       footer { padding: 24px 20px; justify-content: center; text-align: center; }
       .proof-stats { gap: 36px; }
       .mockups-grid,
+      .hero-use-cases,
       .hero-objections,
       .hero-next-step-grid,
       .hero-qualifier-grid,
@@ -1269,6 +1304,20 @@
     <div class="hero-actions">
       <a class="btn-primary" href="#waitlist">Join Beta Waitlist</a>
       <a class="btn-secondary" href="#sample-receipt">See a Locked Receipt</a>
+    </div>
+    <div class="hero-use-cases" aria-label="Most common SideAction use cases">
+      <div class="hero-use-case">
+        <span>Game day</span>
+        <p>NFL, NBA, UFC, golf, and same-day side bets between friends.</p>
+      </div>
+      <div class="hero-use-case">
+        <span>Group chat chaos</span>
+        <p>When the terms started in texts or DMs and nobody agrees what was said.</p>
+      </div>
+      <div class="hero-use-case">
+        <span>Loser pays</span>
+        <p>Cash, drinks, dinner, punishments, or favors that need one shared receipt.</p>
+      </div>
     </div>
     <div class="hero-form-wrap" aria-label="Early access signup details">
       <div class="hero-form-header">
