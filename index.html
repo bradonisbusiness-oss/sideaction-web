@@ -2196,6 +2196,8 @@
       const heroPrequalifierBadTitle = document.getElementById('hero-prequalifier-bad-title');
       const heroPrequalifierBadCopy = document.getElementById('hero-prequalifier-bad-copy');
       const heroWaitlistSection = document.getElementById("hero-waitlist");
+      const navCtaButton = document.querySelector('a.nav-cta[data-cta-source="nav"]');
+      const heroPrimaryCtaButton = document.querySelector('a.btn-primary[data-cta-source="hero-primary"]');
       const heroWaitlistEmailInput = document.querySelector('#hero-waitlist input[name="EMAIL"]');
       const heroWaitlistSourceField = document.querySelector('#hero-waitlist input[name="MMERGE6"]');
       const heroFormHeaderTitle = document.querySelector('.hero-form-header strong');
@@ -2262,6 +2264,7 @@
           title: 'Join the beta now. Get first shot at the next invite wave for people already making sports bets with friends.',
           body: 'Join if you already make game bets with friends in texts, DMs, or group chats. We only need your email today. No app install. No payment info. When beta spots open, waitlist members get first access.',
           button: 'Get Sports Bet Access',
+          topCta: 'Get Sports Bet Access',
           disclaimer: 'No app install today. No payment info. No sportsbook account. Just beta invites and low-volume product updates for people making real game bets with friends.',
           points: [
             'You already bet spreads, moneylines, parlays, or totals with friends in group chats or texts.',
@@ -2308,6 +2311,7 @@
           title: 'Join the beta now. Get first shot at the next invite wave for people already making prop bets with friends.',
           body: 'Join if you already make player props, challenge bets, and funny side wagers with friends. We only need your email today. No app install. No payment info. When beta spots open, waitlist members get first access.',
           button: 'Get Prop Bet Access',
+          topCta: 'Get Prop Bet Access',
           disclaimer: 'No app install today. No payment info. No sportsbook account. Just beta invites and low-volume product updates for people making real prop bets with friends.',
           points: [
             'You already make player props, same-game side bets, or random bets in DMs and group chats.',
@@ -2354,6 +2358,7 @@
           title: 'Join the beta now. Get first shot at the next invite wave for people already making side deals with friends.',
           body: 'Join if you already make challenge bets, punishments, and side deals with friends or coworkers. We only need your email today. No app install. No payment info. When beta spots open, waitlist members get first access.',
           button: 'Get Side Deal Access',
+          topCta: 'Get Side Deal Access',
           disclaimer: 'No app install today. No payment info. No wallet. Just beta invites and low-volume product updates for people making real side deals and punishment bets.',
           points: [
             'You already make gym challenges, sales contests, punishments, or side deals in chats and texts.',
@@ -2504,6 +2509,8 @@
 
         if (heroFormHeaderTitle) heroFormHeaderTitle.textContent = fitCopy.title;
         if (heroFormHeaderCopy) heroFormHeaderCopy.textContent = fitCopy.body;
+        if (navCtaButton) navCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Join Beta Waitlist';
+        if (heroPrimaryCtaButton) heroPrimaryCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Join Beta Waitlist';
         if (heroFormSubmitButton) heroFormSubmitButton.textContent = fitCopy.button;
         if (heroFormDisclaimer) heroFormDisclaimer.textContent = fitCopy.disclaimer;
 
