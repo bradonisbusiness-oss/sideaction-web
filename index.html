@@ -411,6 +411,44 @@
       font-weight: 700;
     }
 
+    .hero-inline-faq {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .hero-inline-faq-item {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+    }
+
+    .hero-inline-faq-item span {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-inline-faq-item strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .hero-inline-faq-item p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
     .hero-mini-receipt {
       width: 100%;
       max-width: 640px;
@@ -1792,6 +1830,7 @@
       .hero-form-locks,
       .hero-form-points,
       .hero-form-urgency,
+      .hero-inline-faq,
       .hero-quick-filter,
       .hero-prequalifier,
       .hero-example-bets,
@@ -1922,6 +1961,23 @@
       <span id="hero-inline-trust-1">&#10003; <strong>10-second signup</strong></span>
       <span id="hero-inline-trust-2">&#10003; No app install today</span>
       <span id="hero-inline-trust-3">&#10003; No payment info</span>
+    </div>
+    <div class="hero-inline-faq" aria-label="Fast answers before joining the beta">
+      <div class="hero-inline-faq-item">
+        <span>Need to know</span>
+        <strong>Do I need to download anything right now?</strong>
+        <p>No. The beta waitlist is email only today. You join first, then get a private invite when spots open.</p>
+      </div>
+      <div class="hero-inline-faq-item">
+        <span>Big objection</span>
+        <strong>Does SideAction hold money or act like a sportsbook?</strong>
+        <p>No. It locks the receipt, proof, and pay-up record. No deposits. No wallet. No odds.</p>
+      </div>
+      <div class="hero-inline-faq-item">
+        <span>What happens next</span>
+        <strong>What do I get after I join?</strong>
+        <p>You keep your place for the next invite wave and get low-volume beta updates built for people already betting with friends.</p>
+      </div>
     </div>
     <div class="hero-mini-receipt" aria-label="Example of what gets locked before the bet starts">
       <div class="hero-mini-receipt-top">
