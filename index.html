@@ -2042,7 +2042,11 @@
       });
 
       if (nav) {
-        nav.querySelector(".nav-cta").setAttribute("href", "/#waitlist");
+        const navCta = nav.querySelector(".nav-cta");
+        if (navCta) {
+          navCta.setAttribute("href", "#invite-waitlist");
+          navCta.textContent = `Join ${username}'s Waitlist`;
+        }
       }
 
       if (footer) {
