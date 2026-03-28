@@ -2186,6 +2186,11 @@
         });
       };
 
+      const getActiveFitSource = () => {
+        const activeButton = document.querySelector('[data-fit-source].active');
+        return activeButton?.getAttribute('data-fit-source') || '';
+      };
+
       const updateFitSelection = (source) => {
         if (!source) return;
 
@@ -2202,9 +2207,10 @@
       setWaitlistSource(inviteWaitlistSourceField, inviteWaitlistSourceField?.value || "invite");
 
       const presetFitSource = params.get('fit');
-      if (presetFitSource && fitSourceCopy[presetFitSource]) {
-        updateFitSelection(presetFitSource);
-      }
+      const defaultFitSource = presetFitSource && fitSourceCopy[presetFitSource]
+        ? presetFitSource
+        : 'sports-bets';
+      updateFitSelection(defaultFitSource);
 
       trackedWaitlistCtas.forEach((cta) => {
         cta.addEventListener("click", () => {
@@ -2214,8 +2220,12 @@
           const targetSection = useHeroWaitlist ? heroWaitlistSection : ctaWaitlistSection;
           const targetInput = useHeroWaitlist ? heroWaitlistEmailInput : ctaWaitlistEmailInput;
           const targetSourceField = useHeroWaitlist ? heroWaitlistSourceField : ctaWaitlistSourceField;
+          const activeFitSource = getActiveFitSource();
+          const sourceWithFit = useHeroWaitlist && activeFitSource
+            ? `${source}|fit:${activeFitSource}`
+            : source;
 
-          setWaitlistSource(targetSourceField, source);
+          setWaitlistSource(targetSourceField, sourceWithFit);
 
           window.requestAnimationFrame(() => {
             if (targetSection) {
