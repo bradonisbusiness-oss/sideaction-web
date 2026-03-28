@@ -134,6 +134,50 @@
       justify-content: center;
     }
 
+    .hero-how-it-works {
+      width: 100%;
+      max-width: 640px;
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .hero-how-step {
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+    }
+
+    .hero-how-step span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: rgba(77,159,255,0.16);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .hero-how-step strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .hero-how-step p {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
     .hero-use-cases {
       width: 100%;
       max-width: 640px;
@@ -1214,6 +1258,7 @@
       footer { padding: 24px 20px; justify-content: center; text-align: center; }
       .proof-stats { gap: 36px; }
       .mockups-grid,
+      .hero-how-it-works,
       .hero-use-cases,
       .hero-objections,
       .hero-next-step-grid,
@@ -1304,6 +1349,23 @@
     <div class="hero-actions">
       <a class="btn-primary" href="#waitlist" data-cta-source="hero-primary">Get Beta Access</a>
       <a class="btn-secondary" href="#sample-receipt">See Example Receipt</a>
+    </div>
+    <div class="hero-how-it-works" aria-label="How SideAction works">
+      <div class="hero-how-step">
+        <span>1</span>
+        <strong>Create the bet</strong>
+        <p>Write the stake, the rule, and when it locks before anything starts.</p>
+      </div>
+      <div class="hero-how-step">
+        <span>2</span>
+        <strong>Both sides see it</strong>
+        <p>Everyone works from the same terms instead of half-remembered texts.</p>
+      </div>
+      <div class="hero-how-step">
+        <span>3</span>
+        <strong>Settle with one receipt</strong>
+        <p>The result, proof, and who owes what stay in one clean record.</p>
+      </div>
     </div>
     <div class="hero-use-cases" aria-label="Most common SideAction use cases">
       <div class="hero-use-case">
