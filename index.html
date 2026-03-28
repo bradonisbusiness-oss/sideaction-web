@@ -1619,13 +1619,15 @@
       const invitePage = document.getElementById("invite-page");
       const nav = document.querySelector("nav");
       const hero = document.querySelector(".hero");
+      const heroQualifier = document.querySelector(".hero-qualifier");
+      const comparison = document.querySelector(".comparison");
       const features = document.querySelector("#features");
       const mockups = document.querySelector("#mockups");
       const waitlist = document.querySelector("#waitlist");
       const footer = document.querySelector("footer");
       const mobileStickyCta = document.querySelector(".mobile-sticky-cta");
 
-      [hero, features, mockups, waitlist, mobileStickyCta].forEach((el) => {
+      [hero, heroQualifier, comparison, features, mockups, waitlist, mobileStickyCta].forEach((el) => {
         if (el) el.style.display = "none";
       });
 
