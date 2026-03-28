@@ -462,6 +462,45 @@
       text-align: left;
     }
 
+    .hero-form-urgency {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+      text-align: left;
+    }
+
+    .hero-form-urgency-item {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(10,10,15,0.42);
+      border: 1px solid var(--border);
+    }
+
+    .hero-form-urgency-item span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-form-urgency-item strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .hero-form-urgency-item p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin: 0;
+      max-width: none;
+    }
+
     .hero-form-points li {
       display: flex;
       gap: 8px;
@@ -1411,6 +1450,7 @@
       .invite-flow,
       .sample-receipt-grid,
       .hero-form-points,
+      .hero-form-urgency,
       .hero-quick-filter,
       .hero-example-bets {
         grid-template-columns: 1fr;
@@ -1525,6 +1565,23 @@
       </form>
       <p class="success-msg" aria-live="polite"></p>
       <p style="margin: 12px 0 0; font-size: 12px; color: var(--text-tertiary); text-align: left;">No app install today. No payment info. No sportsbook account. Just beta invites and low-volume product updates.</p>
+      <div class="hero-form-urgency" aria-label="Why joining now matters">
+        <div class="hero-form-urgency-item">
+          <span>Why now</span>
+          <strong>Private beta spots go out in waves.</strong>
+          <p>Waitlist members get first crack before public launch opens up.</p>
+        </div>
+        <div class="hero-form-urgency-item">
+          <span>Who gets picked first</span>
+          <strong>People already making real bets with friends.</strong>
+          <p>We prioritize users who already bet in texts, DMs, and group chats.</p>
+        </div>
+        <div class="hero-form-urgency-item">
+          <span>What you get</span>
+          <strong>Early access plus a voice in the product.</strong>
+          <p>You help shape the receipt flow, proof rules, and pay-up tracking before launch.</p>
+        </div>
+      </div>
       <ul class="hero-form-points" aria-label="Who should join the beta waitlist">
         <li><span>&#10003;</span><div>You already make bets in texts, group chats, or DMs and want one clean version of the deal.</div></li>
         <li><span>&#10003;</span><div>You want the stake, proof, and payout locked before kickoff so nobody can move the goalposts later.</div></li>
