@@ -144,7 +144,64 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .hero-quick-filter {
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
       margin-bottom: 26px;
+    }
+
+    .hero-quick-filter-card {
+      text-align: left;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+    }
+
+    .hero-quick-filter-card.good {
+      border-color: rgba(0,210,106,0.28);
+      background: rgba(0,210,106,0.06);
+    }
+
+    .hero-quick-filter-card.bad {
+      border-color: rgba(255,184,0,0.22);
+      background: rgba(255,184,0,0.05);
+    }
+
+    .hero-quick-filter-card span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero-quick-filter-card.good span {
+      color: var(--success);
+    }
+
+    .hero-quick-filter-card.bad span {
+      color: var(--gold);
+    }
+
+    .hero-quick-filter-card strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .hero-quick-filter-card p {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      margin: 0;
     }
 
     .hero-fit-chip {
@@ -1337,7 +1394,8 @@
       .comparison-grid,
       .invite-flow,
       .sample-receipt-grid,
-      .hero-form-points {
+      .hero-form-points,
+      .hero-quick-filter {
         grid-template-columns: 1fr;
         gap: 24px;
       }
@@ -1422,6 +1480,18 @@
       <div class="hero-fit-chip"><span>Best for</span> Sports bets with friends</div>
       <div class="hero-fit-chip"><span>Also for</span> Prop bets and side deals</div>
       <div class="hero-fit-chip"><span>Works for</span> Punishments and challenge bets</div>
+    </div>
+    <div class="hero-quick-filter" aria-label="Quick fit filter for SideAction">
+      <div class="hero-quick-filter-card good">
+        <span>Join now if</span>
+        <strong>You already make bets in group chats, texts, or DMs.</strong>
+        <p>SideAction is built to lock the terms, stake, and proof before the loser tries to rewrite the deal.</p>
+      </div>
+      <div class="hero-quick-filter-card bad">
+        <span>Skip if</span>
+        <strong>You want a sportsbook, wallet, or app that holds money.</strong>
+        <p>SideAction is just the receipt and tracking layer for bets between friends. No odds. No custody. No payment info needed.</p>
+      </div>
     </div>
     <div class="hero-actions">
       <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
