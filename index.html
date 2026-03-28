@@ -160,6 +160,40 @@
       font-size: 14px;
     }
 
+    .hero-objections {
+      width: 100%;
+      max-width: 640px;
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .hero-objection-item {
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+    }
+
+    .hero-objection-item span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-objection-item p {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
     .hero-next-step {
       width: 100%;
       max-width: 640px;
@@ -1008,6 +1042,7 @@
       footer { padding: 24px 20px; justify-content: center; text-align: center; }
       .proof-stats { gap: 36px; }
       .mockups-grid,
+      .hero-objections,
       .hero-next-step-grid,
       .hero-qualifier-grid,
       .comparison-grid,
@@ -1095,6 +1130,20 @@
       <div class="hero-proof-item"><span>✓</span> Lock terms before anyone forgets</div>
       <div class="hero-proof-item"><span>✓</span> Track bets, owes, punishments, and payouts</div>
       <div class="hero-proof-item"><span>✓</span> No wallet. No money custody. Just receipts.</div>
+    </div>
+    <div class="hero-objections" aria-label="Fast answers to top waitlist objections">
+      <div class="hero-objection-item">
+        <span>What it is</span>
+        <p>A shared receipt for friend bets, side deals, punishments, and payout tracking.</p>
+      </div>
+      <div class="hero-objection-item">
+        <span>What it is not</span>
+        <p>Not a sportsbook, not a casino, and not another app trying to hold your money.</p>
+      </div>
+      <div class="hero-objection-item">
+        <span>Why join now</span>
+        <p>Private beta spots are limited, so waitlist members get the next invite waves first.</p>
+      </div>
     </div>
     <div class="hero-next-step" aria-label="What happens after you join">
       <span class="hero-next-step-label">What happens after you join</span>
