@@ -2971,11 +2971,13 @@
         });
 
         applyFitSourceCopy(source);
+        setWaitlistSource(heroInlineWaitlistSourceField, `hero-inline-fit:${source}`);
         setWaitlistSource(heroWaitlistSourceField, `hero-fit:${source}`);
         setWaitlistSource(ctaWaitlistSourceField, `cta-fit:${source}`);
         syncFitSourceInUrl(source);
       };
 
+      setWaitlistSource(heroInlineWaitlistSourceField, heroInlineWaitlistSourceField?.value || "hero-inline");
       setWaitlistSource(heroWaitlistSourceField, heroWaitlistSourceField?.value || "hero");
       setWaitlistSource(ctaWaitlistSourceField, ctaWaitlistSourceField?.value || "cta");
       setWaitlistSource(inviteWaitlistSourceField, inviteWaitlistSourceField?.value || "invite");
