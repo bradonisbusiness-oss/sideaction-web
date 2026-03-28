@@ -2561,6 +2561,7 @@
       const heroFormHeaderTitle = document.querySelector('.hero-form-header strong');
       const heroFormHeaderCopy = document.querySelector('.hero-form-header p');
       const heroFormDisclaimer = document.querySelector('#hero-waitlist .hero-form-disclaimer');
+      const heroInlineSubmitButton = document.querySelector('#hero-inline-waitlist button[type="submit"]');
       const heroFormSubmitButton = document.querySelector('#hero-waitlist button[type="submit"]');
       const heroFormPoints = document.querySelectorAll('.hero-form-points li div');
       const ctaWaitlistSection = document.getElementById("waitlist");
@@ -2608,6 +2609,7 @@
       const sampleReceiptFootnote = document.getElementById('sample-receipt-footnote');
       const ctaWaitlistEmailInput = document.getElementById("mce-EMAIL");
       const ctaWaitlistSourceField = document.getElementById("waitlist-source-field");
+      const ctaWaitlistSubmitButton = document.getElementById("mc-embedded-subscribe");
       const inviteWaitlistSourceField = document.getElementById("invite-referrer-field");
       const trackedWaitlistCtas = document.querySelectorAll('[data-cta-source]');
       const fitSourceButtons = document.querySelectorAll('[data-fit-source]');
@@ -2946,7 +2948,9 @@
         if (heroFormHeaderCopy) heroFormHeaderCopy.textContent = fitCopy.body;
         if (navCtaButton) navCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Join Beta Waitlist';
         if (heroPrimaryCtaButton) heroPrimaryCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Join Beta Waitlist';
-        if (heroFormSubmitButton) heroFormSubmitButton.textContent = fitCopy.button;
+        if (heroInlineSubmitButton) heroInlineSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
+        if (heroFormSubmitButton) heroFormSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
+        if (ctaWaitlistSubmitButton) ctaWaitlistSubmitButton.value = fitCopy.button || 'Join Beta Waitlist';
         if (heroFormDisclaimer) heroFormDisclaimer.textContent = fitCopy.disclaimer;
 
         heroFormPoints.forEach((point, index) => {
