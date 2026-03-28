@@ -171,17 +171,7 @@
       color: var(--text);
     }
 
-    .hero-fit-list {
-      width: 100%;
-      max-width: 640px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .hero-prequalifier {
+    .hero-audience-bar {
       width: 100%;
       max-width: 640px;
       display: grid;
@@ -190,7 +180,7 @@
       margin-bottom: 18px;
     }
 
-    .hero-prequalifier-card {
+    .hero-audience-item {
       text-align: left;
       padding: 14px 16px;
       border-radius: 16px;
@@ -198,16 +188,16 @@
       background: rgba(255,255,255,0.03);
     }
 
-    .hero-prequalifier-card.good {
+    .hero-audience-item.good {
       border-color: rgba(77,159,255,0.32);
       background: rgba(77,159,255,0.08);
     }
 
-    .hero-prequalifier-card.bad {
+    .hero-audience-item.bad {
       border-color: rgba(255,255,255,0.08);
     }
 
-    .hero-prequalifier-card span {
+    .hero-audience-item span {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -221,28 +211,21 @@
       margin-bottom: 10px;
     }
 
-    .hero-prequalifier-card.good span {
+    .hero-audience-item.good span {
       color: #9fcdff;
       background: rgba(77,159,255,0.18);
     }
 
-    .hero-prequalifier-card.bad span {
+    .hero-audience-item.bad span {
       color: var(--text-secondary);
       background: rgba(255,255,255,0.06);
     }
 
-    .hero-prequalifier-card strong {
+    .hero-audience-item strong {
       display: block;
-      font-size: 16px;
-      margin-bottom: 6px;
+      font-size: 15px;
+      line-height: 1.45;
       color: var(--text);
-    }
-
-    .hero-prequalifier-card p {
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--text-secondary);
     }
 
     .hero-example-bets {
@@ -1832,7 +1815,7 @@
       .hero-form-urgency,
       .hero-inline-faq,
       .hero-quick-filter,
-      .hero-prequalifier,
+      .hero-audience-bar,
       .hero-example-bets,
       .hero-promise-strip,
       .inline-qualifier-grid {
@@ -1924,21 +1907,14 @@
         <strong>See who settled and who is still dodging after the final score.</strong>
       </div>
     </div>
-    <div class="hero-fit-list" aria-label="Best fit for SideAction">
-      <div class="hero-fit-chip" id="hero-fit-chip-1"><span>Best for</span> Spreads, moneylines, and totals with friends</div>
-      <div class="hero-fit-chip" id="hero-fit-chip-2"><span>Also for</span> Prop bets and same-game side wagers</div>
-      <div class="hero-fit-chip" id="hero-fit-chip-3"><span>Still works for</span> Punishments and challenge bets</div>
-    </div>
-    <div class="hero-prequalifier" aria-label="Quick fit check for SideAction">
-      <div class="hero-prequalifier-card good">
+    <div class="hero-audience-bar" aria-label="Quick fit check for SideAction">
+      <div class="hero-audience-item good">
         <span>Best fit</span>
-        <strong id="hero-prequalifier-good-title">You already make bets with friends in texts, DMs, or group chats.</strong>
-        <p id="hero-prequalifier-good-copy">If the pain is messy wording, payout excuses, or digging through old messages for proof, this is built for you.</p>
+        <strong id="hero-prequalifier-good-title">Already making bets with friends in texts, DMs, or group chats.</strong>
       </div>
-      <div class="hero-prequalifier-card bad">
+      <div class="hero-audience-item bad">
         <span>Not for</span>
-        <strong id="hero-prequalifier-bad-title">You want a sportsbook, wallet, or app that holds money.</strong>
-        <p id="hero-prequalifier-bad-copy">SideAction only locks the receipt, proof, and pay-up record. No deposits. No odds. No money custody.</p>
+        <strong id="hero-prequalifier-bad-title">People looking for a sportsbook, wallet, or app that holds money.</strong>
       </div>
     </div>
     <div class="hero-actions">
