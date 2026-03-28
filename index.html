@@ -173,6 +173,29 @@
       justify-content: center;
     }
 
+    .hero-cta-trust {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+      margin-top: 14px;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-cta-trust span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-cta-trust strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
     .hero-how-it-works {
       width: 100%;
       max-width: 640px;
@@ -1348,7 +1371,7 @@
       <img src="./logo.png" alt="SideAction logo" style="height:40px;width:auto;object-fit:contain;" />
       <span>Side<span class="accent">Action</span></span>
     </a>
-    <a class="nav-cta" href="#hero-waitlist" data-cta-source="nav">Join Beta Waitlist</a>
+    <a class="nav-cta" href="#hero-waitlist" data-cta-source="nav">Get Beta Access</a>
   </nav>
 
   <section class="invite-page" id="invite-page">
@@ -1398,8 +1421,13 @@
       <div class="hero-fit-chip"><span>Works for</span> Punishments and challenge bets</div>
     </div>
     <div class="hero-actions">
-      <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
+      <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Get Beta Access</a>
       <a class="btn-secondary" href="#sample-receipt">See Example Receipt</a>
+    </div>
+    <div class="hero-cta-trust" aria-label="Fast signup reassurance">
+      <span>✓ <strong>10-second signup</strong></span>
+      <span>✓ No payment info</span>
+      <span>✓ Private beta invites in waves</span>
     </div>
     <div class="hero-how-it-works" aria-label="How SideAction works">
       <div class="hero-how-step">
@@ -1861,7 +1889,7 @@
       <strong>Still betting in group chats?</strong>
       <span>Jump to the beta waitlist. No payment info.</span>
     </div>
-    <span class="desktop-float-cta-badge">Join Waitlist</span>
+    <span class="desktop-float-cta-badge">Get Access</span>
   </a>
 
   <div class="mobile-sticky-cta" aria-label="Mobile waitlist shortcut">
@@ -1869,7 +1897,7 @@
       <strong>Still betting in group chats?</strong>
       <span>Lock your beta spot before the next invite wave fills.</span>
     </div>
-    <a href="#hero-waitlist" data-cta-source="mobile-sticky">Join Waitlist</a>
+    <a href="#hero-waitlist" data-cta-source="mobile-sticky">Get Access</a>
   </div>
 
   <iframe name="mailchimp-hidden-frame" title="Mailchimp subscription target" style="display:none;width:0;height:0;border:0;"></iframe>
