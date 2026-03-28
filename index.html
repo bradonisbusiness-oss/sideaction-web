@@ -581,6 +581,33 @@
       max-width: none;
     }
 
+    .hero-trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .hero-trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(77,159,255,0.2);
+      background: rgba(77,159,255,0.08);
+      font-size: 12px;
+      font-weight: 700;
+      color: #cfe4ff;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-trust-pill span {
+      color: var(--primary);
+      font-size: 13px;
+      line-height: 1;
+    }
+
     .hero-fit-selector {
       margin: 14px 0 0;
       text-align: left;
@@ -1870,6 +1897,11 @@
       <div class="hero-form-header">
         <strong>Join the beta now. Get first shot at the next invite wave for people already betting with friends.</strong>
         <p>If you already make sports bets, prop bets, punishment bets, or side deals in texts, DMs, or group chats, this is for you. We only need your email today. No app install. No payment info. When beta spots open, waitlist members get first access.</p>
+        <div class="hero-trust-strip" aria-label="Fast signup trust signals">
+          <div class="hero-trust-pill"><span>✓</span>No app install today</div>
+          <div class="hero-trust-pill"><span>✓</span>No payment info</div>
+          <div class="hero-trust-pill"><span>✓</span>Not a sportsbook</div>
+        </div>
         <div class="hero-fit-selector" aria-label="Pick the main kind of bet you want SideAction for">
           <span class="hero-fit-selector-label">Main bet type you want this for</span>
           <div class="hero-fit-selector-buttons">
