@@ -1374,7 +1374,7 @@
       <img src="./logo.png" alt="SideAction logo" style="height:40px;width:auto;object-fit:contain;" />
       <span>Side<span class="accent">Action</span></span>
     </a>
-    <a class="nav-cta" href="#hero-waitlist" data-cta-source="nav">Get First Invite</a>
+    <a class="nav-cta" href="#hero-waitlist" data-cta-source="nav">Join Beta Waitlist</a>
   </nav>
 
   <section class="invite-page" id="invite-page">
@@ -1390,7 +1390,7 @@
 
       <div class="invite-actions">
         <a class="btn-primary" id="open-app-btn" href="sideaction://invite/sideaction">Open in SideAction App</a>
-        <a class="btn-secondary" id="fallback-btn" href="#invite-waitlist">Get Early Access</a>
+        <a class="btn-secondary" id="fallback-btn" href="#invite-waitlist">Join Beta Waitlist</a>
       </div>
 
       <div class="invite-note">If the app is not installed yet, join the waitlist and keep this invite attached for the next beta wave.</div>
@@ -1424,7 +1424,7 @@
       <div class="hero-fit-chip"><span>Works for</span> Punishments and challenge bets</div>
     </div>
     <div class="hero-actions">
-      <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Get First Invite</a>
+      <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
       <a class="btn-secondary" href="#sample-receipt">See Example Receipt</a>
     </div>
     <div class="hero-cta-trust" aria-label="Fast signup reassurance">
@@ -1434,13 +1434,13 @@
     </div>
     <div class="hero-form-wrap" id="hero-waitlist" aria-label="Early access signup details">
       <div class="hero-form-header">
-        <strong>Get first access if you already make bets with friends in texts, DMs, or group chats.</strong>
+        <strong>Join the beta waitlist if you already make bets with friends in texts, DMs, or group chats.</strong>
         <p>Best for sports bets, prop bets, punishment bets, and side deals where both sides want one locked record before the loser changes the story after the game.</p>
       </div>
       <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
         <input type="email" name="EMAIL" required placeholder="Enter your email for the next invite wave" aria-label="Email address for beta waitlist">
         <input type="hidden" name="MMERGE6" value="hero">
-        <button type="submit">Get First Invite</button>
+        <button type="submit">Join Beta Waitlist</button>
         <div aria-hidden="true" style="position: absolute; left: -5000px;">
           <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
         </div>
@@ -1813,7 +1813,7 @@
 
   <!-- WAITLIST -->
   <section class="cta-section" id="waitlist">
-    <h2>Get first access before the next bet turns into a fight.</h2>
+    <h2>Join the beta waitlist before the next bet turns into a fight.</h2>
     <p>If you already make bets or side deals with friends, join the waitlist now. No payment info. No spam. Just early access to cleaner receipts and less chasing.</p>
     <div class="fit-check" aria-label="Who should join the waitlist">
       <div class="fit-check-item">
@@ -2031,7 +2031,7 @@
       document.getElementById("invite-copy").textContent = `${username} invited you to stop betting in messy text threads and lock one clear receipt before the arguing starts.`;
       document.getElementById("invite-handle").textContent = `@${username}`;
       document.getElementById("open-app-btn").setAttribute("href", `sideaction://invite/${username}`);
-      document.getElementById("fallback-btn").textContent = `No app yet? Join ${username}'s beta waitlist`;
+      document.getElementById("fallback-btn").textContent = `Join ${username}'s beta waitlist`;
       document.getElementById("fallback-btn").setAttribute("href", "#invite-waitlist");
 
       const inviteReferrerField = document.getElementById("invite-referrer-field");
