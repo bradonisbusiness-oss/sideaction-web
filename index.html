@@ -2042,29 +2042,29 @@
     <div class="sample-receipt" id="sample-receipt" aria-label="Example of a locked SideAction receipt">
       <div class="sample-receipt-top">
         <div class="sample-receipt-badge"><span>●</span> Example locked receipt</div>
-        <div class="sample-receipt-proof">This is the record both sides see before the bet starts.</div>
+        <div class="sample-receipt-proof" id="sample-receipt-proof">This is the record both sides see before the bet starts.</div>
       </div>
-      <h3>Chiefs -3.5 vs Bills for $100</h3>
-      <p class="sample-receipt-subtext">No vague texts. No “that’s not what I meant.” Terms, proof, and payout are all in one place before kickoff.</p>
+      <h3 id="sample-receipt-title">Chiefs -3.5 vs Bills for $100</h3>
+      <p class="sample-receipt-subtext" id="sample-receipt-subtext">No vague texts. No “that’s not what I meant.” Terms, proof, and payout are all in one place before kickoff.</p>
       <div class="sample-receipt-grid">
         <div class="sample-receipt-item">
-          <span>Who</span>
-          <strong>Bradon vs Jake</strong>
+          <span id="sample-receipt-label-1">Who</span>
+          <strong id="sample-receipt-value-1">Bradon vs Jake</strong>
         </div>
         <div class="sample-receipt-item">
-          <span>Stake</span>
-          <strong>$100 loser pays winner</strong>
+          <span id="sample-receipt-label-2">Stake</span>
+          <strong id="sample-receipt-value-2">$100 loser pays winner</strong>
         </div>
         <div class="sample-receipt-item">
-          <span>Terms</span>
-          <strong>Chiefs must win by 4+ points to cash.</strong>
+          <span id="sample-receipt-label-3">Terms</span>
+          <strong id="sample-receipt-value-3">Chiefs must win by 4+ points to cash.</strong>
         </div>
         <div class="sample-receipt-item">
-          <span>Deadline</span>
-          <strong>Locks at kickoff • settles after final score</strong>
+          <span id="sample-receipt-label-4">Deadline</span>
+          <strong id="sample-receipt-value-4">Locks at kickoff • settles after final score</strong>
         </div>
       </div>
-      <p class="sample-receipt-footnote">What SideAction gives you: one clean version of the deal, locked before the game, with the outcome recorded after.</p>
+      <p class="sample-receipt-footnote" id="sample-receipt-footnote">What SideAction gives you: one clean version of the deal, locked before the game, with the outcome recorded after.</p>
     </div>
   </section>
 
@@ -2464,6 +2464,22 @@
       const desktopFloatCtaCopy = document.getElementById('desktop-float-cta-copy');
       const mobileStickyCtaTitle = document.getElementById('mobile-sticky-cta-title');
       const mobileStickyCtaCopy = document.getElementById('mobile-sticky-cta-copy');
+      const sampleReceiptProof = document.getElementById('sample-receipt-proof');
+      const sampleReceiptTitle = document.getElementById('sample-receipt-title');
+      const sampleReceiptSubtext = document.getElementById('sample-receipt-subtext');
+      const sampleReceiptLabels = [
+        document.getElementById('sample-receipt-label-1'),
+        document.getElementById('sample-receipt-label-2'),
+        document.getElementById('sample-receipt-label-3'),
+        document.getElementById('sample-receipt-label-4')
+      ];
+      const sampleReceiptValues = [
+        document.getElementById('sample-receipt-value-1'),
+        document.getElementById('sample-receipt-value-2'),
+        document.getElementById('sample-receipt-value-3'),
+        document.getElementById('sample-receipt-value-4')
+      ];
+      const sampleReceiptFootnote = document.getElementById('sample-receipt-footnote');
       const ctaWaitlistEmailInput = document.getElementById("mce-EMAIL");
       const ctaWaitlistSourceField = document.getElementById("waitlist-source-field");
       const inviteWaitlistSourceField = document.getElementById("invite-referrer-field");
@@ -2487,6 +2503,18 @@
             { label: 'Receipts', copy: 'Both sides can see the line, stake, and deadline before kickoff.' },
             { label: 'No excuses', copy: 'After the final score, the loser cannot pretend the spread was different.' }
           ],
+          sampleReceipt: {
+            proof: 'This is the record both sides see before the sports bet starts.',
+            title: 'Chiefs -3.5 vs Bills for $100',
+            subtext: 'No vague texts. No “that’s not what I meant.” The line, payout, and proof rule are all locked before kickoff.',
+            items: [
+              { label: 'Who', value: 'Bradon vs Jake' },
+              { label: 'Stake', value: '$100 loser pays winner' },
+              { label: 'Terms', value: 'Chiefs must win by 4+ points to cash.' },
+              { label: 'Deadline', value: 'Locks at kickoff • settles after final score' }
+            ],
+            footnote: 'What SideAction gives you: one clean version of the sports bet, locked before the game, with the outcome recorded after.'
+          },
           quickFitTitle: 'You already make sports bets in group chats, texts, or DMs.',
           quickFitCopy: 'SideAction is built to lock the line, stake, and proof before the loser tries to rewrite the deal.',
           prequalifierGoodTitle: 'You already make sports bets with friends in texts, DMs, or group chats.',
@@ -2534,6 +2562,18 @@
             { label: 'Proof rule', copy: 'The exact player, stat, and cutoff are attached before tip-off.' },
             { label: 'No wording games', copy: 'Nobody gets to say they meant rebounds instead of points after the game.' }
           ],
+          sampleReceipt: {
+            proof: 'This is the record both sides see before the prop bet starts.',
+            title: 'Luka under 24.5 points for dinner on Monday',
+            subtext: 'The player, stat line, cutoff, and loser payout are all locked before tip-off so nobody can twist the wording later.',
+            items: [
+              { label: 'Who', value: 'Bradon vs Marcus' },
+              { label: 'Stake', value: 'Loser buys wings for the table' },
+              { label: 'Terms', value: 'Luka must stay under 25 points in regulation.' },
+              { label: 'Proof', value: 'NBA box score at final buzzer settles it.' }
+            ],
+            footnote: 'What SideAction gives you: one clean prop receipt with the trigger, proof, and payout locked before the game starts.'
+          },
           quickFitTitle: 'You already make prop bets or random side wagers in chats.',
           quickFitCopy: 'SideAction is built to lock the exact trigger, proof rule, and loser payout before anyone twists the wording.',
           prequalifierGoodTitle: 'You already make prop bets or side wagers that get fuzzy later.',
@@ -2581,6 +2621,18 @@
             { label: 'Deadline', copy: 'The rule, proof, and payoff date are locked before the challenge starts.' },
             { label: 'No memory battle', copy: 'Nobody gets to act confused about what the loser owed after the week ends.' }
           ],
+          sampleReceipt: {
+            proof: 'This is the record both sides see before the side deal starts.',
+            title: 'Miss 12 workouts this month and post the punishment video',
+            subtext: 'The challenge rule, proof deadline, and payoff are all locked before the month starts so the loser cannot stall later.',
+            items: [
+              { label: 'Who', value: 'Bradon vs Tyler' },
+              { label: 'Payoff', value: 'Loser posts the punishment video by Friday' },
+              { label: 'Terms', value: 'Hit 12 verified workouts before month end.' },
+              { label: 'Proof', value: 'Apple Watch screenshots uploaded by 11:59 PM' }
+            ],
+            footnote: 'What SideAction gives you: one clean side-deal receipt with the rule, proof, and payoff locked before anyone can change the story.'
+          },
           quickFitTitle: 'You already make side deals, punishments, or accountability bets in chats.',
           quickFitCopy: 'SideAction is built to lock the rule, deadline, proof, and payoff before anyone changes the story later.',
           prequalifierGoodTitle: 'You already make side deals, punishments, or accountability bets in chats.',
@@ -2783,6 +2835,24 @@
         if (desktopFloatCtaCopy) desktopFloatCtaCopy.textContent = fitCopy.stickyCopy || 'Join the beta waitlist. No payment info.';
         if (mobileStickyCtaTitle) mobileStickyCtaTitle.textContent = fitCopy.stickyTitle || 'Still betting in group chats?';
         if (mobileStickyCtaCopy) mobileStickyCtaCopy.textContent = fitCopy.stickyCopy || 'Lock your beta spot before the next invite wave fills.';
+
+        if (sampleReceiptProof) sampleReceiptProof.textContent = fitCopy.sampleReceipt?.proof || 'This is the record both sides see before the bet starts.';
+        if (sampleReceiptTitle) sampleReceiptTitle.textContent = fitCopy.sampleReceipt?.title || 'Chiefs -3.5 vs Bills for $100';
+        if (sampleReceiptSubtext) sampleReceiptSubtext.textContent = fitCopy.sampleReceipt?.subtext || 'No vague texts. No “that’s not what I meant.” Terms, proof, and payout are all in one place before kickoff.';
+
+        sampleReceiptLabels.forEach((label, index) => {
+          if (label && fitCopy.sampleReceipt?.items?.[index]?.label) {
+            label.textContent = fitCopy.sampleReceipt.items[index].label;
+          }
+        });
+
+        sampleReceiptValues.forEach((value, index) => {
+          if (value && fitCopy.sampleReceipt?.items?.[index]?.value) {
+            value.textContent = fitCopy.sampleReceipt.items[index].value;
+          }
+        });
+
+        if (sampleReceiptFootnote) sampleReceiptFootnote.textContent = fitCopy.sampleReceipt?.footnote || 'What SideAction gives you: one clean version of the deal, locked before the game, with the outcome recorded after.';
       };
 
       const getActiveFitSource = () => {
