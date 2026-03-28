@@ -1935,10 +1935,10 @@
       </div>
     </div>
     <div class="hero-actions">
-      <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
+      <a class="btn-primary" href="#hero-inline-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
       <a class="btn-secondary" href="#sample-receipt">See Locked Receipt</a>
     </div>
-    <div class="hero-inline-capture" aria-label="Fast beta signup">
+    <div class="hero-inline-capture" id="hero-inline-waitlist" aria-label="Fast beta signup">
       <div class="hero-inline-capture-copy">Already sold? Join the beta in 10 seconds before you scroll.</div>
       <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
         <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for fast beta signup" autocomplete="email" inputmode="email" spellcheck="false" enterkeyhint="go">
@@ -2520,9 +2520,12 @@
       const heroPrequalifierBadTitle = document.getElementById('hero-prequalifier-bad-title');
       const heroPrequalifierBadCopy = document.getElementById('hero-prequalifier-bad-copy');
       const heroWaitlistSection = document.getElementById("hero-waitlist");
+      const heroInlineWaitlistSection = document.getElementById("hero-inline-waitlist");
       const navCtaButton = document.querySelector('a.nav-cta[data-cta-source="nav"]');
       const heroPrimaryCtaButton = document.querySelector('a.btn-primary[data-cta-source="hero-primary"]');
+      const heroInlineWaitlistEmailInput = document.querySelector('#hero-inline-waitlist input[name="EMAIL"]');
       const heroWaitlistEmailInput = document.querySelector('#hero-waitlist input[name="EMAIL"]');
+      const heroInlineWaitlistSourceField = document.querySelector('#hero-inline-waitlist input[name="MMERGE6"]');
       const heroWaitlistSourceField = document.querySelector('#hero-waitlist input[name="MMERGE6"]');
       const heroFormHeaderTitle = document.querySelector('.hero-form-header strong');
       const heroFormHeaderCopy = document.querySelector('.hero-form-header p');
@@ -2984,10 +2987,21 @@
         cta.addEventListener("click", () => {
           const source = cta.getAttribute("data-cta-source") || "cta";
           const targetHref = cta.getAttribute("href") || "#hero-waitlist";
-          const useHeroWaitlist = targetHref === "#hero-waitlist";
-          const targetSection = useHeroWaitlist ? heroWaitlistSection : ctaWaitlistSection;
-          const targetInput = useHeroWaitlist ? heroWaitlistEmailInput : ctaWaitlistEmailInput;
-          const targetSourceField = useHeroWaitlist ? heroWaitlistSourceField : ctaWaitlistSourceField;
+
+          let targetSection = ctaWaitlistSection;
+          let targetInput = ctaWaitlistEmailInput;
+          let targetSourceField = ctaWaitlistSourceField;
+
+          if (targetHref === "#hero-inline-waitlist") {
+            targetSection = heroInlineWaitlistSection;
+            targetInput = heroInlineWaitlistEmailInput;
+            targetSourceField = heroInlineWaitlistSourceField;
+          } else if (targetHref === "#hero-waitlist") {
+            targetSection = heroWaitlistSection;
+            targetInput = heroWaitlistEmailInput;
+            targetSourceField = heroWaitlistSourceField;
+          }
+
           const activeFitSource = getActiveFitSource();
           const sourceWithFit = activeFitSource
             ? `${source}|fit:${activeFitSource}`
