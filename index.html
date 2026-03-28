@@ -3284,12 +3284,36 @@
           <div class="success-share">
             <p>Know 1 friend who makes the same kind of bets? Send them this link while the pain is still fresh.</p>
             <div class="success-share-actions">
+              <button type="button" class="js-native-share-link">Share with a friend</button>
               <button type="button" class="js-copy-share-link">Copy invite link</button>
               <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareCopy)}" target="_blank" rel="noreferrer">Share on X</a>
+              <a href="sms:?&body=${encodeURIComponent(shareCopy)}">Share by text</a>
             </div>
             <div class="success-share-note">Sharing helps us pull in the right beta testers faster.</div>
           </div>
         `;
+
+        const nativeShareButton = successMsg.querySelector('.js-native-share-link');
+        if (nativeShareButton) {
+          if (!navigator.share) {
+            nativeShareButton.style.display = 'none';
+          } else {
+            nativeShareButton.addEventListener('click', async () => {
+              try {
+                await navigator.share({
+                  title: 'SideAction beta waitlist',
+                  text: getShareCopyForFit(),
+                  url: shareUrl
+                });
+                nativeShareButton.textContent = 'Shared';
+              } catch (error) {
+                if (error?.name !== 'AbortError') {
+                  window.prompt('Share this invite link:', shareUrl);
+                }
+              }
+            });
+          }
+        }
 
         const copyButton = successMsg.querySelector('.js-copy-share-link');
         if (copyButton) {
