@@ -1162,6 +1162,37 @@
       color: #FF7A7A;
     }
 
+    .inline-qualifier-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .inline-qualifier-item {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(10,10,15,0.42);
+      border: 1px solid var(--border);
+    }
+
+    .inline-qualifier-item span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .inline-qualifier-item p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
     .waitlist-trust {
       list-style: none;
       margin-top: 16px;
@@ -1561,7 +1592,8 @@
       .hero-form-urgency,
       .hero-quick-filter,
       .hero-prequalifier,
-      .hero-example-bets {
+      .hero-example-bets,
+      .inline-qualifier-grid {
         grid-template-columns: 1fr;
         gap: 24px;
       }
@@ -1692,7 +1724,21 @@
         </div>
       </form>
       <p class="success-msg" aria-live="polite"></p>
-      <p style="margin:12px 0 0;font-size:12px;color:var(--text-tertiary);">No app install today. No sportsbook account. Just beta invites and product updates.</p>
+      <div class="inline-qualifier-grid" aria-label="Who gets priority beta access">
+        <div class="inline-qualifier-item">
+          <span>Best fit</span>
+          <p>You already make real bets or side deals with friends.</p>
+        </div>
+        <div class="inline-qualifier-item">
+          <span>Picked first</span>
+          <p>Invite waves prioritize active group-chat bettors over random signups.</p>
+        </div>
+        <div class="inline-qualifier-item">
+          <span>Not required</span>
+          <p>No app install today. No payment info. No sportsbook account.</p>
+        </div>
+      </div>
+      <p style="margin:12px 0 0;font-size:12px;color:var(--text-tertiary);">Just beta invites and low-volume product updates.</p>
     </div>
     <div class="hero-form-wrap" id="hero-waitlist" aria-label="Early access signup details">
       <div class="hero-form-header">
