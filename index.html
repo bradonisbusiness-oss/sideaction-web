@@ -2631,6 +2631,38 @@
           });
         });
       });
+
+      const shouldJumpToWaitlist = () => {
+        const joinSignal = (params.get('join') || '').toLowerCase();
+        const intentSignal = (params.get('intent') || '').toLowerCase();
+        const hashSignal = (window.location.hash || '').toLowerCase();
+
+        return ['1', 'true', 'waitlist', 'beta'].includes(joinSignal)
+          || ['waitlist', 'beta'].includes(intentSignal)
+          || ['#hero-waitlist', '#waitlist'].includes(hashSignal);
+      };
+
+      if (shouldJumpToWaitlist()) {
+        const activeFitSource = getActiveFitSource();
+        const sourceWithFit = activeFitSource
+          ? `campaign-join|fit:${activeFitSource}`
+          : 'campaign-join';
+
+        setWaitlistSource(heroWaitlistSourceField, sourceWithFit);
+
+        window.requestAnimationFrame(() => {
+          if (heroWaitlistSection) {
+            heroWaitlistSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+
+          window.setTimeout(() => {
+            if (heroWaitlistEmailInput) {
+              heroWaitlistEmailInput.focus({ preventScroll: true });
+              heroWaitlistEmailInput.select();
+            }
+          }, 350);
+        });
+      }
     })();
 
     (function () {

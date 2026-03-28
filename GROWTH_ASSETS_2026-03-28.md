@@ -279,33 +279,34 @@ Join the beta: sideactionapp.com
 Use these links so the landing page matches the traffic type instead of sending everyone to the same generic copy.
 
 ### Sports bet traffic
-- Base: https://sideactionapp.com/?fit=sports-bets&utm_source=x&utm_campaign=sports-bets
+- Base: https://sideactionapp.com/?fit=sports-bets&join=1&utm_source=x&utm_campaign=sports-bets
 - Best for: X Post 1, X Post 4, Carousel 1, Reel 1
 
 ### Prop bet traffic
-- Base: https://sideactionapp.com/?fit=prop-bets&utm_source=x&utm_campaign=prop-bets
+- Base: https://sideactionapp.com/?fit=prop-bets&join=1&utm_source=x&utm_campaign=prop-bets
 - Best for: X Post 3, Reel 3, any player-prop or same-game bet content
 
 ### Side deal / punishment traffic
-- Base: https://sideactionapp.com/?fit=side-deals&utm_source=instagram&utm_campaign=side-deals
+- Base: https://sideactionapp.com/?fit=side-deals&join=1&utm_source=instagram&utm_campaign=side-deals
 - Best for: Carousel 3, Hook 1, Hook 2, punishment or challenge content
 
 ## Quick mapping by asset
-- X Post 1 → https://sideactionapp.com/?fit=sports-bets&utm_source=x&utm_campaign=x-post-1
-- X Post 2 → https://sideactionapp.com/?fit=sports-bets&utm_source=x&utm_campaign=x-post-2
-- X Post 3 → https://sideactionapp.com/?fit=prop-bets&utm_source=x&utm_campaign=x-post-3
-- X Post 4 → https://sideactionapp.com/?fit=sports-bets&utm_source=x&utm_campaign=x-post-4
-- X Post 5 → https://sideactionapp.com/?fit=sports-bets&utm_source=x&utm_campaign=x-post-5
-- X Post 6 → https://sideactionapp.com/?fit=prop-bets&utm_source=x&utm_campaign=x-post-6
-- Carousel 1 → https://sideactionapp.com/?fit=sports-bets&utm_source=instagram&utm_campaign=carousel-1
-- Carousel 2 → https://sideactionapp.com/?fit=sports-bets&utm_source=instagram&utm_campaign=carousel-2
-- Carousel 3 → https://sideactionapp.com/?fit=side-deals&utm_source=instagram&utm_campaign=carousel-3
-- Reel 1 → https://sideactionapp.com/?fit=sports-bets&utm_source=instagram&utm_campaign=reel-1
-- Reel 2 → https://sideactionapp.com/?fit=sports-bets&utm_source=instagram&utm_campaign=reel-2
-- Reel 3 → https://sideactionapp.com/?fit=prop-bets&utm_source=instagram&utm_campaign=reel-3
+- X Post 1 → https://sideactionapp.com/?fit=sports-bets&join=1&utm_source=x&utm_campaign=x-post-1
+- X Post 2 → https://sideactionapp.com/?fit=sports-bets&join=1&utm_source=x&utm_campaign=x-post-2
+- X Post 3 → https://sideactionapp.com/?fit=prop-bets&join=1&utm_source=x&utm_campaign=x-post-3
+- X Post 4 → https://sideactionapp.com/?fit=sports-bets&join=1&utm_source=x&utm_campaign=x-post-4
+- X Post 5 → https://sideactionapp.com/?fit=sports-bets&join=1&utm_source=x&utm_campaign=x-post-5
+- X Post 6 → https://sideactionapp.com/?fit=prop-bets&join=1&utm_source=x&utm_campaign=x-post-6
+- Carousel 1 → https://sideactionapp.com/?fit=sports-bets&join=1&utm_source=instagram&utm_campaign=carousel-1
+- Carousel 2 → https://sideactionapp.com/?fit=sports-bets&join=1&utm_source=instagram&utm_campaign=carousel-2
+- Carousel 3 → https://sideactionapp.com/?fit=side-deals&join=1&utm_source=instagram&utm_campaign=carousel-3
+- Reel 1 → https://sideactionapp.com/?fit=sports-bets&join=1&utm_source=instagram&utm_campaign=reel-1
+- Reel 2 → https://sideactionapp.com/?fit=sports-bets&join=1&utm_source=instagram&utm_campaign=reel-2
+- Reel 3 → https://sideactionapp.com/?fit=prop-bets&join=1&utm_source=instagram&utm_campaign=reel-3
 
 ## Why this matters
 The page already swaps the hero waitlist copy based on `fit=`.
 That means we can send sports-bet traffic to sports-bet copy, prop traffic to prop-bet copy, and punishment traffic to side-deal copy without building new pages.
 
 That is the fastest way to tighten message match before spending time on more design work.
+
