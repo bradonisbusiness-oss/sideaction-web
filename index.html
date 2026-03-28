@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SideAction | Lock sports bets with friends before kickoff</title>
-  <meta name="description" content="Stop the \"that's not what we bet\" fight. SideAction locks the line, stake, proof, and payout before kickoff so friend bets settle with one clean receipt." />
+  <title>SideAction | Stop the "I thought it was +3.5" bet fight</title>
+  <meta name="description" content="SideAction locks the line, stake, proof, and payout before kickoff so nobody can say 'that's not what we bet' after the final score." />
   <link rel="canonical" href="https://sideactionapp.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sideactionapp.com/" />
@@ -178,6 +178,40 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
       margin-bottom: 18px;
+    }
+
+    .hero-pain-strip {
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .hero-pain-item {
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-pain-item span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #ff9b9b;
+      margin-bottom: 8px;
+    }
+
+    .hero-pain-item p {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      margin: 0;
     }
 
     .hero-audience-item {
@@ -1884,6 +1918,7 @@
       .hero-audience-bar,
       .hero-example-bets,
       .hero-promise-strip,
+      .hero-pain-strip,
       .inline-qualifier-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -1981,6 +2016,20 @@
       <div class="hero-audience-item bad">
         <span>Not for</span>
         <strong id="hero-prequalifier-bad-title">People looking for a sportsbook, wallet, or app that holds money.</strong>
+      </div>
+    </div>
+    <div class="hero-pain-strip" aria-label="What SideAction stops after the game ends">
+      <div class="hero-pain-item">
+        <span>Stops this</span>
+        <p>"Bro, I thought it was +3.5."</p>
+      </div>
+      <div class="hero-pain-item">
+        <span>Stops this</span>
+        <p>"That is not what we said in the chat."</p>
+      </div>
+      <div class="hero-pain-item">
+        <span>Stops this</span>
+        <p>"I will pay you later" turning into ghosting.</p>
       </div>
     </div>
     <div class="hero-actions">
