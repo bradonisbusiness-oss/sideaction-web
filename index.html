@@ -144,7 +144,71 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .hero-prequalifier {
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
       margin-bottom: 18px;
+    }
+
+    .hero-prequalifier-card {
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-prequalifier-card.good {
+      border-color: rgba(77,159,255,0.32);
+      background: rgba(77,159,255,0.08);
+    }
+
+    .hero-prequalifier-card.bad {
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .hero-prequalifier-card span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 72px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hero-prequalifier-card.good span {
+      color: #9fcdff;
+      background: rgba(77,159,255,0.18);
+    }
+
+    .hero-prequalifier-card.bad span {
+      color: var(--text-secondary);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-prequalifier-card strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .hero-prequalifier-card p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-secondary);
     }
 
     .hero-example-bets {
@@ -1496,6 +1560,7 @@
       .hero-form-points,
       .hero-form-urgency,
       .hero-quick-filter,
+      .hero-prequalifier,
       .hero-example-bets {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -1575,6 +1640,18 @@
       <div class="hero-fit-chip" id="hero-fit-chip-1"><span>Best for</span> Spreads, moneylines, and totals with friends</div>
       <div class="hero-fit-chip" id="hero-fit-chip-2"><span>Also for</span> Prop bets and same-game side wagers</div>
       <div class="hero-fit-chip" id="hero-fit-chip-3"><span>Still works for</span> Punishments and challenge bets</div>
+    </div>
+    <div class="hero-prequalifier" aria-label="Quick fit check for SideAction">
+      <div class="hero-prequalifier-card good">
+        <span>Best fit</span>
+        <strong id="hero-prequalifier-good-title">You already make bets with friends in texts, DMs, or group chats.</strong>
+        <p id="hero-prequalifier-good-copy">If the pain is messy wording, payout excuses, or digging through old messages for proof, this is built for you.</p>
+      </div>
+      <div class="hero-prequalifier-card bad">
+        <span>Not for</span>
+        <strong id="hero-prequalifier-bad-title">You want a sportsbook, wallet, or app that holds money.</strong>
+        <p id="hero-prequalifier-bad-copy">SideAction only locks the receipt, proof, and pay-up record. No deposits. No odds. No money custody.</p>
+      </div>
     </div>
     <div class="hero-actions">
       <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
@@ -2144,6 +2221,10 @@
       ];
       const heroQuickFitTitle = document.getElementById('hero-quick-fit-title');
       const heroQuickFitCopy = document.getElementById('hero-quick-fit-copy');
+      const heroPrequalifierGoodTitle = document.getElementById('hero-prequalifier-good-title');
+      const heroPrequalifierGoodCopy = document.getElementById('hero-prequalifier-good-copy');
+      const heroPrequalifierBadTitle = document.getElementById('hero-prequalifier-bad-title');
+      const heroPrequalifierBadCopy = document.getElementById('hero-prequalifier-bad-copy');
       const heroWaitlistSection = document.getElementById("hero-waitlist");
       const heroWaitlistEmailInput = document.querySelector('#hero-waitlist input[name="EMAIL"]');
       const heroWaitlistSourceField = document.querySelector('#hero-waitlist input[name="MMERGE6"]');
@@ -2204,6 +2285,10 @@
           ],
           quickFitTitle: 'You already make sports bets in group chats, texts, or DMs.',
           quickFitCopy: 'SideAction is built to lock the line, stake, and proof before the loser tries to rewrite the deal.',
+          prequalifierGoodTitle: 'You already make sports bets with friends in texts, DMs, or group chats.',
+          prequalifierGoodCopy: 'If the pain is spread fights, payout excuses, or digging through old texts after the game, this is built for you.',
+          prequalifierBadTitle: 'You want a sportsbook, wallet, or app that holds money.',
+          prequalifierBadCopy: 'SideAction only locks the receipt, proof, and pay-up record. No deposits. No odds. No money custody.',
           title: 'Get beta access before your next game bet turns into a “that is not what we said” mess.',
           body: 'Join if you already make game bets with friends in texts, DMs, or group chats. We only need your email today. No app install. No payment info. Then we invite real sports bettors first.',
           button: 'Get Sports Bet Access',
@@ -2246,6 +2331,10 @@
           ],
           quickFitTitle: 'You already make prop bets or random side wagers in chats.',
           quickFitCopy: 'SideAction is built to lock the exact trigger, proof rule, and loser payout before anyone twists the wording.',
+          prequalifierGoodTitle: 'You already make prop bets or side wagers that get fuzzy later.',
+          prequalifierGoodCopy: 'If the pain is people changing the stat, player, or wording after the game, this is built for you.',
+          prequalifierBadTitle: 'You want live odds, deposits, or a sportsbook account.',
+          prequalifierBadCopy: 'SideAction only locks the prop receipt and payout record between friends. No odds board. No wallet. No money custody.',
           title: 'Get beta access before your next prop bet turns into a “you know what I meant” argument.',
           body: 'Join if you already make player props, challenge bets, and funny side wagers with friends. We only need your email today. No app install. No payment info. Then we invite active prop bettors first.',
           button: 'Get Prop Bet Access',
@@ -2288,6 +2377,10 @@
           ],
           quickFitTitle: 'You already make side deals, punishments, or accountability bets in chats.',
           quickFitCopy: 'SideAction is built to lock the rule, deadline, proof, and payoff before anyone changes the story later.',
+          prequalifierGoodTitle: 'You already make side deals, punishments, or accountability bets in chats.',
+          prequalifierGoodCopy: 'If the pain is deadline fights, proof confusion, or the loser acting like the deal changed later, this is built for you.',
+          prequalifierBadTitle: 'You want a sportsbook or payment app.',
+          prequalifierBadCopy: 'SideAction only locks the terms, proof, and payoff record. No wallet. No deposits. No money custody.',
           title: 'Get beta access before your next side deal or punishment bet turns into a memory battle.',
           body: 'Join if you already make challenge bets, punishments, and side deals with friends or coworkers. We only need your email today. No app install. No payment info. Then we invite active side-deal users first.',
           button: 'Get Side Deal Access',
@@ -2407,6 +2500,10 @@
 
         if (heroQuickFitTitle) heroQuickFitTitle.textContent = fitCopy.quickFitTitle || 'You already make bets in group chats, texts, or DMs.';
         if (heroQuickFitCopy) heroQuickFitCopy.textContent = fitCopy.quickFitCopy || 'SideAction is built to lock the terms, stake, and proof before the loser tries to rewrite the deal.';
+        if (heroPrequalifierGoodTitle) heroPrequalifierGoodTitle.textContent = fitCopy.prequalifierGoodTitle || 'You already make bets with friends in texts, DMs, or group chats.';
+        if (heroPrequalifierGoodCopy) heroPrequalifierGoodCopy.textContent = fitCopy.prequalifierGoodCopy || 'If the pain is messy wording, payout excuses, or digging through old messages for proof, this is built for you.';
+        if (heroPrequalifierBadTitle) heroPrequalifierBadTitle.textContent = fitCopy.prequalifierBadTitle || 'You want a sportsbook, wallet, or app that holds money.';
+        if (heroPrequalifierBadCopy) heroPrequalifierBadCopy.textContent = fitCopy.prequalifierBadCopy || 'SideAction only locks the receipt, proof, and pay-up record. No deposits. No odds. No money custody.';
 
         if (heroFormHeaderTitle) heroFormHeaderTitle.textContent = fitCopy.title;
         if (heroFormHeaderCopy) heroFormHeaderCopy.textContent = fitCopy.body;
