@@ -1994,37 +1994,37 @@
 
   <!-- WAITLIST -->
   <section class="cta-section" id="waitlist">
-    <h2>Get early access before the next bet turns into a fight.</h2>
-    <p>If you already make bets or side deals with friends, join now. No payment info. No spam. Just early access to cleaner receipts, fewer excuses, and less chasing.</p>
+    <h2 id="cta-title">Get early access before the next bet turns into a fight.</h2>
+    <p id="cta-copy">If you already make bets or side deals with friends, join now. No payment info. No spam. Just early access to cleaner receipts, fewer excuses, and less chasing.</p>
     <div class="fit-check" aria-label="Who should join the waitlist">
       <div class="fit-check-item">
-        <span>Best fit</span>
-        <p>You already make sports bets, prop bets, or side deals with friends.</p>
+        <span id="cta-fit-label-1">Best fit</span>
+        <p id="cta-fit-copy-1">You already make sports bets, prop bets, or side deals with friends.</p>
       </div>
       <div class="fit-check-item">
-        <span>Main win</span>
-        <p>You want receipts when someone says the bet was never worded like that.</p>
+        <span id="cta-fit-label-2">Main win</span>
+        <p id="cta-fit-copy-2">You want receipts when someone says the bet was never worded like that.</p>
       </div>
       <div class="fit-check-item">
-        <span>Beta ask</span>
-        <p>You are open to testing early, giving feedback, and helping shape the app.</p>
+        <span id="cta-fit-label-3">Beta ask</span>
+        <p id="cta-fit-copy-3">You are open to testing early, giving feedback, and helping shape the app.</p>
       </div>
     </div>
     <div class="invite-flow" aria-label="How private beta invites work">
       <div class="invite-flow-step">
         <span>1</span>
-        <h3>Join the waitlist</h3>
-        <p>Drop your email. That is it. No app install and no payment info today.</p>
+        <h3 id="cta-step-title-1">Join the waitlist</h3>
+        <p id="cta-step-copy-1">Drop your email. That is it. No app install and no payment info today.</p>
       </div>
       <div class="invite-flow-step">
         <span>2</span>
-        <h3>We review fit</h3>
-        <p>Early spots go to people already making bets, props, or side deals with friends.</p>
+        <h3 id="cta-step-title-2">We review fit</h3>
+        <p id="cta-step-copy-2">Early spots go to people already making bets, props, or side deals with friends.</p>
       </div>
       <div class="invite-flow-step">
         <span>3</span>
-        <h3>Get your invite</h3>
-        <p>When the next beta wave opens, waitlist members get the next private invites first.</p>
+        <h3 id="cta-step-title-3">Get your invite</h3>
+        <p id="cta-step-copy-3">When the next beta wave opens, waitlist members get the next private invites first.</p>
       </div>
     </div>
     <div id="mc_embed_shell" style="max-width: 440px; margin: 0 auto;">
@@ -2074,16 +2074,16 @@
 
   <a class="desktop-float-cta" href="#hero-waitlist" data-cta-source="desktop-float" aria-label="Desktop waitlist shortcut">
     <div class="desktop-float-cta-copy">
-      <strong>Still betting in group chats?</strong>
-      <span>Join the beta waitlist. No payment info.</span>
+      <strong id="desktop-float-cta-title">Still betting in group chats?</strong>
+      <span id="desktop-float-cta-copy">Join the beta waitlist. No payment info.</span>
     </div>
     <span class="desktop-float-cta-badge">Get Access</span>
   </a>
 
   <div class="mobile-sticky-cta" aria-label="Mobile waitlist shortcut">
     <div class="mobile-sticky-cta-copy">
-      <strong>Still betting in group chats?</strong>
-      <span>Lock your beta spot before the next invite wave fills.</span>
+      <strong id="mobile-sticky-cta-title">Still betting in group chats?</strong>
+      <span id="mobile-sticky-cta-copy">Lock your beta spot before the next invite wave fills.</span>
     </div>
     <a href="#hero-waitlist" data-cta-source="mobile-sticky">Join Waitlist</a>
   </div>
@@ -2107,6 +2107,32 @@
       const heroFormSubmitButton = document.querySelector('#hero-waitlist button[type="submit"]');
       const heroFormPoints = document.querySelectorAll('.hero-form-points li div');
       const ctaWaitlistSection = document.getElementById("waitlist");
+      const ctaTitle = document.getElementById('cta-title');
+      const ctaCopy = document.getElementById('cta-copy');
+      const ctaFitLabels = [
+        document.getElementById('cta-fit-label-1'),
+        document.getElementById('cta-fit-label-2'),
+        document.getElementById('cta-fit-label-3')
+      ];
+      const ctaFitCopies = [
+        document.getElementById('cta-fit-copy-1'),
+        document.getElementById('cta-fit-copy-2'),
+        document.getElementById('cta-fit-copy-3')
+      ];
+      const ctaStepTitles = [
+        document.getElementById('cta-step-title-1'),
+        document.getElementById('cta-step-title-2'),
+        document.getElementById('cta-step-title-3')
+      ];
+      const ctaStepCopies = [
+        document.getElementById('cta-step-copy-1'),
+        document.getElementById('cta-step-copy-2'),
+        document.getElementById('cta-step-copy-3')
+      ];
+      const desktopFloatCtaTitle = document.getElementById('desktop-float-cta-title');
+      const desktopFloatCtaCopy = document.getElementById('desktop-float-cta-copy');
+      const mobileStickyCtaTitle = document.getElementById('mobile-sticky-cta-title');
+      const mobileStickyCtaCopy = document.getElementById('mobile-sticky-cta-copy');
       const ctaWaitlistEmailInput = document.getElementById("mce-EMAIL");
       const ctaWaitlistSourceField = document.getElementById("waitlist-source-field");
       const inviteWaitlistSourceField = document.getElementById("invite-referrer-field");
@@ -2124,7 +2150,22 @@
             'You already bet spreads, moneylines, parlays, or totals with friends in group chats or texts.',
             'You want the stake, proof, and pay-up deadline locked before kickoff so nobody rewrites the deal later.',
             'You do not need a sportsbook or wallet. SideAction tracks the receipt, not the money.'
-          ]
+          ],
+          ctaTitle: 'Get early sports bet access before the next payout argument starts.',
+          ctaCopy: 'If you already make game bets with friends, join now. No payment info. No sportsbook account. Just early access to cleaner receipts and fewer pay-up fights.',
+          ctaFitLabels: ['Best fit', 'Main win', 'Beta ask'],
+          ctaFitPoints: [
+            'You already make spreads, moneylines, totals, or parlays with friends.',
+            'You want the line, stake, proof, and pay-up deadline locked before kickoff.',
+            'You are open to testing sports bet receipts early and giving feedback.'
+          ],
+          ctaSteps: [
+            { title: 'Join the waitlist', copy: 'Drop your email. No app install and no payment info today.' },
+            { title: 'We prioritize real bettors', copy: 'Early spots go first to people already making sports bets with friends.' },
+            { title: 'Get your invite', copy: 'When the next beta wave opens, you get first shot at private access.' }
+          ],
+          stickyTitle: 'Still making sports bets in group chats?',
+          stickyCopy: 'Join the beta waitlist. No payment info.'
         },
         'prop-bets': {
           title: 'Get beta access before your next prop bet turns into a “you know what I meant” argument.',
@@ -2135,7 +2176,22 @@
             'You already make player props, same-game side bets, or random bets in DMs and group chats.',
             'You want the exact trigger, proof, and loser payout locked before anyone can twist the wording later.',
             'You do not need a sportsbook or wallet. SideAction tracks the receipt, not the money.'
-          ]
+          ],
+          ctaTitle: 'Get early prop bet access before the wording fight starts.',
+          ctaCopy: 'If you already make player props and side wagers with friends, join now. No payment info. Just early access to cleaner receipts for bets that usually get fuzzy later.',
+          ctaFitLabels: ['Best fit', 'Main win', 'Beta ask'],
+          ctaFitPoints: [
+            'You already make player props, same-game bets, or random side wagers with friends.',
+            'You want the exact trigger, proof rule, and loser payout locked before the moment starts.',
+            'You are open to testing prop bet receipts early and giving feedback.'
+          ],
+          ctaSteps: [
+            { title: 'Join the waitlist', copy: 'Drop your email. No app install and no payment info today.' },
+            { title: 'We prioritize active prop bettors', copy: 'Early spots go first to people already making player props and side wagers in chats.' },
+            { title: 'Get your invite', copy: 'When the next beta wave opens, you get first shot at private access.' }
+          ],
+          stickyTitle: 'Still making prop bets in DMs?',
+          stickyCopy: 'Lock your beta spot before the next wording fight.'
         },
         'side-deals': {
           title: 'Get beta access before your next side deal or punishment bet turns into a memory battle.',
@@ -2146,7 +2202,22 @@
             'You already make gym challenges, sales contests, punishments, or side deals in chats and texts.',
             'You want the rules, deadline, proof, and payoff locked before anyone starts changing the story later.',
             'You do not need a sportsbook or wallet. SideAction tracks the receipt, not the money.'
-          ]
+          ],
+          ctaTitle: 'Get early access before your next side deal turns into “that was not the deal.”',
+          ctaCopy: 'If you already make punishments, challenges, or side deals with friends or coworkers, join now. No wallet. No payment info. Just cleaner receipts and fewer memory battles.',
+          ctaFitLabels: ['Best fit', 'Main win', 'Beta ask'],
+          ctaFitPoints: [
+            'You already make gym challenges, punishments, sales contests, or side deals in chats.',
+            'You want the rule, deadline, proof, and payoff locked before anyone rewrites it later.',
+            'You are open to testing early and helping shape non-sports use cases.'
+          ],
+          ctaSteps: [
+            { title: 'Join the waitlist', copy: 'Drop your email. No app install and no payment info today.' },
+            { title: 'We prioritize active challengers', copy: 'Early spots go first to people already making side deals, challenges, and punishment bets.' },
+            { title: 'Get your invite', copy: 'When the next beta wave opens, you get first shot at private access.' }
+          ],
+          stickyTitle: 'Still making side deals in text threads?',
+          stickyCopy: 'Lock your beta spot before the next excuse starts.'
         }
       };
 
@@ -2184,6 +2255,38 @@
             point.innerHTML = fitCopy.points[index];
           }
         });
+
+        if (ctaTitle) ctaTitle.textContent = fitCopy.ctaTitle || 'Get early access before the next bet turns into a fight.';
+        if (ctaCopy) ctaCopy.textContent = fitCopy.ctaCopy || 'If you already make bets or side deals with friends, join now. No payment info. No spam. Just early access to cleaner receipts, fewer excuses, and less chasing.';
+
+        ctaFitLabels.forEach((label, index) => {
+          if (label && fitCopy.ctaFitLabels?.[index]) {
+            label.textContent = fitCopy.ctaFitLabels[index];
+          }
+        });
+
+        ctaFitCopies.forEach((copy, index) => {
+          if (copy && fitCopy.ctaFitPoints?.[index]) {
+            copy.textContent = fitCopy.ctaFitPoints[index];
+          }
+        });
+
+        ctaStepTitles.forEach((title, index) => {
+          if (title && fitCopy.ctaSteps?.[index]?.title) {
+            title.textContent = fitCopy.ctaSteps[index].title;
+          }
+        });
+
+        ctaStepCopies.forEach((copy, index) => {
+          if (copy && fitCopy.ctaSteps?.[index]?.copy) {
+            copy.textContent = fitCopy.ctaSteps[index].copy;
+          }
+        });
+
+        if (desktopFloatCtaTitle) desktopFloatCtaTitle.textContent = fitCopy.stickyTitle || 'Still betting in group chats?';
+        if (desktopFloatCtaCopy) desktopFloatCtaCopy.textContent = fitCopy.stickyCopy || 'Join the beta waitlist. No payment info.';
+        if (mobileStickyCtaTitle) mobileStickyCtaTitle.textContent = fitCopy.stickyTitle || 'Still betting in group chats?';
+        if (mobileStickyCtaCopy) mobileStickyCtaCopy.textContent = fitCopy.stickyCopy || 'Lock your beta spot before the next invite wave fills.';
       };
 
       const getActiveFitSource = () => {
