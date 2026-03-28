@@ -453,6 +453,45 @@
       margin-top: 10px;
     }
 
+    .hero-form-locks {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+      text-align: left;
+    }
+
+    .hero-form-locks li {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(10,10,15,0.42);
+      border: 1px solid var(--border);
+    }
+
+    .hero-form-locks span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-form-locks strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .hero-form-locks p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
     .hero-form-points {
       list-style: none;
       display: grid;
@@ -1453,6 +1492,7 @@
       .comparison-grid,
       .invite-flow,
       .sample-receipt-grid,
+      .hero-form-locks,
       .hero-form-points,
       .hero-form-urgency,
       .hero-quick-filter,
@@ -1559,6 +1599,28 @@
           <p class="hero-fit-selector-note">Pick one. We tag your signup source so we can see which use case pulls the strongest beta demand.</p>
         </div>
       </div>
+      <ul class="hero-form-locks" aria-label="What gets locked before the bet starts">
+        <li>
+          <span>Lock 1</span>
+          <strong>The line or challenge</strong>
+          <p>No more "I thought it was +3.5" after the game ends.</p>
+        </li>
+        <li>
+          <span>Lock 2</span>
+          <strong>The stake</strong>
+          <p>Both sides see the same amount, punishment, or side deal up front.</p>
+        </li>
+        <li>
+          <span>Lock 3</span>
+          <strong>The proof rule</strong>
+          <p>Stats, screenshots, deadlines, and receipts stay attached to the bet.</p>
+        </li>
+        <li>
+          <span>Lock 4</span>
+          <strong>The loser payout</strong>
+          <p>Who owes what is clear before kickoff instead of argued after.</p>
+        </li>
+      </ul>
       <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
         <input type="email" name="EMAIL" required placeholder="Enter your email for early access" aria-label="Email address for beta waitlist">
         <input type="hidden" name="MMERGE6" value="hero">
