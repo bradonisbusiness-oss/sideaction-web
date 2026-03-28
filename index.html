@@ -142,6 +142,64 @@
       margin-top: 18px;
     }
 
+    .hero-form-wrap {
+      width: 100%;
+      max-width: 640px;
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(77,159,255,0.18);
+      background: linear-gradient(180deg, rgba(77,159,255,0.08), rgba(255,255,255,0.02));
+    }
+
+    .hero-form-header {
+      text-align: left;
+      margin-bottom: 14px;
+    }
+
+    .hero-form-header strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .hero-form-header p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+      max-width: none;
+    }
+
+    .hero-form-points {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+      text-align: left;
+    }
+
+    .hero-form-points li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(10,10,15,0.42);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .hero-form-points span {
+      color: var(--primary);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
     .hero-proof-item {
       display: inline-flex;
       align-items: center;
@@ -1047,7 +1105,8 @@
       .hero-qualifier-grid,
       .comparison-grid,
       .invite-flow,
-      .sample-receipt-grid {
+      .sample-receipt-grid,
+      .hero-form-points {
         grid-template-columns: 1fr;
         gap: 24px;
       }
@@ -1118,14 +1177,24 @@
       <a class="btn-primary" href="#waitlist">Get Beta Access</a>
       <a class="btn-secondary" href="#mockups">See Example Screens</a>
     </div>
-    <form class="waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="_blank" novalidate style="margin-top: 18px;">
-      <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for beta waitlist">
-      <button type="submit">Get Beta Access</button>
-      <div aria-hidden="true" style="position: absolute; left: -5000px;">
-        <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
+    <div class="hero-form-wrap" aria-label="Early access signup details">
+      <div class="hero-form-header">
+        <strong>Get in before the next invite wave fills.</strong>
+        <p>Best for people already making sports bets, prop bets, or side deals with friends and want cleaner receipts when it is time to settle up.</p>
       </div>
-    </form>
-    <p style="font-size: 13px; color: var(--text-tertiary); margin-top: 12px; margin-bottom: 0;">No payment info. No spam. Private beta invites only.</p>
+      <form class="waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="_blank" novalidate>
+        <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for beta waitlist">
+        <button type="submit">Get Beta Access</button>
+        <div aria-hidden="true" style="position: absolute; left: -5000px;">
+          <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
+        </div>
+      </form>
+      <ul class="hero-form-points" aria-label="Why join the beta waitlist now">
+        <li><span>✓</span><div>Private beta spots go out in waves, and waitlist members get first shot.</div></li>
+        <li><span>✓</span><div>No payment info, no sportsbook account, and no money held by SideAction.</div></li>
+        <li><span>✓</span><div>You get early access and a direct line to shape the product before public launch.</div></li>
+      </ul>
+    </div>
     <div class="hero-proof" aria-label="SideAction value points">
       <div class="hero-proof-item"><span>✓</span> Lock terms before anyone forgets</div>
       <div class="hero-proof-item"><span>✓</span> Track bets, owes, punishments, and payouts</div>
