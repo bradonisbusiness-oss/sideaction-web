@@ -321,6 +321,32 @@
       font-weight: 800;
     }
 
+    .hero-segment-picker {
+      width: 100%;
+      max-width: 640px;
+      margin-bottom: 20px;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(77,159,255,0.16);
+      background: rgba(255,255,255,0.03);
+      text-align: left;
+    }
+
+    .hero-segment-picker strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .hero-segment-picker p {
+      margin: 10px 0 0;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-tertiary);
+      max-width: none;
+    }
+
     .hero-actions {
       display: flex;
       gap: 14px;
@@ -1702,6 +1728,15 @@
         <span id="hero-example-label-4">Punishment</span>
         <p id="hero-example-copy-4">Lose the bet, wear the jersey to work Monday. Deadline and proof stay locked before anyone backs out.</p>
       </div>
+    </div>
+    <div class="hero-segment-picker" aria-label="Pick the main SideAction use case you care about most">
+      <strong>Pick the bet type you care about most. The page rewrites around it.</strong>
+      <div class="hero-fit-selector-buttons">
+        <button type="button" data-fit-source="sports-bets">Sports bets</button>
+        <button type="button" data-fit-source="prop-bets">Prop bets</button>
+        <button type="button" data-fit-source="side-deals">Side deals / punishments</button>
+      </div>
+      <p>Fast way to see if SideAction fits what you already do in chats and texts.</p>
     </div>
     <div class="hero-actions">
       <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
