@@ -377,6 +377,93 @@
       font-weight: 700;
     }
 
+    .hero-mini-receipt {
+      width: 100%;
+      max-width: 640px;
+      margin: 18px 0 8px;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(77,159,255,0.24);
+      background: linear-gradient(180deg, rgba(77,159,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+      text-align: left;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+    }
+
+    .hero-mini-receipt-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-mini-receipt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .hero-mini-receipt-badge span {
+      color: var(--success);
+      font-size: 13px;
+    }
+
+    .hero-mini-receipt-note {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .hero-mini-receipt-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero-mini-receipt-copy {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+      max-width: none;
+    }
+
+    .hero-mini-receipt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .hero-mini-receipt-item {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(10,10,15,0.5);
+      border: 1px solid var(--border);
+    }
+
+    .hero-mini-receipt-item span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-mini-receipt-item strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--text);
+    }
+
     .hero-how-it-works {
       width: 100%;
       max-width: 640px;
@@ -1613,6 +1700,7 @@
       .comparison-grid,
       .invite-flow,
       .sample-receipt-grid,
+      .hero-mini-receipt-grid,
       .hero-form-locks,
       .hero-form-points,
       .hero-form-urgency,
@@ -1751,6 +1839,32 @@
       <span>&#10003; <strong>10-second signup</strong></span>
       <span>&#10003; No payment info</span>
       <span>&#10003; Private beta invites go out in waves</span>
+    </div>
+    <div class="hero-mini-receipt" aria-label="Example of what gets locked before the bet starts">
+      <div class="hero-mini-receipt-top">
+        <div class="hero-mini-receipt-badge"><span>●</span> What the locked receipt shows</div>
+        <div class="hero-mini-receipt-note">This is the part people stop arguing with later.</div>
+      </div>
+      <div class="hero-mini-receipt-title">Chiefs -3.5 vs Bills for $100</div>
+      <p class="hero-mini-receipt-copy">Before kickoff, both sides can see the same terms, payout, and proof rule in one place instead of trusting screenshots and memory.</p>
+      <div class="hero-mini-receipt-grid">
+        <div class="hero-mini-receipt-item">
+          <span>Who</span>
+          <strong>Bradon vs Jake</strong>
+        </div>
+        <div class="hero-mini-receipt-item">
+          <span>Stake</span>
+          <strong>$100 loser pays winner</strong>
+        </div>
+        <div class="hero-mini-receipt-item">
+          <span>Terms</span>
+          <strong>Chiefs must win by 4+ points to cash</strong>
+        </div>
+        <div class="hero-mini-receipt-item">
+          <span>Proof rule</span>
+          <strong>Final score screenshot settles it after the game</strong>
+        </div>
+      </div>
     </div>
     <div style="width:100%;max-width:640px;margin:18px 0 26px;padding:18px;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,0.03);text-align:left;">
       <div style="font-size:14px;font-weight:700;margin-bottom:8px;color:var(--text);">Lock your spot before your next bet turns into an argument</div>
