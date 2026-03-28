@@ -2380,14 +2380,41 @@
 
       const buildTrackingValue = (baseSource) => {
         const parts = [baseSource || "direct"];
-        const ref = params.get("ref");
-        const utmSource = params.get("utm_source");
-        const utmCampaign = params.get("utm_campaign");
+        const search = new URLSearchParams(window.location.search);
         const path = (window.location.pathname || "/").replace(/^\/+/, "") || "home";
+        const inviteMatch = path.match(/^invite\/([^/?#]+)/i);
+        const trackingEntries = [
+          ["ref", search.get("ref")],
+          ["utm", search.get("utm_source")],
+          ["medium", search.get("utm_medium")],
+          ["camp", search.get("utm_campaign")],
+          ["content", search.get("utm_content")],
+          ["term", search.get("utm_term")],
+          ["src", search.get("src")]
+        ];
 
-        if (ref) parts.push(`ref:${ref}`);
-        if (utmSource) parts.push(`utm:${utmSource}`);
-        if (utmCampaign) parts.push(`camp:${utmCampaign}`);
+        trackingEntries.forEach(([label, value]) => {
+          if (value) parts.push(`${label}:${value}`);
+        });
+
+        if (inviteMatch?.[1]) {
+          parts.push(`invite:${decodeURIComponent(inviteMatch[1]).replace(/^@/, "")}`);
+        }
+
+        const referrerHost = document.referrer
+          ? (() => {
+              try {
+                return new URL(document.referrer).hostname.replace(/^www\./, "");
+              } catch (error) {
+                return "";
+              }
+            })()
+          : "";
+
+        if (referrerHost) {
+          parts.push(`from:${referrerHost}`);
+        }
+
         parts.push(`path:${path}`);
 
         return parts.join(" |");
@@ -2811,17 +2838,38 @@
       const inviteSubmitBtn = document.getElementById("invite-submit-btn");
 
       if (inviteReferrerField) {
-        const params = new URLSearchParams(window.location.search);
-        const trackingParts = [`invite:${username}`];
-        const ref = params.get("ref");
-        const utmSource = params.get("utm_source");
-        const utmCampaign = params.get("utm_campaign");
+        const inviteParams = new URLSearchParams(window.location.search);
+        const inviteTrackingParts = [`invite:${username}`];
+        const inviteTrackingEntries = [
+          ["ref", inviteParams.get("ref")],
+          ["utm", inviteParams.get("utm_source")],
+          ["medium", inviteParams.get("utm_medium")],
+          ["camp", inviteParams.get("utm_campaign")],
+          ["content", inviteParams.get("utm_content")],
+          ["term", inviteParams.get("utm_term")],
+          ["src", inviteParams.get("src")]
+        ];
 
-        if (ref) trackingParts.push(`ref:${ref}`);
-        if (utmSource) trackingParts.push(`utm:${utmSource}`);
-        if (utmCampaign) trackingParts.push(`camp:${utmCampaign}`);
+        inviteTrackingEntries.forEach(([label, value]) => {
+          if (value) inviteTrackingParts.push(`${label}:${value}`);
+        });
 
-        inviteReferrerField.value = trackingParts.join(" |");
+        const inviteReferrerHost = document.referrer
+          ? (() => {
+              try {
+                return new URL(document.referrer).hostname.replace(/^www\./, "");
+              } catch (error) {
+                return "";
+              }
+            })()
+          : "";
+
+        if (inviteReferrerHost) {
+          inviteTrackingParts.push(`from:${inviteReferrerHost}`);
+        }
+
+        inviteTrackingParts.push(`path:invite/${username}`);
+        inviteReferrerField.value = inviteTrackingParts.join(" |");
       }
 
       if (inviteWaitlistCopy) {
