@@ -3177,6 +3177,10 @@
       let submitFallbackTimer = null;
 
       const normalizeEmail = (value) => (value || '').trim().toLowerCase();
+      const getActiveFitSource = () => {
+        const activeButton = document.querySelector('[data-fit-source].active');
+        return activeButton?.getAttribute('data-fit-source') || '';
+      };
 
       const getShareCopyForFit = () => {
         const fitSource = getActiveFitSource();
