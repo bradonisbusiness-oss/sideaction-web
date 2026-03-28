@@ -515,6 +515,38 @@
       margin: 0;
     }
 
+    .faq {
+      max-width: 900px;
+      margin: 32px auto 0;
+      text-align: left;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .faq-item h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .faq-item p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
     /* Mailchimp Form Styles */
     #mc_embed_signup { background: transparent !important; clear: none !important; }
     #mc_embed_signup .mc-field-group { margin-bottom: 0 !important; }
@@ -1046,6 +1078,24 @@
             <li><span>✓</span><span>Built for real friend bets</span></li>
           </ul>
         </form>
+      </div>
+    </div>
+
+    <div class="faq" aria-label="Common waitlist questions">
+      <div class="section-label" style="margin-top: 36px;">Before you join</div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Does SideAction hold the money?</h3>
+          <p>No. SideAction is for locking terms, tracking outcomes, and keeping receipts. It does not ask for payment info on the waitlist.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What kind of bets is this for?</h3>
+          <p>Sports bets, prop bets, challenge bets, punishments, and side deals between friends. If people already make the bet in texts or DMs, it fits.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Why join now if beta is private?</h3>
+          <p>Waitlist members get first shot at invite waves, product updates, and a say in what gets built before public launch.</p>
+        </div>
       </div>
     </div>
   </section>
