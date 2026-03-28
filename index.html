@@ -1630,7 +1630,7 @@
         </div>
       </form>
       <p class="success-msg" aria-live="polite"></p>
-      <p style="margin: 12px 0 0; font-size: 12px; color: var(--text-tertiary); text-align: left;">No app install today. No payment info. No sportsbook account. Just beta invites and low-volume product updates.</p>
+      <p class="hero-form-disclaimer" style="margin: 12px 0 0; font-size: 12px; color: var(--text-tertiary); text-align: left;">No app install today. No payment info. No sportsbook account. Just beta invites and low-volume product updates.</p>
       <div class="hero-form-urgency" aria-label="Why joining now matters">
         <div class="hero-form-urgency-item">
           <span>Why now</span>
@@ -2149,7 +2149,7 @@
       const heroWaitlistSourceField = document.querySelector('#hero-waitlist input[name="MMERGE6"]');
       const heroFormHeaderTitle = document.querySelector('.hero-form-header strong');
       const heroFormHeaderCopy = document.querySelector('.hero-form-header p');
-      const heroFormDisclaimer = document.querySelector('#hero-waitlist > p');
+      const heroFormDisclaimer = document.querySelector('#hero-waitlist .hero-form-disclaimer');
       const heroFormSubmitButton = document.querySelector('#hero-waitlist button[type="submit"]');
       const heroFormPoints = document.querySelectorAll('.hero-form-points li div');
       const ctaWaitlistSection = document.getElementById("waitlist");
@@ -2457,6 +2457,14 @@
         return activeButton?.getAttribute('data-fit-source') || '';
       };
 
+      const syncFitSourceInUrl = (source) => {
+        if (!source || !window.history?.replaceState) return;
+
+        const nextUrl = new URL(window.location.href);
+        nextUrl.searchParams.set('fit', source);
+        window.history.replaceState({}, '', nextUrl.toString());
+      };
+
       const updateFitSelection = (source) => {
         if (!source) return;
 
@@ -2467,6 +2475,7 @@
         applyFitSourceCopy(source);
         setWaitlistSource(heroWaitlistSourceField, `hero-fit:${source}`);
         setWaitlistSource(ctaWaitlistSourceField, `cta-fit:${source}`);
+        syncFitSourceInUrl(source);
       };
 
       setWaitlistSource(heroWaitlistSourceField, heroWaitlistSourceField?.value || "hero");
