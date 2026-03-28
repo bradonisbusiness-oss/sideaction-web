@@ -1303,7 +1303,7 @@
       <img src="./logo.png" alt="SideAction logo" style="height:40px;width:auto;object-fit:contain;" />
       <span>Side<span class="accent">Action</span></span>
     </a>
-    <a class="nav-cta" href="#waitlist" data-cta-source="nav">Join Beta Waitlist</a>
+    <a class="nav-cta" href="#hero-waitlist" data-cta-source="nav">Join Beta Waitlist</a>
   </nav>
 
   <section class="invite-page" id="invite-page">
@@ -1347,7 +1347,7 @@
     <div class="hero-hook">SideAction locks friend bets before the game starts, so both sides see the same terms, stake, and proof.</div>
     <p>Join the beta for the app that turns messy text-thread bets into one clear receipt before anyone can switch the story after they lose.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#waitlist" data-cta-source="hero-primary">Get Beta Access</a>
+      <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Get Beta Access</a>
       <a class="btn-secondary" href="#sample-receipt">See Example Receipt</a>
     </div>
     <div class="hero-how-it-works" aria-label="How SideAction works">
@@ -1381,7 +1381,7 @@
         <p>Cash, drinks, dinner, punishments, or favors that need one shared receipt.</p>
       </div>
     </div>
-    <div class="hero-form-wrap" aria-label="Early access signup details">
+    <div class="hero-form-wrap" id="hero-waitlist" aria-label="Early access signup details">
       <div class="hero-form-header">
         <strong>Join the beta if you already make bets in texts, DMs, or group chats.</strong>
         <p>Best for people who want a simple receipt for the bet, who owes what, and what counts as proof when it is time to settle up.</p>
@@ -1803,7 +1803,7 @@
     </div>
   </section>
 
-  <a class="desktop-float-cta" href="#waitlist" data-cta-source="desktop-float" aria-label="Desktop waitlist shortcut">
+  <a class="desktop-float-cta" href="#hero-waitlist" data-cta-source="desktop-float" aria-label="Desktop waitlist shortcut">
     <div class="desktop-float-cta-copy">
       <strong>Still betting in group chats?</strong>
       <span>Jump to the beta waitlist. No payment info.</span>
@@ -1816,7 +1816,7 @@
       <strong>Still betting in group chats?</strong>
       <span>Lock your beta spot before the next invite wave fills.</span>
     </div>
-    <a href="#waitlist" data-cta-source="mobile-sticky">Join Waitlist</a>
+    <a href="#hero-waitlist" data-cta-source="mobile-sticky">Join Waitlist</a>
   </div>
 
   <!-- FOOTER -->
@@ -1827,28 +1827,36 @@
 
   <script>
     (function () {
-      const waitlistSection = document.getElementById("waitlist");
-      const waitlistEmailInput = document.getElementById("mce-EMAIL");
-      const waitlistSourceField = document.getElementById("waitlist-source-field");
-      const trackedWaitlistCtas = document.querySelectorAll('[data-cta-source][href="#waitlist"]');
+      const heroWaitlistSection = document.getElementById("hero-waitlist");
+      const heroWaitlistEmailInput = document.querySelector('#hero-waitlist input[name="EMAIL"]');
+      const heroWaitlistSourceField = document.querySelector('#hero-waitlist input[name="MMERGE6"]');
+      const ctaWaitlistSection = document.getElementById("waitlist");
+      const ctaWaitlistEmailInput = document.getElementById("mce-EMAIL");
+      const ctaWaitlistSourceField = document.getElementById("waitlist-source-field");
+      const trackedWaitlistCtas = document.querySelectorAll('[data-cta-source]');
 
       trackedWaitlistCtas.forEach((cta) => {
         cta.addEventListener("click", () => {
           const source = cta.getAttribute("data-cta-source") || "cta";
+          const targetHref = cta.getAttribute("href") || "#hero-waitlist";
+          const useHeroWaitlist = targetHref === "#hero-waitlist";
+          const targetSection = useHeroWaitlist ? heroWaitlistSection : ctaWaitlistSection;
+          const targetInput = useHeroWaitlist ? heroWaitlistEmailInput : ctaWaitlistEmailInput;
+          const targetSourceField = useHeroWaitlist ? heroWaitlistSourceField : ctaWaitlistSourceField;
 
-          if (waitlistSourceField) {
-            waitlistSourceField.value = source;
+          if (targetSourceField) {
+            targetSourceField.value = source;
           }
 
           window.requestAnimationFrame(() => {
-            if (waitlistSection) {
-              waitlistSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
             }
 
             window.setTimeout(() => {
-              if (waitlistEmailInput) {
-                waitlistEmailInput.focus({ preventScroll: true });
-                waitlistEmailInput.select();
+              if (targetInput) {
+                targetInput.focus({ preventScroll: true });
+                targetInput.select();
               }
             }, 250);
           });
