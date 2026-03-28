@@ -1933,7 +1933,17 @@
       const inviteSubmitBtn = document.getElementById("invite-submit-btn");
 
       if (inviteReferrerField) {
-        inviteReferrerField.value = username;
+        const params = new URLSearchParams(window.location.search);
+        const trackingParts = [`invite:${username}`];
+        const ref = params.get("ref");
+        const utmSource = params.get("utm_source");
+        const utmCampaign = params.get("utm_campaign");
+
+        if (ref) trackingParts.push(`ref:${ref}`);
+        if (utmSource) trackingParts.push(`utm:${utmSource}`);
+        if (utmCampaign) trackingParts.push(`camp:${utmCampaign}`);
+
+        inviteReferrerField.value = trackingParts.join(" |");
       }
 
       if (inviteWaitlistCopy) {
