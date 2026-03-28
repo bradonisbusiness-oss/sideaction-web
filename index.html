@@ -3050,8 +3050,40 @@
     (function () {
       const forms = document.querySelectorAll('.js-waitlist-form');
       const mailchimpFrame = document.querySelector('iframe[name="mailchimp-hidden-frame"]');
+      const storageKey = 'sideaction_waitlist_email';
+      const urlParams = new URLSearchParams(window.location.search || '');
+      const emailInputs = Array.from(forms)
+        .map((form) => form.querySelector('input[name="EMAIL"]'))
+        .filter(Boolean);
       let pendingForm = null;
       let submitFallbackTimer = null;
+
+      const normalizeEmail = (value) => (value || '').trim().toLowerCase();
+
+      const saveDraftEmail = (value) => {
+        const normalizedEmail = normalizeEmail(value);
+        if (!normalizedEmail) {
+          window.localStorage.removeItem(storageKey);
+          return;
+        }
+        window.localStorage.setItem(storageKey, normalizedEmail);
+      };
+
+      const syncEmailInputs = (value, sourceInput = null) => {
+        const normalizedEmail = normalizeEmail(value);
+        emailInputs.forEach((input) => {
+          if (!input || input === sourceInput) return;
+          input.value = normalizedEmail;
+        });
+      };
+
+      const applyDraftEmail = (value) => {
+        const normalizedEmail = normalizeEmail(value);
+        if (!normalizedEmail) return;
+        emailInputs.forEach((input) => {
+          input.value = normalizedEmail;
+        });
+      };
 
       const showSuccessState = (form) => {
         if (!form) return;
@@ -3113,6 +3145,8 @@
         submitFallbackTimer = null;
       };
 
+      applyDraftEmail(urlParams.get('email') || window.localStorage.getItem(storageKey));
+
       forms.forEach((form) => {
         const emailInput = form.querySelector('input[name="EMAIL"]');
         const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
@@ -3121,11 +3155,27 @@
           ? (submitButton.tagName === 'INPUT' ? submitButton.value : submitButton.textContent)
           : '';
 
+        if (emailInput) {
+          emailInput.addEventListener('input', () => {
+            saveDraftEmail(emailInput.value);
+            syncEmailInputs(emailInput.value, emailInput);
+          });
+
+          emailInput.addEventListener('blur', () => {
+            const normalizedEmail = normalizeEmail(emailInput.value);
+            emailInput.value = normalizedEmail;
+            saveDraftEmail(normalizedEmail);
+            syncEmailInputs(normalizedEmail, emailInput);
+          });
+        }
+
         form.addEventListener('submit', () => {
           if (!emailInput || !emailInput.checkValidity()) return;
 
           pendingForm = form;
           clearPendingFallback();
+          saveDraftEmail(emailInput.value);
+          syncEmailInputs(emailInput.value, emailInput);
 
           if (successMsg) {
             successMsg.textContent = '';
@@ -3167,7 +3217,8 @@
       if (mailchimpFrame) {
         mailchimpFrame.addEventListener('load', () => {
           if (!pendingForm) return;
-          showSuccessState(pendingForm);
+          forms.forEach((form) => showSuccessState(form));
+          window.localStorage.removeItem(storageKey);
           pendingForm = null;
           clearPendingFallback();
         });
