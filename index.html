@@ -2101,6 +2101,11 @@
       const heroWaitlistSection = document.getElementById("hero-waitlist");
       const heroWaitlistEmailInput = document.querySelector('#hero-waitlist input[name="EMAIL"]');
       const heroWaitlistSourceField = document.querySelector('#hero-waitlist input[name="MMERGE6"]');
+      const heroFormHeaderTitle = document.querySelector('.hero-form-header strong');
+      const heroFormHeaderCopy = document.querySelector('.hero-form-header p');
+      const heroFormDisclaimer = document.querySelector('#hero-waitlist > p');
+      const heroFormSubmitButton = document.querySelector('#hero-waitlist button[type="submit"]');
+      const heroFormPoints = document.querySelectorAll('.hero-form-points li div');
       const ctaWaitlistSection = document.getElementById("waitlist");
       const ctaWaitlistEmailInput = document.getElementById("mce-EMAIL");
       const ctaWaitlistSourceField = document.getElementById("waitlist-source-field");
@@ -2108,6 +2113,42 @@
       const trackedWaitlistCtas = document.querySelectorAll('[data-cta-source]');
       const fitSourceButtons = document.querySelectorAll('[data-fit-source]');
       const params = new URLSearchParams(window.location.search);
+
+      const fitSourceCopy = {
+        'sports-bets': {
+          title: 'Get beta access before your next game bet turns into a “that is not what we said” mess.',
+          body: 'Join if you already make game bets with friends in texts, DMs, or group chats and want the spread, stake, proof, and pay-up rules locked before kickoff.',
+          button: 'Get Sports Bet Access',
+          disclaimer: 'No payment info. No sportsbook account. Just beta invites and low-volume product updates for people making real game bets with friends.',
+          points: [
+            'You already bet spreads, moneylines, parlays, or totals with friends in group chats or texts.',
+            'You want the stake, proof, and pay-up deadline locked before kickoff so nobody rewrites the deal later.',
+            'You do not need a sportsbook or wallet. SideAction tracks the receipt, not the money.'
+          ]
+        },
+        'prop-bets': {
+          title: 'Get beta access before your next prop bet turns into a “you know what I meant” argument.',
+          body: 'Join if you already make player props, challenge bets, and funny side wagers with friends and want one clean receipt before the game or moment starts.',
+          button: 'Get Prop Bet Access',
+          disclaimer: 'No payment info. No sportsbook account. Just beta invites and low-volume product updates for people making real prop bets with friends.',
+          points: [
+            'You already make player props, same-game side bets, or random bets in DMs and group chats.',
+            'You want the exact trigger, proof, and loser payout locked before anyone can twist the wording later.',
+            'You do not need a sportsbook or wallet. SideAction tracks the receipt, not the money.'
+          ]
+        },
+        'side-deals': {
+          title: 'Get beta access before your next side deal or punishment bet turns into a memory battle.',
+          body: 'Join if you already make challenge bets, punishments, and side deals with friends or coworkers and want the rules, deadline, proof, and payoff locked in one place.',
+          button: 'Get Side Deal Access',
+          disclaimer: 'No payment info. No wallet. Just beta invites and low-volume product updates for people making real side deals and punishment bets.',
+          points: [
+            'You already make gym challenges, sales contests, punishments, or side deals in chats and texts.',
+            'You want the rules, deadline, proof, and payoff locked before anyone starts changing the story later.',
+            'You do not need a sportsbook or wallet. SideAction tracks the receipt, not the money.'
+          ]
+        }
+      };
 
       const buildTrackingValue = (baseSource) => {
         const parts = [baseSource || "direct"];
@@ -2129,6 +2170,22 @@
         field.value = buildTrackingValue(baseSource);
       };
 
+      const applyFitSourceCopy = (source) => {
+        const fitCopy = fitSourceCopy[source];
+        if (!fitCopy) return;
+
+        if (heroFormHeaderTitle) heroFormHeaderTitle.textContent = fitCopy.title;
+        if (heroFormHeaderCopy) heroFormHeaderCopy.textContent = fitCopy.body;
+        if (heroFormSubmitButton) heroFormSubmitButton.textContent = fitCopy.button;
+        if (heroFormDisclaimer) heroFormDisclaimer.textContent = fitCopy.disclaimer;
+
+        heroFormPoints.forEach((point, index) => {
+          if (point && fitCopy.points[index]) {
+            point.innerHTML = fitCopy.points[index];
+          }
+        });
+      };
+
       const updateFitSelection = (source) => {
         if (!source) return;
 
@@ -2136,12 +2193,18 @@
           button.classList.toggle('active', button.getAttribute('data-fit-source') === source);
         });
 
+        applyFitSourceCopy(source);
         setWaitlistSource(heroWaitlistSourceField, `hero-fit:${source}`);
       };
 
       setWaitlistSource(heroWaitlistSourceField, heroWaitlistSourceField?.value || "hero");
       setWaitlistSource(ctaWaitlistSourceField, ctaWaitlistSourceField?.value || "cta");
       setWaitlistSource(inviteWaitlistSourceField, inviteWaitlistSourceField?.value || "invite");
+
+      const presetFitSource = params.get('fit');
+      if (presetFitSource && fitSourceCopy[presetFitSource]) {
+        updateFitSelection(presetFitSource);
+      }
 
       trackedWaitlistCtas.forEach((cta) => {
         cta.addEventListener("click", () => {
