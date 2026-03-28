@@ -1310,7 +1310,7 @@
     <div class="invite-card">
       <div class="invite-badge">SideAction Invite</div>
       <h1 id="invite-title">You are invited to SideAction</h1>
-      <p id="invite-copy">Track bets, settle receipts, and build your rep without the usual "I never said that" nonsense.</p>
+      <p id="invite-copy">You were invited to stop betting in messy text threads. Lock the terms, keep the receipt, and settle on record.</p>
 
       <div class="invite-profile">
         <img src="./logo.png" alt="SideAction logo" style="width:72px;height:72px;object-fit:contain;">
@@ -1322,7 +1322,7 @@
         <a class="btn-secondary" id="fallback-btn" href="#invite-waitlist">Get Early Access</a>
       </div>
 
-      <div class="invite-note">If the app is not installed yet, join the waitlist and we will get you in fast.</div>
+      <div class="invite-note">If the app is not installed yet, join the waitlist and keep this invite attached for the next beta wave.</div>
 
       <div class="invite-waitlist" id="invite-waitlist">
         <span class="invite-waitlist-label">No app yet?</span>
@@ -1833,7 +1833,33 @@
       const ctaWaitlistSection = document.getElementById("waitlist");
       const ctaWaitlistEmailInput = document.getElementById("mce-EMAIL");
       const ctaWaitlistSourceField = document.getElementById("waitlist-source-field");
+      const inviteWaitlistSourceField = document.getElementById("invite-referrer-field");
       const trackedWaitlistCtas = document.querySelectorAll('[data-cta-source]');
+      const params = new URLSearchParams(window.location.search);
+
+      const buildTrackingValue = (baseSource) => {
+        const parts = [baseSource || "direct"];
+        const ref = params.get("ref");
+        const utmSource = params.get("utm_source");
+        const utmCampaign = params.get("utm_campaign");
+        const path = (window.location.pathname || "/").replace(/^\/+/, "") || "home";
+
+        if (ref) parts.push(`ref:${ref}`);
+        if (utmSource) parts.push(`utm:${utmSource}`);
+        if (utmCampaign) parts.push(`camp:${utmCampaign}`);
+        parts.push(`path:${path}`);
+
+        return parts.join(" |");
+      };
+
+      const setWaitlistSource = (field, baseSource) => {
+        if (!field) return;
+        field.value = buildTrackingValue(baseSource);
+      };
+
+      setWaitlistSource(heroWaitlistSourceField, heroWaitlistSourceField?.value || "hero");
+      setWaitlistSource(ctaWaitlistSourceField, ctaWaitlistSourceField?.value || "cta");
+      setWaitlistSource(inviteWaitlistSourceField, inviteWaitlistSourceField?.value || "invite");
 
       trackedWaitlistCtas.forEach((cta) => {
         cta.addEventListener("click", () => {
@@ -1844,9 +1870,7 @@
           const targetInput = useHeroWaitlist ? heroWaitlistEmailInput : ctaWaitlistEmailInput;
           const targetSourceField = useHeroWaitlist ? heroWaitlistSourceField : ctaWaitlistSourceField;
 
-          if (targetSourceField) {
-            targetSourceField.value = source;
-          }
+          setWaitlistSource(targetSourceField, source);
 
           window.requestAnimationFrame(() => {
             if (targetSection) {
@@ -1898,7 +1922,7 @@
       document.title = `Join ${username} on SideAction`;
 
       document.getElementById("invite-title").textContent = `Join ${username} on SideAction`;
-      document.getElementById("invite-copy").textContent = `${username} invited you to lock in bets, keep receipts, and settle everything on record.`;
+      document.getElementById("invite-copy").textContent = `${username} invited you to stop betting in messy text threads and lock one clear receipt before the arguing starts.`;
       document.getElementById("invite-handle").textContent = `@${username}`;
       document.getElementById("open-app-btn").setAttribute("href", `sideaction://invite/${username}`);
       document.getElementById("fallback-btn").textContent = `No app yet? Join ${username}'s beta waitlist`;
