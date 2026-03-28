@@ -2137,6 +2137,50 @@
         return parts.join(" |");
       };
 
+      const inferFitSourceFromParams = () => {
+        const explicitFit = params.get('fit');
+        if (explicitFit && fitSourceCopy[explicitFit]) {
+          return explicitFit;
+        }
+
+        const signalPool = [
+          params.get('ref'),
+          params.get('utm_source'),
+          params.get('utm_medium'),
+          params.get('utm_campaign'),
+          params.get('utm_content'),
+          params.get('utm_term')
+        ]
+          .filter(Boolean)
+          .join(' ')
+          .toLowerCase();
+
+        if (!signalPool) {
+          return 'sports-bets';
+        }
+
+        const fitMatchers = [
+          {
+            source: 'prop-bets',
+            patterns: ['prop', 'props', 'same game', 'same-game', 'sgp', 'player bet', 'player prop']
+          },
+          {
+            source: 'side-deals',
+            patterns: ['side deal', 'side-deal', 'punishment', 'challenge', 'sales contest', 'gym bet', 'coworker']
+          },
+          {
+            source: 'sports-bets',
+            patterns: ['sport', 'sports', 'spread', 'moneyline', 'total', 'parlay', 'game bet', 'gamebets']
+          }
+        ];
+
+        const matchedFit = fitMatchers.find(({ patterns }) =>
+          patterns.some((pattern) => signalPool.includes(pattern))
+        );
+
+        return matchedFit?.source || 'sports-bets';
+      };
+
       const setWaitlistSource = (field, baseSource) => {
         if (!field) return;
         field.value = buildTrackingValue(baseSource);
@@ -2211,10 +2255,7 @@
       setWaitlistSource(ctaWaitlistSourceField, ctaWaitlistSourceField?.value || "cta");
       setWaitlistSource(inviteWaitlistSourceField, inviteWaitlistSourceField?.value || "invite");
 
-      const presetFitSource = params.get('fit');
-      const defaultFitSource = presetFitSource && fitSourceCopy[presetFitSource]
-        ? presetFitSource
-        : 'sports-bets';
+      const defaultFitSource = inferFitSourceFromParams();
       updateFitSelection(defaultFitSource);
 
       trackedWaitlistCtas.forEach((cta) => {
