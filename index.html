@@ -166,6 +166,71 @@
       font-size: 14px;
     }
 
+    .hero-next-step {
+      width: 100%;
+      max-width: 640px;
+      margin-top: 22px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(77,159,255,0.18);
+      background: linear-gradient(180deg, rgba(77,159,255,0.08), rgba(255,255,255,0.02));
+      text-align: left;
+    }
+
+    .hero-next-step-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .hero-next-step-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .hero-next-step-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(10,10,15,0.48);
+      border: 1px solid var(--border);
+    }
+
+    .hero-next-step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: rgba(77,159,255,0.16);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .hero-next-step-item strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .hero-next-step-item p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
     .btn-primary {
       background: var(--primary);
       color: #fff;
@@ -720,10 +785,14 @@
       footer { padding: 24px 20px; justify-content: center; text-align: center; }
       .proof-stats { gap: 36px; }
       .mockups-grid,
+      .hero-next-step-grid,
       .hero-qualifier-grid,
       .invite-flow {
         grid-template-columns: 1fr;
         gap: 24px;
+      }
+      .hero-next-step {
+        padding: 16px;
       }
       .invite-card {
         padding: 24px 18px;
@@ -804,6 +873,32 @@
       <div class="hero-proof-item"><span>✓</span> Terms saved in writing</div>
       <div class="hero-proof-item"><span>✓</span> Track wins, losses, and owes</div>
       <div class="hero-proof-item"><span>✓</span> Build a rep people can check</div>
+    </div>
+    <div class="hero-next-step" aria-label="What happens after you join">
+      <span class="hero-next-step-label">What happens after you join</span>
+      <div class="hero-next-step-grid">
+        <div class="hero-next-step-item">
+          <span class="hero-next-step-number">1</span>
+          <div>
+            <strong>Join in 10 seconds</strong>
+            <p>Drop your email and lock your spot for the next beta wave.</p>
+          </div>
+        </div>
+        <div class="hero-next-step-item">
+          <span class="hero-next-step-number">2</span>
+          <div>
+            <strong>We prioritize real bettors</strong>
+            <p>Early invites go first to people already making bets and side deals with friends.</p>
+          </div>
+        </div>
+        <div class="hero-next-step-item">
+          <span class="hero-next-step-number">3</span>
+          <div>
+            <strong>Get your private invite</strong>
+            <p>When spots open, waitlist members get first access before public launch.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
