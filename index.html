@@ -1554,8 +1554,9 @@
       const mockups = document.querySelector("#mockups");
       const waitlist = document.querySelector("#waitlist");
       const footer = document.querySelector("footer");
+      const mobileStickyCta = document.querySelector(".mobile-sticky-cta");
 
-      [hero, features, mockups, waitlist].forEach((el) => {
+      [hero, features, mockups, waitlist, mobileStickyCta].forEach((el) => {
         if (el) el.style.display = "none";
       });
 
@@ -1574,6 +1575,7 @@
       document.getElementById("invite-copy").textContent = `${username} invited you to lock in bets, keep receipts, and settle everything on record.`;
       document.getElementById("invite-handle").textContent = `@${username}`;
       document.getElementById("open-app-btn").setAttribute("href", `sideaction://invite/${username}`);
+      document.getElementById("fallback-btn").textContent = `No app yet? Join ${username}'s beta waitlist`;
       document.getElementById("fallback-btn").setAttribute("href", "/#waitlist");
     })();
   </script>
