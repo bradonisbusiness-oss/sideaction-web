@@ -1980,14 +1980,92 @@
 
     (function () {
       const forms = document.querySelectorAll('.js-waitlist-form');
+      const mailchimpFrame = document.querySelector('iframe[name="mailchimp-hidden-frame"]');
+      let pendingForm = null;
+      let submitFallbackTimer = null;
+
+      const showSuccessState = (form) => {
+        if (!form) return;
+
+        const emailInput = form.querySelector('input[name="EMAIL"]');
+        const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+        const successMsg = form.querySelector('.success-msg');
+        const successMessage = form.dataset.successMessage || 'You are on the beta waitlist. Keep an eye on your inbox.';
+
+        if (submitButton) {
+          if (submitButton.tagName === 'INPUT') {
+            submitButton.value = 'You\'re on the list';
+          } else {
+            submitButton.textContent = 'You\'re on the list';
+          }
+          submitButton.disabled = true;
+          submitButton.style.opacity = '0.7';
+          submitButton.style.cursor = 'default';
+        }
+
+        if (emailInput) {
+          emailInput.value = '';
+          emailInput.blur();
+        }
+
+        if (successMsg) {
+          successMsg.textContent = successMessage;
+          successMsg.classList.add('visible');
+        }
+      };
+
+      const clearPendingFallback = () => {
+        if (!submitFallbackTimer) return;
+        window.clearTimeout(submitFallbackTimer);
+        submitFallbackTimer = null;
+      };
 
       forms.forEach((form) => {
         const emailInput = form.querySelector('input[name="EMAIL"]');
+        const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+        const defaultButtonLabel = submitButton
+          ? (submitButton.tagName === 'INPUT' ? submitButton.value : submitButton.textContent)
+          : '';
 
         form.addEventListener('submit', () => {
           if (!emailInput || !emailInput.checkValidity()) return;
+
+          pendingForm = form;
+          clearPendingFallback();
+
+          if (submitButton) {
+            if (submitButton.tagName === 'INPUT') {
+              submitButton.value = 'Joining...';
+            } else {
+              submitButton.textContent = 'Joining...';
+            }
+          }
+
+          submitFallbackTimer = window.setTimeout(() => {
+            showSuccessState(form);
+            pendingForm = null;
+            clearPendingFallback();
+          }, 1800);
         });
+
+        form.addEventListener('invalid', () => {
+          if (!submitButton) return;
+          if (submitButton.tagName === 'INPUT') {
+            submitButton.value = defaultButtonLabel;
+          } else {
+            submitButton.textContent = defaultButtonLabel;
+          }
+        }, true);
       });
+
+      if (mailchimpFrame) {
+        mailchimpFrame.addEventListener('load', () => {
+          if (!pendingForm) return;
+          showSuccessState(pendingForm);
+          pendingForm = null;
+          clearPendingFallback();
+        });
+      }
     })();
 
     (function () {
