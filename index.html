@@ -1055,6 +1055,10 @@
       display: block;
     }
 
+    .success-msg.error {
+      color: #FF7A7A;
+    }
+
     .waitlist-trust {
       list-style: none;
       margin-top: 16px;
@@ -2398,7 +2402,31 @@
 
         if (successMsg) {
           successMsg.textContent = successMessage;
+          successMsg.classList.remove('error');
           successMsg.classList.add('visible');
+        }
+      };
+
+      const showSubmitError = (form, defaultButtonLabel) => {
+        if (!form) return;
+
+        const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+        const successMsg = form.querySelector('.success-msg');
+
+        if (submitButton) {
+          if (submitButton.tagName === 'INPUT') {
+            submitButton.value = defaultButtonLabel;
+          } else {
+            submitButton.textContent = defaultButtonLabel;
+          }
+          submitButton.disabled = false;
+          submitButton.style.opacity = '1';
+          submitButton.style.cursor = 'pointer';
+        }
+
+        if (successMsg) {
+          successMsg.textContent = 'We could not confirm your signup. Please try again in a few seconds.';
+          successMsg.classList.add('visible', 'error');
         }
       };
 
@@ -2411,6 +2439,7 @@
       forms.forEach((form) => {
         const emailInput = form.querySelector('input[name="EMAIL"]');
         const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+        const successMsg = form.querySelector('.success-msg');
         const defaultButtonLabel = submitButton
           ? (submitButton.tagName === 'INPUT' ? submitButton.value : submitButton.textContent)
           : '';
@@ -2421,19 +2450,28 @@
           pendingForm = form;
           clearPendingFallback();
 
+          if (successMsg) {
+            successMsg.textContent = '';
+            successMsg.classList.remove('visible', 'error');
+          }
+
           if (submitButton) {
             if (submitButton.tagName === 'INPUT') {
               submitButton.value = 'Joining...';
             } else {
               submitButton.textContent = 'Joining...';
             }
+            submitButton.disabled = true;
+            submitButton.style.opacity = '0.7';
+            submitButton.style.cursor = 'default';
           }
 
           submitFallbackTimer = window.setTimeout(() => {
-            showSuccessState(form);
+            if (pendingForm !== form) return;
+            showSubmitError(form, defaultButtonLabel);
             pendingForm = null;
             clearPendingFallback();
-          }, 1800);
+          }, 7000);
         });
 
         form.addEventListener('invalid', () => {
@@ -2443,6 +2481,9 @@
           } else {
             submitButton.textContent = defaultButtonLabel;
           }
+          submitButton.disabled = false;
+          submitButton.style.opacity = '1';
+          submitButton.style.cursor = 'pointer';
         }, true);
       });
 
