@@ -1284,6 +1284,33 @@
 
     .waitlist-form button:hover { opacity: 0.85; }
 
+    .hero-inline-capture {
+      width: 100%;
+      max-width: 640px;
+      margin: 18px auto 24px;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(77,159,255,0.22);
+      background: linear-gradient(180deg, rgba(77,159,255,0.12) 0%, rgba(20,20,28,0.96) 100%);
+    }
+
+    .hero-inline-capture-copy {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .hero-inline-capture .waitlist-form {
+      max-width: none;
+      margin: 0;
+    }
+
+    .hero-inline-capture .success-msg {
+      margin-top: 12px;
+      text-align: left;
+    }
+
     .success-msg {
       display: none;
       color: var(--success);
@@ -1861,6 +1888,18 @@
     <div class="hero-actions">
       <a class="btn-primary" href="#hero-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
       <a class="btn-secondary" href="#sample-receipt">See Locked Receipt</a>
+    </div>
+    <div class="hero-inline-capture" aria-label="Fast beta signup">
+      <div class="hero-inline-capture-copy">Already sold? Join the beta in 10 seconds before you scroll.</div>
+      <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
+        <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for fast beta signup" autocomplete="email" inputmode="email" spellcheck="false" enterkeyhint="go">
+        <input type="hidden" name="MMERGE6" value="hero-inline">
+        <button type="submit">Get Early Access</button>
+        <div aria-hidden="true" style="position: absolute; left: -5000px;">
+          <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
+        </div>
+      </form>
+      <p class="success-msg" aria-live="polite"></p>
     </div>
     <div class="hero-cta-trust" aria-label="Fast signup reassurance">
       <span>&#10003; <strong>10-second signup</strong></span>
