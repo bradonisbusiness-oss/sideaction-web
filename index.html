@@ -1384,6 +1384,56 @@
       color: #FF7A7A;
     }
 
+    .success-share {
+      margin-top: 12px;
+      padding: 14px;
+      border: 1px solid rgba(0, 210, 106, 0.18);
+      border-radius: 14px;
+      background: rgba(0, 210, 106, 0.08);
+    }
+
+    .success-share p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .success-share-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .success-share-actions a,
+    .success-share-actions button {
+      appearance: none;
+      border: 1px solid rgba(77, 159, 255, 0.24);
+      background: rgba(77, 159, 255, 0.12);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, border-color 0.2s;
+    }
+
+    .success-share-actions a:hover,
+    .success-share-actions button:hover {
+      opacity: 0.9;
+      border-color: rgba(77, 159, 255, 0.48);
+    }
+
+    .success-share-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
     .inline-qualifier-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3128,6 +3178,67 @@
 
       const normalizeEmail = (value) => (value || '').trim().toLowerCase();
 
+      const getShareCopyForFit = () => {
+        const fitSource = getActiveFitSource();
+        const shareMap = {
+          'sports-bets': 'I just joined the SideAction beta waitlist. If you make sports bets with friends, lock your spot here:',
+          'prop-bets': 'I just joined the SideAction beta waitlist. If you make prop bets or side wagers with friends, lock your spot here:',
+          'side-deals': 'I just joined the SideAction beta waitlist. If you make side deals, challenges, or punishment bets with friends, lock your spot here:'
+        };
+
+        return shareMap[fitSource] || 'I just joined the SideAction beta waitlist. If you make bets with friends, lock your spot here:';
+      };
+
+      const getShareUrlForFit = () => {
+        const fitSource = getActiveFitSource();
+        const shareUrl = new URL(window.location.href);
+        shareUrl.searchParams.set('ref', 'waitlist-share');
+        shareUrl.searchParams.set('utm_source', 'waitlist-share');
+        shareUrl.searchParams.set('utm_medium', 'referral');
+        shareUrl.searchParams.set('utm_campaign', 'beta-share');
+
+        if (fitSource) {
+          shareUrl.searchParams.set('fit', fitSource);
+          shareUrl.searchParams.set('utm_content', fitSource);
+        }
+
+        return shareUrl.toString();
+      };
+
+      const renderSuccessShare = (successMsg) => {
+        if (!successMsg) return;
+
+        const shareUrl = getShareUrlForFit();
+        const shareCopy = `${getShareCopyForFit()} ${shareUrl}`;
+        successMsg.innerHTML = `
+          <div>You are on the beta waitlist. Watch your inbox for the next invite wave.</div>
+          <div class="success-share">
+            <p>Know 1 friend who makes the same kind of bets? Send them this link while the pain is still fresh.</p>
+            <div class="success-share-actions">
+              <button type="button" class="js-copy-share-link">Copy invite link</button>
+              <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareCopy)}" target="_blank" rel="noreferrer">Share on X</a>
+            </div>
+            <div class="success-share-note">Sharing helps us pull in the right beta testers faster.</div>
+          </div>
+        `;
+
+        const copyButton = successMsg.querySelector('.js-copy-share-link');
+        if (copyButton) {
+          copyButton.addEventListener('click', async () => {
+            try {
+              if (navigator.clipboard?.writeText) {
+                await navigator.clipboard.writeText(shareUrl);
+                copyButton.textContent = 'Copied';
+              } else {
+                window.prompt('Copy this invite link:', shareUrl);
+              }
+            } catch (error) {
+              window.prompt('Copy this invite link:', shareUrl);
+            }
+          });
+        }
+      };
+
       const saveDraftEmail = (value) => {
         const normalizedEmail = normalizeEmail(value);
         if (!normalizedEmail) {
@@ -3159,7 +3270,6 @@
         const emailInput = form.querySelector('input[name="EMAIL"]');
         const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
         const successMsg = form.querySelector('.success-msg');
-        const successMessage = form.dataset.successMessage || 'You are on the beta waitlist. Keep an eye on your inbox.';
 
         if (submitButton) {
           if (submitButton.tagName === 'INPUT') {
@@ -3178,9 +3288,9 @@
         }
 
         if (successMsg) {
-          successMsg.textContent = successMessage;
           successMsg.classList.remove('error');
           successMsg.classList.add('visible');
+          renderSuccessShare(successMsg);
         }
       };
 
