@@ -404,6 +404,55 @@
       max-width: none;
     }
 
+    .hero-fit-selector {
+      margin: 14px 0 0;
+      text-align: left;
+    }
+
+    .hero-fit-selector-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .hero-fit-selector-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-fit-selector-buttons button {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: rgba(10,10,15,0.42);
+      color: var(--text-secondary);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .hero-fit-selector-buttons button:hover,
+    .hero-fit-selector-buttons button.active {
+      border-color: rgba(77,159,255,0.45);
+      background: rgba(77,159,255,0.12);
+      color: var(--text);
+    }
+
+    .hero-fit-selector-note {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-tertiary);
+      margin-top: 10px;
+    }
+
     .hero-form-points {
       list-style: none;
       display: grid;
@@ -1559,6 +1608,15 @@
       <div class="hero-form-header">
         <strong>Get beta access before your next friend bet turns into a “that is not what we said” mess.</strong>
         <p>Join if you already make sports bets, prop bets, punishment bets, or side deals in texts, DMs, or group chats and want the terms, proof, and payout locked in one place before anyone changes the story after the game.</p>
+        <div class="hero-fit-selector" aria-label="Pick the main kind of bet you want SideAction for">
+          <span class="hero-fit-selector-label">Main bet type you want this for</span>
+          <div class="hero-fit-selector-buttons">
+            <button type="button" data-fit-source="sports-bets">Sports bets</button>
+            <button type="button" data-fit-source="prop-bets">Prop bets</button>
+            <button type="button" data-fit-source="side-deals">Side deals / punishments</button>
+          </div>
+          <p class="hero-fit-selector-note">Pick one. We tag your signup source so we can see which use case pulls the strongest beta demand.</p>
+        </div>
       </div>
       <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
         <input type="email" name="EMAIL" required placeholder="Enter your email for early access" aria-label="Email address for beta waitlist">
@@ -2048,6 +2106,7 @@
       const ctaWaitlistSourceField = document.getElementById("waitlist-source-field");
       const inviteWaitlistSourceField = document.getElementById("invite-referrer-field");
       const trackedWaitlistCtas = document.querySelectorAll('[data-cta-source]');
+      const fitSourceButtons = document.querySelectorAll('[data-fit-source]');
       const params = new URLSearchParams(window.location.search);
 
       const buildTrackingValue = (baseSource) => {
@@ -2068,6 +2127,16 @@
       const setWaitlistSource = (field, baseSource) => {
         if (!field) return;
         field.value = buildTrackingValue(baseSource);
+      };
+
+      const updateFitSelection = (source) => {
+        if (!source) return;
+
+        fitSourceButtons.forEach((button) => {
+          button.classList.toggle('active', button.getAttribute('data-fit-source') === source);
+        });
+
+        setWaitlistSource(heroWaitlistSourceField, `hero-fit:${source}`);
       };
 
       setWaitlistSource(heroWaitlistSourceField, heroWaitlistSourceField?.value || "hero");
@@ -2094,6 +2163,26 @@
               if (targetInput) {
                 targetInput.focus({ preventScroll: true });
                 targetInput.select();
+              }
+            }, 250);
+          });
+        });
+      });
+
+      fitSourceButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const source = button.getAttribute('data-fit-source') || 'unknown';
+          updateFitSelection(source);
+
+          window.requestAnimationFrame(() => {
+            if (heroWaitlistSection) {
+              heroWaitlistSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            window.setTimeout(() => {
+              if (heroWaitlistEmailInput) {
+                heroWaitlistEmailInput.focus({ preventScroll: true });
+                heroWaitlistEmailInput.select();
               }
             }, 250);
           });
