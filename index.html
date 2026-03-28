@@ -225,6 +225,105 @@
       margin: 0;
     }
 
+    .sample-receipt {
+      width: 100%;
+      max-width: 640px;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(77,159,255,0.22);
+      background: linear-gradient(180deg, rgba(77,159,255,0.1), rgba(20,20,28,0.92));
+      box-shadow: 0 18px 50px rgba(0,0,0,0.24);
+      text-align: left;
+    }
+
+    .sample-receipt-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .sample-receipt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .sample-receipt-badge span {
+      color: var(--success);
+      font-size: 11px;
+    }
+
+    .sample-receipt-proof {
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .sample-receipt h3 {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+    }
+
+    .sample-receipt-subtext {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+
+    .sample-receipt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .sample-receipt-item {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(10,10,15,0.5);
+      border: 1px solid var(--border);
+    }
+
+    .sample-receipt-item span {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .sample-receipt-item strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .sample-receipt-footnote {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
     .btn-primary {
       background: var(--primary);
       color: #fff;
@@ -861,7 +960,8 @@
       .hero-next-step-grid,
       .hero-qualifier-grid,
       .comparison-grid,
-      .invite-flow {
+      .invite-flow,
+      .sample-receipt-grid {
         grid-template-columns: 1fr;
         gap: 24px;
       }
@@ -960,6 +1060,33 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="sample-receipt" aria-label="Example of a locked SideAction receipt">
+      <div class="sample-receipt-top">
+        <div class="sample-receipt-badge"><span>●</span> Example locked receipt</div>
+        <div class="sample-receipt-proof">This is the record both sides see before the bet starts.</div>
+      </div>
+      <h3>Chiefs -3.5 vs Bills for $100</h3>
+      <p class="sample-receipt-subtext">No vague texts. No “that’s not what I meant.” Terms, proof, and payout are all in one place before kickoff.</p>
+      <div class="sample-receipt-grid">
+        <div class="sample-receipt-item">
+          <span>Who</span>
+          <strong>Bradon vs Jake</strong>
+        </div>
+        <div class="sample-receipt-item">
+          <span>Stake</span>
+          <strong>$100 loser pays winner</strong>
+        </div>
+        <div class="sample-receipt-item">
+          <span>Terms</span>
+          <strong>Chiefs must win by 4+ points to cash.</strong>
+        </div>
+        <div class="sample-receipt-item">
+          <span>Deadline</span>
+          <strong>Locks at kickoff • settles after final score</strong>
+        </div>
+      </div>
+      <p class="sample-receipt-footnote">What SideAction gives you: one clean version of the deal, locked before the game, with the outcome recorded after.</p>
     </div>
   </section>
 
