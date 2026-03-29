@@ -7,6 +7,7 @@ Rule: one pain per post. Do not explain the whole app. Do not debate in public. 
 Use these source files:
 - `X_POST_PACK_2026-03-29.md`
 - `INSTAGRAM_POST_PACK_2026-03-29.md`
+- `REDDIT_POST_PACK_2026-03-29.md`
 - `COMMENT_REPLY_BANK_2026-03-28.md`
 
 ## Daily execution rule
@@ -163,6 +164,17 @@ Keep the same `fit=` angle if that one pulled better response.
 
 **Rule:**
 Use the same caption structure. Tighten the first hook only.
+
+## Reddit test move
+If Bradon has 15 extra minutes today, make one Reddit test before the 7-day queue starts.
+
+**Use:** `REDDIT_POST_PACK_2026-03-29.md` — Post 1 or Post 4
+
+**Why:**
+Reddit can surface raw pain language fast. Good comments will tell us whether people care more about spread fights, prop wording, or punishment drama.
+
+**Rule:**
+Do not drop the link unless the subreddit allows it or someone asks.
 
 ## Reply-hijack comment bank for this week
 Use these under betting clips, bad beat posts, payout drama, and sports memes:
