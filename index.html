@@ -2996,6 +2996,7 @@
       const ctaWaitlistSubmitButton = document.getElementById("mc-embedded-subscribe");
       const inviteWaitlistSourceField = document.getElementById("invite-referrer-field");
       const inviteWaitlistFitField = document.getElementById("invite-fit-field");
+      const inviteWaitlistSubmitButton = document.getElementById('invite-submit-btn');
       const trackedWaitlistCtas = document.querySelectorAll('[data-cta-source]');
       const fitSourceButtons = document.querySelectorAll('[data-fit-source]');
       const params = new URLSearchParams(window.location.search);
@@ -3385,7 +3386,8 @@
         if (heroPrimaryCtaButton) heroPrimaryCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Join Beta Waitlist';
         if (heroInlineSubmitButton) heroInlineSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
         if (heroFormSubmitButton) heroFormSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
-        if (ctaWaitlistSubmitButton) ctaWaitlistSubmitButton.value = fitCopy.button || 'Join Beta Waitlist';
+        if (ctaWaitlistSubmitButton) ctaWaitlistSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
+        if (inviteWaitlistSubmitButton) inviteWaitlistSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
         if (heroFormDisclaimer) heroFormDisclaimer.textContent = fitCopy.disclaimer;
 
         heroFormPoints.forEach((point, index) => {
