@@ -3441,14 +3441,14 @@
         successMsg.innerHTML = `
           <div>You are on the beta waitlist. Watch your inbox for the next invite wave.</div>
           <div class="success-share">
-            <p>Know 1 friend who makes the same kind of bets? Send them this link while the pain is still fresh.</p>
+            <p><strong>Want a faster shot at the next beta wave?</strong> Pull in 1 real friend from the same betting group now. We prioritize real crews over random solo signups.</p>
             <div class="success-share-actions">
+              <a href="sms:?&body=${encodeURIComponent(shareCopy)}">Text your group</a>
+              <button type="button" class="js-copy-share-link">Copy crew invite link</button>
               <button type="button" class="js-native-share-link">Share with a friend</button>
-              <button type="button" class="js-copy-share-link">Copy invite link</button>
-              <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareCopy)}" target="_blank" rel="noreferrer">Share on X</a>
-              <a href="sms:?&body=${encodeURIComponent(shareCopy)}">Share by text</a>
+              <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareCopy)}" target="_blank" rel="noreferrer">Post on X</a>
             </div>
-            <div class="success-share-note">Sharing helps us pull in the right beta testers faster.</div>
+            <div class="success-share-note">Best move: send this to the same friends you already bet with so your crew is attached before the next invite wave.</div>
           </div>
         `;
 
