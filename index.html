@@ -2388,7 +2388,7 @@
   <section class="hero">
     <img src="./logo.png" alt="SideAction logo" style="height:180px;width:auto;object-fit:contain;margin-bottom:24px;">
     <div class="hero-tag" id="hero-tag">For people already making sports bets with friends in group chats, DMs, and text threads</div>
-    <h1>Lock every friend bet <span class="accent">before the loser rewrites it</span></h1>
+    <h1 id="hero-headline">Lock every friend bet <span class="accent">before the loser rewrites it</span></h1>
     <div class="hero-hook" id="hero-hook">SideAction gives your group one locked receipt before kickoff, then shows exactly who owes what after.</div>
     <p id="hero-body-copy">Built for people already making sports bets with friends in texts, DMs, and group chats. SideAction is not a sportsbook. It locks the line, stake, proof, and pay-up rule before the game starts so nobody can change the story after the final score.</p>
     <div class="hero-fit-selector" aria-label="Pick the main kind of bet you want SideAction for">
@@ -2976,6 +2976,7 @@
   <script>
     (function () {
       const heroTag = document.getElementById('hero-tag');
+      const heroHeadline = document.getElementById('hero-headline');
       const heroHook = document.getElementById('hero-hook');
       const heroBodyCopy = document.getElementById('hero-body-copy');
       const heroFitChips = [
@@ -3096,6 +3097,7 @@
       const fitSourceCopy = {
         'sports-bets': {
           heroTag: 'For people already making real sports bets with friends in group chats, DMs, and text threads',
+          heroHeadline: 'Lock every sports bet <span class="accent">before the loser rewrites it</span>',
           heroHook: 'Set the line, stake, and proof before kickoff. Settle with one clean receipt after.',
           heroBody: 'SideAction is the receipt layer for sports bets friends already make. It locks the exact line, stake, proof, and pay-up rule before the game starts so nobody can rewrite the spread or dodge the payout after the final score.',
           heroFitChips: [
@@ -3175,6 +3177,7 @@
         },
         'prop-bets': {
           heroTag: 'For people already making prop bets and side wagers with friends in DMs, group chats, and text threads',
+          heroHeadline: 'Lock every prop bet <span class="accent">before the wording gets twisted</span>',
           heroHook: 'Lock the exact trigger, stake, and proof before the moment happens.',
           heroBody: 'SideAction is the receipt layer for prop bets and side wagers friends already make. It locks the exact player, stat, stake, proof, and pay-up rule before tip-off so nobody can twist the wording later.',
           heroFitChips: [
@@ -3254,6 +3257,7 @@
         },
         'side-deals': {
           heroTag: 'For people already making side deals, punishments, and challenge bets in texts, DMs, and work chats',
+          heroHeadline: 'Lock every side deal <span class="accent">before the excuse starts</span>',
           heroHook: 'Lock the challenge, loser rule, and proof before the excuse starts.',
           heroBody: 'SideAction is the receipt layer for side deals, punishments, and challenge bets friends already make. It locks the exact challenge, deadline, proof, and payoff before anyone forgets, stalls, or rewrites what the loser owes later.',
           heroFitChips: [
@@ -3434,6 +3438,7 @@
         if (!fitCopy) return;
 
         if (heroTag) heroTag.textContent = fitCopy.heroTag || 'For people making real bets with friends in group chats, DMs, and text threads';
+        if (heroHeadline) heroHeadline.innerHTML = fitCopy.heroHeadline || 'Lock every friend bet <span class="accent">before the loser rewrites it</span>';
         if (heroHook) heroHook.textContent = fitCopy.heroHook || 'Settle friend bets with one locked receipt before kickoff.';
         if (heroBodyCopy) heroBodyCopy.textContent = fitCopy.heroBody || 'SideAction locks the stake, proof, and payout before the game starts so nobody can rewrite the deal later.';
 
