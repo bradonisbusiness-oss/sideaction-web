@@ -405,6 +405,36 @@
       justify-content: center;
     }
 
+    .hero-cta-strip {
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 14px 0 18px;
+    }
+
+    .hero-cta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .hero-cta-pill span {
+      color: var(--primary);
+      font-size: 14px;
+      line-height: 1;
+    }
+
     .hero-fast-lane {
       width: 100%;
       max-width: 640px;
@@ -2299,6 +2329,11 @@
     <div class="hero-actions">
       <a class="btn-primary" href="#hero-inline-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
       <a class="btn-secondary" href="#sample-receipt">See Locked Receipt</a>
+    </div>
+    <div class="hero-cta-strip" aria-label="Fast signup reassurance">
+      <div class="hero-cta-pill"><span>&#10003;</span>No app install today</div>
+      <div class="hero-cta-pill"><span>&#10003;</span>No payment info</div>
+      <div class="hero-cta-pill"><span>&#10003;</span>Join solo, invite your crew later</div>
     </div>
     <div class="hero-fast-lane" aria-label="Quick fit check before you join the beta waitlist">
       <div class="hero-fast-lane-item">
