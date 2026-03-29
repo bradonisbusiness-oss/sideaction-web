@@ -1723,6 +1723,55 @@
       text-align: center;
     }
 
+    .beta-access-list {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border: 1px solid rgba(77, 159, 255, 0.16);
+      border-radius: 14px;
+      background: rgba(77, 159, 255, 0.06);
+      text-align: left;
+    }
+
+    .beta-access-list-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .beta-access-list ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .beta-access-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .beta-access-list li span {
+      color: var(--success);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-top: 1px;
+    }
+
+    .beta-access-list li strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+    }
+
     .waitlist-helper-link {
       display: inline-flex;
       align-items: center;
@@ -2660,6 +2709,14 @@
         </div>
       </form>
       <p class="waitlist-microcopy">Free. Takes 10 seconds. No app install. No crew needed today.</p>
+      <div class="beta-access-list" aria-label="What early beta users get first">
+        <div class="beta-access-list-title">What beta users get first</div>
+        <ul>
+          <li><span>&#10003;</span><div><strong>Create locked receipts before the game starts</strong> so the line, stake, proof rule, and payout are clear up front.</div></li>
+          <li><span>&#10003;</span><div><strong>Invite the same 1-5 friends you already bet with</strong> once your wave opens instead of rebuilding a new network from scratch.</div></li>
+          <li><span>&#10003;</span><div><strong>Track who actually pays and who stalls</strong> in one clean record instead of digging through old texts later.</div></li>
+        </ul>
+      </div>
       <a class="waitlist-helper-link" id="hero-inline-proof-link" href="#sample-receipt" data-cta-source="hero-inline-proof-link">Not ready yet? See the locked receipt first &#8594;</a>
       <p class="success-msg" aria-live="polite"></p>
       <div class="hero-trust-strip" aria-label="Inline signup trust signals" style="margin-top: 12px;">
