@@ -615,6 +615,65 @@
       color: var(--text-secondary);
     }
 
+    .hero-fit-check-grid {
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+      text-align: left;
+    }
+
+    .hero-fit-check-card {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-fit-check-card.good-fit {
+      border-color: rgba(0,210,106,0.28);
+      background: rgba(0,210,106,0.08);
+    }
+
+    .hero-fit-check-card.bad-fit {
+      border-color: rgba(255,184,0,0.24);
+      background: rgba(255,184,0,0.06);
+    }
+
+    .hero-fit-check-card span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero-fit-check-card.good-fit span {
+      color: var(--success);
+    }
+
+    .hero-fit-check-card.bad-fit span {
+      color: var(--gold);
+    }
+
+    .hero-fit-check-card strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 6px;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    .hero-fit-check-card p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
     .hero-inline-faq {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2347,6 +2406,7 @@
       .hero-form-locks,
       .hero-form-points,
       .hero-form-urgency,
+      .hero-fit-check-grid,
       .hero-inline-faq,
       .hero-inline-checks,
       .hero-inline-outcome-strip,
@@ -2471,6 +2531,18 @@
       <a class="btn-primary" href="#hero-inline-waitlist" data-cta-source="hero-primary">Get Sports Bet Beta Access</a>
     </div>
     <div class="hero-cta-support"><strong>Best fit:</strong> people already making weekly bets with 1-5 friends. Join <strong>solo</strong> now, then bring in the same crew later.</div>
+    <div class="hero-fit-check-grid" aria-label="Quick fit check before joining the beta waitlist">
+      <div class="hero-fit-check-card good-fit">
+        <span>Join now if</span>
+        <strong>You already make repeat bets with the same friends and want one clean record before the game starts.</strong>
+        <p>Best fit for weekly sports bets, prop bets, punishments, and side deals where screenshots and memory keep causing problems.</p>
+      </div>
+      <div class="hero-fit-check-card bad-fit">
+        <span>Skip for now if</span>
+        <strong>You want a sportsbook, public betting marketplace, or an app that holds the money for you.</strong>
+        <p>SideAction only locks the terms, proof, and pay-up record between people who already know each other.</p>
+      </div>
+    </div>
     <div class="hero-quick-compare" aria-label="Fast comparison between messy text bets and a locked SideAction receipt">
       <div class="hero-quick-compare-card bad">
         <span>Text thread bet</span>
