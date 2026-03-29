@@ -3579,33 +3579,58 @@
         });
       });
 
-      const shouldJumpToWaitlist = () => {
+      const getWaitlistJumpTarget = () => {
         const joinSignal = (params.get('join') || '').toLowerCase();
         const intentSignal = (params.get('intent') || '').toLowerCase();
         const hashSignal = (window.location.hash || '').toLowerCase();
 
-        return ['1', 'true', 'waitlist', 'beta'].includes(joinSignal)
-          || ['waitlist', 'beta'].includes(intentSignal)
-          || ['#hero-waitlist', '#waitlist'].includes(hashSignal);
+        if (['1', 'true', 'waitlist', 'beta'].includes(joinSignal)
+          || ['waitlist', 'beta'].includes(intentSignal)) {
+          return {
+            section: heroInlineWaitlistSection || heroWaitlistSection,
+            input: heroInlineWaitlistEmailInput || heroWaitlistEmailInput,
+            sourceField: heroInlineWaitlistSourceField || heroWaitlistSourceField
+          };
+        }
+
+        if (['#hero-inline-waitlist', '#invite-waitlist'].includes(hashSignal)) {
+          return {
+            section: heroInlineWaitlistSection || heroWaitlistSection,
+            input: heroInlineWaitlistEmailInput || heroWaitlistEmailInput,
+            sourceField: heroInlineWaitlistSourceField || heroWaitlistSourceField
+          };
+        }
+
+        if (['#hero-waitlist', '#waitlist'].includes(hashSignal)) {
+          return {
+            section: heroWaitlistSection,
+            input: heroWaitlistEmailInput,
+            sourceField: heroWaitlistSourceField
+          };
+        }
+
+        return null;
       };
 
-      if (shouldJumpToWaitlist()) {
+      const waitlistJumpTarget = getWaitlistJumpTarget();
+
+      if (waitlistJumpTarget) {
         const activeFitSource = getActiveFitSource();
         const sourceWithFit = activeFitSource
           ? `campaign-join|fit:${activeFitSource}`
           : 'campaign-join';
 
-        setWaitlistSource(heroWaitlistSourceField, sourceWithFit);
+        setWaitlistSource(waitlistJumpTarget.sourceField, sourceWithFit);
 
         window.requestAnimationFrame(() => {
-          if (heroWaitlistSection) {
-            heroWaitlistSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (waitlistJumpTarget.section) {
+            waitlistJumpTarget.section.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
 
           window.setTimeout(() => {
-            if (heroWaitlistEmailInput) {
-              heroWaitlistEmailInput.focus({ preventScroll: true });
-              heroWaitlistEmailInput.select();
+            if (waitlistJumpTarget.input) {
+              waitlistJumpTarget.input.focus({ preventScroll: true });
+              waitlistJumpTarget.input.select();
             }
           }, 350);
         });
