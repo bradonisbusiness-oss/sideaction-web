@@ -405,6 +405,44 @@
       justify-content: center;
     }
 
+    .hero-fast-lane {
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 16px 0 20px;
+      text-align: left;
+    }
+
+    .hero-fast-lane-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(77,159,255,0.18);
+      background: rgba(77,159,255,0.08);
+    }
+
+    .hero-fast-lane-item span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-fast-lane-item p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .hero-fast-lane-item strong {
+      color: var(--text);
+    }
+
     .hero-cta-trust {
       width: 100%;
       display: flex;
@@ -2050,6 +2088,7 @@
       .hero-inline-faq,
       .hero-inline-checks,
       .hero-inline-steps,
+      .hero-fast-lane,
       .hero-quick-filter,
       .hero-audience-bar,
       .hero-example-bets,
@@ -2143,6 +2182,20 @@
     <div class="hero-actions">
       <a class="btn-primary" href="#hero-inline-waitlist" data-cta-source="hero-primary">Lock My Beta Spot</a>
       <a class="btn-secondary" href="#sample-receipt">See Locked Receipt</a>
+    </div>
+    <div class="hero-fast-lane" aria-label="Why joining now is the smart move">
+      <div class="hero-fast-lane-item">
+        <span>Join now</span>
+        <p><strong>Hold your place</strong> before the next beta wave opens.</p>
+      </div>
+      <div class="hero-fast-lane-item">
+        <span>Bring 1 friend later</span>
+        <p><strong>Real betting crews get priority</strong> over random solo signups.</p>
+      </div>
+      <div class="hero-fast-lane-item">
+        <span>Low friction</span>
+        <p><strong>No app install. No payment info.</strong> Just your email today.</p>
+      </div>
     </div>
     <div class="hero-inline-capture" id="hero-inline-waitlist" aria-label="Fast beta signup">
       <div class="hero-inline-capture-copy" id="hero-inline-capture-copy">Already making sports bets, prop bets, or side deals with friends? Join the waitlist in 10 seconds, then bring your crew in right after. No app install. No payment info.</div>
