@@ -4320,7 +4320,9 @@
 
       const getMailchimpJsonpUrl = (action) => {
         if (!action) return '';
-        return action.replace('/post?', '/post-json?').replace('&amp;', '&');
+        return action
+          .replace('/post?', '/post-json?')
+          .replace(/&amp;/g, '&');
       };
 
       const submitViaMailchimpJsonp = (form) => {
