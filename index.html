@@ -4508,9 +4508,24 @@
         const defaultButtonLabel = submitButton
           ? (submitButton.tagName === 'INPUT' ? submitButton.value : submitButton.textContent)
           : '';
+        let hasTrackedFormStart = false;
+
+        const trackFormStart = (trigger) => {
+          if (hasTrackedFormStart) return;
+          hasTrackedFormStart = true;
+          trackEvent('waitlist_form_start', {
+            ...getFormContext(form),
+            trigger
+          });
+        };
 
         if (emailInput) {
+          emailInput.addEventListener('focus', () => {
+            trackFormStart('focus');
+          }, { once: true });
+
           emailInput.addEventListener('input', () => {
+            trackFormStart('input');
             saveDraftEmail(emailInput.value);
             syncEmailInputs(emailInput.value, emailInput);
           });
