@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SideAction — Bet. Track. Collect.</title>
+  <title>SideAction — Track Bets, Proof, and Payouts in One Place</title>
   <!-- TEST DEPLOY -->
-  <meta name="description" content="Lock in bets, challenges, and side deals before anyone changes the story. Join the SideAction waitlist for early access." />
+  <meta name="description" content="SideAction locks bet terms, proof, and payout status in one place so nobody can change the story later. Join the waitlist for first private beta access." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -135,8 +135,8 @@
       font-size: 17px;
       color: var(--text-secondary);
       line-height: 1.6;
-      max-width: 500px;
-      margin-bottom: 40px;
+      max-width: 560px;
+      margin-bottom: 28px;
     }
 
     .hero-actions {
@@ -144,6 +144,249 @@
       gap: 14px;
       flex-wrap: wrap;
       justify-content: center;
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .hero-quick-join {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-quick-join input[type="email"] {
+      flex: 1;
+      min-width: 240px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 15px 18px;
+      color: var(--text);
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .hero-quick-join input[type="email"]:focus { border-color: var(--primary); }
+    .hero-quick-join input[type="email"]::placeholder { color: var(--text-tertiary); }
+
+    .hero-subnote {
+      width: 100%;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.5;
+    }
+
+    .hero-assurance {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 4px;
+      list-style: none;
+    }
+
+    .hero-assurance li {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .hero-next-steps {
+      width: 100%;
+      max-width: 760px;
+      margin: 16px auto 0;
+      padding: 16px 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      text-align: left;
+    }
+
+    .hero-next-steps strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .hero-next-steps ol {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero-next-steps li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .hero-next-steps li span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--primary-dim);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      flex: 0 0 22px;
+      margin-top: 1px;
+    }
+
+    .hero-next-steps li strong {
+      display: inline;
+      margin: 0;
+      font-size: 13px;
+    }
+
+
+    .hero-proof {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 760px;
+      margin: 22px auto 0;
+    }
+
+    .hero-proof li {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 16px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-fit-strip {
+      width: 100%;
+      max-width: 760px;
+      margin: 18px auto 0;
+      padding: 14px 16px;
+      border: 1px solid rgba(77, 159, 255, 0.18);
+      background: rgba(77, 159, 255, 0.06);
+      border-radius: 18px;
+      text-align: left;
+    }
+
+    .hero-fit-strip strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .hero-fit-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hero-fit-list li {
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.5;
+      padding: 0;
+    }
+
+    .hero-fit-list li::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: 800;
+      margin-right: 8px;
+    }
+
+    .hero-example {
+      width: 100%;
+      max-width: 760px;
+      margin: 18px auto 0;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      text-align: left;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+    }
+
+
+    .hero-example-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .hero-example-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-example-copy {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      max-width: 620px;
+    }
+
+    .hero-example-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .hero-example-item {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero-example-item span {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+    }
+
+    .hero-example-item strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--text);
     }
 
     .btn-primary {
@@ -243,6 +486,86 @@
       color: var(--text);
       font-size: 13px;
       font-weight: 600;
+    }
+
+    .comparison-section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 72px 24px 24px;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .comparison-card {
+      border-radius: 22px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      text-align: left;
+    }
+
+    .comparison-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .comparison-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+
+    .comparison-card ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .comparison-card li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    .comparison-card li::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 800;
+    }
+
+    .comparison-card.chat {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .comparison-card.chat li::before {
+      content: "×";
+      color: #FF6B6B;
+    }
+
+    .comparison-card.sideaction {
+      border-color: rgba(77, 159, 255, 0.22);
+      background: linear-gradient(180deg, rgba(77,159,255,0.09), rgba(77,159,255,0.03));
+    }
+
+    .comparison-card.sideaction li {
+      color: var(--text);
+    }
+
+    .comparison-card.sideaction li::before {
+      content: "✓";
+      color: var(--success);
     }
 
     .story-section {
@@ -346,6 +669,118 @@
       line-height: 1.7;
     }
 
+    .faq-section {
+      padding: 0 24px 32px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .decision-band {
+      max-width: 920px;
+      margin: 0 auto 40px;
+      padding: 0 24px;
+    }
+
+    .decision-card {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(77, 159, 255, 0.14), rgba(255,255,255,0.03));
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+    }
+
+    .decision-card h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .decision-card p {
+      max-width: 620px;
+      margin: 0 auto 20px;
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .decision-points {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 0 20px;
+    }
+
+    .decision-points li {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .decision-form {
+      max-width: 620px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .decision-form input[type="email"] {
+      flex: 1;
+      min-width: 240px;
+      background: rgba(10,10,15,0.65);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: var(--text);
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+    }
+
+    .decision-form input[type="email"]:focus {
+      border-color: var(--primary);
+    }
+
+    .decision-note {
+      margin-top: 14px;
+      color: var(--text-tertiary);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .faq-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      text-align: left;
+    }
+
+    .faq-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .faq-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
     /* CTA SECTION */
     .cta-section {
       text-align: center;
@@ -366,6 +801,87 @@
       color: var(--text-secondary);
       margin-bottom: 36px;
       line-height: 1.6;
+    }
+
+    .waitlist-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin: 0 auto 28px;
+      max-width: 760px;
+      text-align: left;
+    }
+
+    .waitlist-step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .waitlist-step-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--primary-dim);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .waitlist-step h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .waitlist-step p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .waitlist-perks {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      text-align: left;
+      margin: 0 auto 24px;
+      max-width: 440px;
+    }
+
+    .waitlist-perks h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .waitlist-perks ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .waitlist-perks li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .waitlist-perks li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 800;
+      line-height: 1.2;
     }
 
     /* WAITLIST FORM */
@@ -409,6 +925,13 @@
     }
 
     .waitlist-form button:hover { opacity: 0.85; }
+
+    .waitlist-note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
 
     .success-msg {
       display: none;
@@ -586,6 +1109,41 @@
       line-height: 1.5;
     }
 
+    .mobile-sticky-cta {
+      display: none;
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 120;
+      background: rgba(20, 20, 28, 0.96);
+      border: 1px solid rgba(77, 159, 255, 0.24);
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+    }
+
+    .mobile-sticky-cta strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .mobile-sticky-cta span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .mobile-sticky-cta .btn-primary {
+      width: 100%;
+      text-align: center;
+      padding: 14px 18px;
+    }
+
     @media (max-width: 768px) {
       nav {
         padding: 16px 20px;
@@ -621,13 +1179,39 @@
         text-align: center;
       }
 
+      .hero-proof,
+      .hero-assurance {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-proof li,
+      .hero-assurance li {
+        width: 100%;
+      }
+
+      .hero-example-grid,
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-example {
+        padding: 16px;
+      }
+
       .problem-band,
       .story-section,
       .use-cases,
       .mockups,
+      .faq-section,
       .cta-section {
         padding-left: 20px;
         padding-right: 20px;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
       }
 
       .story-row,
@@ -658,6 +1242,14 @@
       #mc-embedded-subscribe {
         width: 100% !important;
         min-width: 0 !important;
+      }
+
+      .mobile-sticky-cta {
+        display: block;
+      }
+
+      body {
+        padding-bottom: 108px;
       }
 
       footer {
@@ -701,7 +1293,7 @@
       <img src="/bull-skull-logo.png" alt="SideAction logo" style="height:40px;width:auto;object-fit:contain;" />
       <span>Side<span class="accent">Action</span></span>
     </a>
-    <a class="nav-cta" href="#waitlist">Get Early Access</a>
+    <a class="nav-cta" href="#waitlist">Get Private Beta Access</a>
   </nav>
 
   <section class="invite-page" id="invite-page">
@@ -730,12 +1322,69 @@
 
     <img src="/bull-skull-logo.png" alt="SideAction logo" style="height:180px;width:auto;object-fit:contain;margin-bottom:24px;">
 
-    <h1>Side<span class="accent">Action</span></h1>
-    <div class="hero-hook">Put bets on record before anyone remembers it different.</div>
-    <p>Set the terms. Track the result. Keep the proof. No more lost screenshots, changed terms, or unpaid bets.</p>
+    <h1>Stop the “that’s not what we said” fight.</h1>
+    <div class="hero-hook">Lock the terms. Keep the receipts. See who paid up.</div>
+    <p>SideAction gives every bet, challenge, and side deal one clean record, so your group does not need group chat screenshots, memory battles, or payout arguments later.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#waitlist">Join the Waitlist</a>
-      <a class="btn-secondary" href="#how-it-works">See How It Works</a>
+      <form class="hero-quick-join" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="_blank" novalidate>
+        <input type="email" name="EMAIL" required placeholder="Enter your email for private beta access" aria-label="Email address for SideAction waitlist">
+        <input type="submit" class="btn-primary" value="Get My Beta Invite">
+        <div aria-hidden="true" style="position: absolute; left: -5000px;">
+          <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
+        </div>
+      </form>
+      <div class="hero-subnote">Takes 10 seconds. Best for people already making sports bets, challenge bets, money bets, or punishments with friends.</div>
+      <div class="hero-subnote"><a href="#how-it-works" style="color: var(--primary); text-decoration: none; font-weight: 600;">Want to see how it works first?</a></div>
+      <ul class="hero-assurance" aria-label="Waitlist signup details">
+        <li>No app install yet</li>
+        <li>No payment info needed</li>
+        <li>Invite-only beta access</li>
+      </ul>
+      <div class="hero-next-steps" aria-label="What happens after you join">
+        <strong>What happens after you join</strong>
+        <ol>
+          <li><span>1</span><div><strong>You get on the first invite list.</strong> We use the waitlist for the private beta wave.</div></li>
+          <li><span>2</span><div><strong>You get access when your wave opens.</strong> No extra setup or payment info needed today.</div></li>
+          <li><span>3</span><div><strong>You help shape the product.</strong> Early users influence the bet types and flows we build next.</div></li>
+        </ol>
+      </div>
+    </div>
+    <ul class="hero-proof">
+      <li>Terms locked before it starts</li>
+      <li>Proof saved in one place</li>
+      <li>Unpaid losses stay visible</li>
+    </ul>
+    <div class="hero-fit-strip" aria-label="Best fit use cases">
+      <strong>Best fit right now</strong>
+      <ul class="hero-fit-list">
+        <li>sports bets with friends</li>
+        <li>fitness or discipline challenges</li>
+        <li>money owed or side deals</li>
+        <li>punishments and bragging-right bets</li>
+      </ul>
+    </div>
+    <div class="hero-example" aria-label="Example SideAction record">
+      <div class="hero-example-label">Example bet record</div>
+      <div class="hero-example-title">So what actually lives inside SideAction?</div>
+      <p class="hero-example-copy">One clean record for the whole bet, so nobody has to scroll through group chat later trying to remember the rules, find proof, or argue about whether the loser paid.</p>
+      <div class="hero-example-grid">
+        <div class="hero-example-item">
+          <span>Terms locked</span>
+          <strong>"Lakers beat the Suns. Loser sends $50 by Monday."</strong>
+        </div>
+        <div class="hero-example-item">
+          <span>Who is in</span>
+          <strong>Jake vs Marcus + their group can see it.</strong>
+        </div>
+        <div class="hero-example-item">
+          <span>Proof attached</span>
+          <strong>Final score screenshot gets saved on the bet record.</strong>
+        </div>
+        <div class="hero-example-item">
+          <span>Status visible</span>
+          <strong>Won, lost, paid, or still unpaid. No mystery.</strong>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -747,6 +1396,34 @@
       <div class="problem-pill">Keep the proof</div>
       <div class="problem-pill">Track who paid</div>
       <div class="problem-pill">See who won</div>
+    </div>
+  </section>
+
+  <section class="comparison-section" aria-label="Why SideAction converts better than group chat screenshots">
+    <div class="section-label">Why this matters</div>
+    <h2 class="section-title">Group chat keeps the drama. SideAction keeps the record.</h2>
+    <p class="section-copy">Most people do not need another betting app. They need one place that makes the terms, proof, and payout status obvious fast.</p>
+    <div class="comparison-grid">
+      <div class="comparison-card chat">
+        <h3>Without SideAction</h3>
+        <p>The bet starts in chat, then turns into detective work later.</p>
+        <ul>
+          <li>Original terms get buried under memes and trash talk</li>
+          <li>Screenshots live on random phones and disappear when needed</li>
+          <li>People remember the stake differently once money is due</li>
+          <li>Unpaid losses fade out because nobody wants to chase them</li>
+        </ul>
+      </div>
+      <div class="comparison-card sideaction">
+        <h3>With SideAction</h3>
+        <p>Everyone can see the same record from the start to the payout.</p>
+        <ul>
+          <li>Terms are locked before the game, challenge, or side deal starts</li>
+          <li>Proof stays attached to the actual bet record</li>
+          <li>Win, loss, paid, and unpaid status stay visible to the group</li>
+          <li>The app makes follow-through easier without extra arguing</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -801,6 +1478,26 @@
     </div>
   </section>
 
+  <section class="decision-band" aria-label="Mid-page waitlist call to action">
+    <div class="decision-card">
+      <h2>If your group already makes bets, get on the list now.</h2>
+      <p>You already saw how it works. If SideAction would save your group from screenshot hunts and payout arguments, join the private beta waitlist before you bounce.</p>
+      <ul class="decision-points" aria-label="Reasons to join now">
+        <li>No app install yet</li>
+        <li>No payment info needed</li>
+        <li>First invite wave goes to the waitlist</li>
+      </ul>
+      <form class="decision-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="_blank" novalidate>
+        <input type="email" name="EMAIL" required placeholder="Enter your email for private beta access" aria-label="Email address for SideAction waitlist">
+        <input type="submit" class="btn-primary" value="Join Private Beta Waitlist">
+        <div aria-hidden="true" style="position: absolute; left: -5000px;">
+          <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
+        </div>
+      </form>
+      <div class="decision-note">Best for sports bets, challenge bets, side deals, and punishments where people actually care who follows through.</div>
+    </div>
+  </section>
+
   <section class="use-cases">
     <div class="section-label">More than sports</div>
     <h2 class="section-title">Use it anywhere stakes make people take it seriously.</h2>
@@ -821,10 +1518,73 @@
     </div>
   </section>
 
+  <section class="faq-section" aria-label="Who should join the beta">
+    <div class="section-label">Who this is for</div>
+    <h2 class="section-title">Join the beta if your group already makes side bets.</h2>
+    <div class="faq-grid">
+      <div class="faq-card">
+        <h3>Good fit right now</h3>
+        <p>You already make sports bets, challenge bets, punishments, or side deals with friends. You want one place to lock terms, keep proof, and track who followed through.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Probably not for you yet</h3>
+        <p>If your group never makes bets, never puts anything on the line, or does not care about keeping score, SideAction will feel unnecessary. This beta is for people who already have the problem.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Why join early</h3>
+        <p>Early users get in first, help shape the product, and set the culture before the public launch. If you want your kind of bets handled well, get on the list now.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" aria-label="Common questions">
+    <div class="section-label">Common objections</div>
+    <h2 class="section-title">The fast answers before you join.</h2>
+    <div class="faq-grid">
+      <div class="faq-card">
+        <h3>Is this only for sports bets?</h3>
+        <p>No. Sports is the wedge. SideAction also fits gym bets, content challenges, business dares, punishments, and any side deal where people need the terms and proof in one place.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Do we need to bet real money?</h3>
+        <p>No. Use cash, chores, punishments, bragging rights, or anything else your group cares about. The point is making the terms clear and the follow-through visible.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Why not just use the group chat?</h3>
+        <p>Because chats bury the original terms, screenshots get lost, and nobody agrees later. SideAction keeps the bet, the proof, and the payout status on record from start to finish.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- WAITLIST -->
   <section class="cta-section" id="waitlist">
-    <h2>Get early access before public launch.</h2>
-    <p>If you are tired of changed terms, lost screenshots, and unpaid bets, get on the waitlist now.</p>
+    <h2>Get the first invite when private beta opens.</h2>
+    <p>Join the waitlist to get first access, help shape the product, and be in the first wave using SideAction for real bets and side deals.</p>
+    <div class="waitlist-steps">
+      <div class="waitlist-step">
+        <div class="waitlist-step-label">1</div>
+        <h3>Join in 10 seconds</h3>
+        <p>Drop your email. No app install yet. No extra work.</p>
+      </div>
+      <div class="waitlist-step">
+        <div class="waitlist-step-label">2</div>
+        <h3>Get first private beta invites</h3>
+        <p>Waitlist members get first shot when the first invite wave opens.</p>
+      </div>
+      <div class="waitlist-step">
+        <div class="waitlist-step-label">3</div>
+        <h3>Shape the product</h3>
+        <p>Early users help decide what SideAction ships next.</p>
+      </div>
+    </div>
+    <div class="waitlist-perks">
+      <h3>What early users get</h3>
+      <ul>
+        <li>First crack at private invites before the public launch</li>
+        <li>A direct voice in what SideAction ships next</li>
+        <li>A chance to help set the culture before everyone else shows up</li>
+      </ul>
+    </div>
     <div id="mc_embed_shell" style="max-width: 440px; margin: 0 auto;">
       <div id="mc_embed_signup">
         <form action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -836,9 +1596,16 @@
             </div>
           </div>
         </form>
+        <div class="waitlist-note">No spam. Just product updates and your private beta invite when your wave opens.</div>
       </div>
     </div>
   </section>
+
+  <div class="mobile-sticky-cta" aria-label="Mobile waitlist shortcut">
+    <strong>Want first beta access?</strong>
+    <span>Join the waitlist before you bounce. Takes 10 seconds.</span>
+    <a class="btn-primary" href="#waitlist">Join the waitlist</a>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -860,10 +1627,15 @@
       const mockups = document.querySelector("#mockups");
       const waitlist = document.querySelector("#waitlist");
       const footer = document.querySelector("footer");
+      const stickyCta = document.querySelector(".mobile-sticky-cta");
 
       [hero, features, mockups, waitlist].forEach((el) => {
         if (el) el.style.display = "none";
       });
+
+      if (stickyCta) {
+        stickyCta.style.display = "none";
+      }
 
       if (nav) {
         nav.querySelector(".nav-cta").setAttribute("href", "/#waitlist");
