@@ -17,6 +17,22 @@ For each day:
 4. Share the IG post to Story with the same link.
 5. Save strong comments/questions so the next posts can answer them.
 
+## Best move today before the 7-day queue
+
+### Fast Sunday X move
+**Use:** `X_REACTIVE_PACK_2026-03-29_ELITE_EIGHT_SUNDAY.md` — Post 1
+
+**Link:**
+https://sideactionapp.com/?fit=sports-bets&join=1&utm_source=x&utm_campaign=elite-eight-post-1
+
+**Why:**
+Today has a live sports chatter window. This gives SideAction a timely pain-first post with less effort and better odds of replies than a generic scheduled post.
+
+**Execution:**
+- Post it before Elite Eight betting chatter peaks.
+- Spend 10 minutes reply-hijacking picks, bad beat clips, spread debates, and betting memes.
+- Tonight rotate to Post 5 or Post 6 from the same reactive pack for baseball if Bradon wants a second shot.
+
 ## Day 1
 
 ### X
