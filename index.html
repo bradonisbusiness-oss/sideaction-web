@@ -3544,6 +3544,30 @@
         return parts.join(" |");
       };
 
+      const getAttributionSnapshot = () => {
+        const search = new URLSearchParams(window.location.search);
+        const path = (window.location.pathname || "/").replace(/^\/+/, "") || "home";
+        const inviteMatch = path.match(/^invite\/([^/?#]+)/i);
+        return {
+          fit: getActiveFitSource() || '',
+          ref: search.get('ref') || '',
+          utm_source: search.get('utm_source') || '',
+          utm_medium: search.get('utm_medium') || '',
+          utm_campaign: search.get('utm_campaign') || '',
+          path,
+          referrer: document.referrer
+            ? (() => {
+                try {
+                  return new URL(document.referrer).hostname.replace(/^www\./, '');
+                } catch (error) {
+                  return '';
+                }
+              })()
+            : '',
+          invite: inviteMatch?.[1] ? decodeURIComponent(inviteMatch[1]).replace(/^@/, '') : ''
+        };
+      };
+
       const inferFitSourceFromParams = () => {
         const explicitFit = params.get('fit');
         if (explicitFit && fitSourceCopy[explicitFit]) {
@@ -3769,6 +3793,34 @@
 
       const defaultFitSource = inferFitSourceFromParams();
       updateFitSelection(defaultFitSource);
+      trackEvent('landing_page_view', getAttributionSnapshot());
+
+      const trackedViewTargets = [
+        { element: document.getElementById('hero-inline-waitlist'), name: 'hero_inline_waitlist_view' },
+        { element: document.getElementById('hero-waitlist'), name: 'hero_detail_waitlist_view' },
+        { element: document.getElementById('waitlist'), name: 'bottom_waitlist_view' },
+        { element: document.getElementById('sample-receipt'), name: 'sample_receipt_view' }
+      ].filter((entry) => entry.element);
+
+      if ('IntersectionObserver' in window && trackedViewTargets.length) {
+        const seenViewEvents = new Set();
+        const viewObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const eventName = entry.target.getAttribute('data-view-event');
+            if (!eventName || seenViewEvents.has(eventName)) return;
+
+            seenViewEvents.add(eventName);
+            trackEvent(eventName, getAttributionSnapshot());
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.45 });
+
+        trackedViewTargets.forEach(({ element, name }) => {
+          element.setAttribute('data-view-event', name);
+          viewObserver.observe(element);
+        });
+      }
 
       trackedWaitlistCtas.forEach((cta) => {
         cta.addEventListener("click", () => {
