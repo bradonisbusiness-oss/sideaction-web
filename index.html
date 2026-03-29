@@ -1977,6 +1977,7 @@
         <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Keep an eye on your inbox for invite waves and product updates.">
           <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for invite beta waitlist" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
           <input type="hidden" name="MMERGE6" id="invite-referrer-field" value="sideaction">
+          <input type="hidden" name="MMERGE7" id="invite-fit-field" value="sports-bets">
           <button type="submit" id="invite-submit-btn">Join Beta Waitlist</button>
           <div aria-hidden="true" style="position: absolute; left: -5000px;">
             <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
@@ -2003,6 +2004,7 @@
       <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
         <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for fast beta signup" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
         <input type="hidden" name="MMERGE6" value="hero-inline">
+        <input type="hidden" name="MMERGE7" value="sports-bets">
         <button type="submit">Get First Invite</button>
         <div aria-hidden="true" style="position: absolute; left: -5000px;">
           <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
@@ -2146,6 +2148,7 @@
       <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
         <input type="email" name="EMAIL" required placeholder="Enter your email for early access" aria-label="Email address for beta waitlist" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
         <input type="hidden" name="MMERGE6" value="hero">
+        <input type="hidden" name="MMERGE7" value="sports-bets">
         <button type="submit">Get First Invite</button>
         <div aria-hidden="true" style="position: absolute; left: -5000px;">
           <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
@@ -2549,6 +2552,7 @@
           <div id="mc_embed_signup_scroll" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
             <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" placeholder="Enter your email for early access" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" style="flex: 1; min-width: 200px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; color: var(--text); font-size: 15px; font-family: 'Inter', sans-serif; outline: none;">
             <input type="hidden" name="MMERGE6" id="waitlist-source-field" value="cta">
+            <input type="hidden" name="MMERGE7" id="waitlist-fit-field" value="sports-bets">
             <input type="submit" name="subscribe" id="mc-embedded-subscribe" value="Get First Invite" style="background: var(--primary); color: #fff; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; white-space: nowrap;">
             <div aria-hidden="true" style="position: absolute; left: -5000px;">
               <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
@@ -2658,6 +2662,8 @@
       const heroWaitlistEmailInput = document.querySelector('#hero-waitlist input[name="EMAIL"]');
       const heroInlineWaitlistSourceField = document.querySelector('#hero-inline-waitlist input[name="MMERGE6"]');
       const heroWaitlistSourceField = document.querySelector('#hero-waitlist input[name="MMERGE6"]');
+      const heroInlineWaitlistFitField = document.querySelector('#hero-inline-waitlist input[name="MMERGE7"]');
+      const heroWaitlistFitField = document.querySelector('#hero-waitlist input[name="MMERGE7"]');
       const heroFormHeaderTitle = document.querySelector('.hero-form-header strong');
       const heroFormHeaderCopy = document.querySelector('.hero-form-header p');
       const heroFormDisclaimer = document.querySelector('#hero-waitlist .hero-form-disclaimer');
@@ -2709,8 +2715,10 @@
       const sampleReceiptFootnote = document.getElementById('sample-receipt-footnote');
       const ctaWaitlistEmailInput = document.getElementById("mce-EMAIL");
       const ctaWaitlistSourceField = document.getElementById("waitlist-source-field");
+      const ctaWaitlistFitField = document.getElementById("waitlist-fit-field");
       const ctaWaitlistSubmitButton = document.getElementById("mc-embedded-subscribe");
       const inviteWaitlistSourceField = document.getElementById("invite-referrer-field");
+      const inviteWaitlistFitField = document.getElementById("invite-fit-field");
       const trackedWaitlistCtas = document.querySelectorAll('[data-cta-source]');
       const fitSourceButtons = document.querySelectorAll('[data-fit-source]');
       const params = new URLSearchParams(window.location.search);
@@ -3004,6 +3012,11 @@
         field.value = buildTrackingValue(baseSource);
       };
 
+      const setWaitlistFit = (field, fitSource) => {
+        if (!field) return;
+        field.value = fitSource || 'sports-bets';
+      };
+
       const applyFitSourceCopy = (source) => {
         const fitCopy = fitSourceCopy[source];
         if (!fitCopy) return;
@@ -3134,6 +3147,10 @@
         setWaitlistSource(heroInlineWaitlistSourceField, `hero-inline-fit:${source}`);
         setWaitlistSource(heroWaitlistSourceField, `hero-fit:${source}`);
         setWaitlistSource(ctaWaitlistSourceField, `cta-fit:${source}`);
+        setWaitlistFit(heroInlineWaitlistFitField, source);
+        setWaitlistFit(heroWaitlistFitField, source);
+        setWaitlistFit(ctaWaitlistFitField, source);
+        setWaitlistFit(inviteWaitlistFitField, source);
         syncFitSourceInUrl(source);
       };
 
