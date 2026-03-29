@@ -334,7 +334,33 @@
     }
 
     .hero-quick-filter {
-      display: none;
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 16px 0 0;
+      text-align: left;
+    }
+
+    .hero-fit-chip {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .hero-fit-chip span {
+      color: var(--primary);
+      font-weight: 800;
+      flex-shrink: 0;
     }
 
     .hero-quick-filter-card {
@@ -383,25 +409,6 @@
       line-height: 1.55;
       color: var(--text-secondary);
       margin: 0;
-    }
-
-    .hero-fit-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(77,159,255,0.18);
-      background: rgba(255,255,255,0.03);
-      color: var(--text-secondary);
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.4;
-    }
-
-    .hero-fit-chip span {
-      color: var(--primary);
-      font-weight: 800;
     }
 
     .hero-segment-picker {
@@ -2535,9 +2542,6 @@
       }
       .invite-card {
         padding: 24px 18px;
-      }
-      .hero-quick-filter {
-        display: none;
       }
     }
 
