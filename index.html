@@ -18,6 +18,12 @@
   <meta name="twitter:image" content="https://sideactionapp.com/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    window.va = window.va || function () {
+      (window.vaq = window.vaq || []).push(arguments);
+    };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -3229,6 +3235,24 @@
       const inviteWaitlistFitField = document.getElementById("invite-fit-field");
       const inviteWaitlistSubmitButton = document.getElementById('invite-submit-btn');
       const trackedWaitlistCtas = document.querySelectorAll('[data-cta-source]');
+
+      const trackEvent = (name, data = {}) => {
+        if (typeof window.va !== 'function') return;
+        window.va('event', {
+          name,
+          data
+        });
+      };
+
+      const getFormContext = (form) => {
+        if (!form) return {};
+        const sourceField = form.querySelector('input[name="MMERGE6"]');
+        const fitField = form.querySelector('input[name="MMERGE7"]');
+        return {
+          source: sourceField?.value || '',
+          fit: fitField?.value || getActiveFitSource() || ''
+        };
+      };
       const fitSourceButtons = document.querySelectorAll('[data-fit-source]');
       const params = new URLSearchParams(window.location.search);
 
@@ -3751,6 +3775,12 @@
           const source = cta.getAttribute("data-cta-source") || "cta";
           const targetHref = cta.getAttribute("href") || "#hero-waitlist";
 
+          trackEvent('waitlist_cta_click', {
+            source,
+            target: targetHref.replace('#', '') || 'unknown',
+            fit: getActiveFitSource() || ''
+          });
+
           let targetSection = ctaWaitlistSection;
           let targetInput = ctaWaitlistEmailInput;
           let targetSourceField = ctaWaitlistSourceField;
@@ -3791,6 +3821,7 @@
         button.addEventListener('click', () => {
           const source = button.getAttribute('data-fit-source') || 'unknown';
           updateFitSelection(source);
+          trackEvent('fit_selector_click', { fit: source });
 
           window.requestAnimationFrame(() => {
             if (heroInlineWaitlistSection) {
@@ -3880,6 +3911,22 @@
         const activeButton = document.querySelector('[data-fit-source].active');
         return activeButton?.getAttribute('data-fit-source') || '';
       };
+      const trackEvent = (name, data = {}) => {
+        if (typeof window.va !== 'function') return;
+        window.va('event', {
+          name,
+          data
+        });
+      };
+      const getFormContext = (form) => {
+        if (!form) return {};
+        const sourceField = form.querySelector('input[name="MMERGE6"]');
+        const fitField = form.querySelector('input[name="MMERGE7"]');
+        return {
+          source: sourceField?.value || '',
+          fit: fitField?.value || getActiveFitSource() || ''
+        };
+      };
 
       const getShareCopyForFit = () => {
         const fitSource = getActiveFitSource();
@@ -3940,6 +3987,7 @@
                   url: shareUrl
                 });
                 nativeShareButton.textContent = 'Shared';
+                trackEvent('waitlist_share_native', { fit: getActiveFitSource() || '' });
               } catch (error) {
                 if (error?.name !== 'AbortError') {
                   window.prompt('Share this crew link:', shareUrl);
@@ -3956,6 +4004,7 @@
               if (navigator.clipboard?.writeText) {
                 await navigator.clipboard.writeText(shareUrl);
                 copyButton.textContent = 'Copied';
+                trackEvent('waitlist_share_copy_link', { fit: getActiveFitSource() || '' });
               } else {
                 window.prompt('Copy this crew link:', shareUrl);
               }
@@ -3994,6 +4043,7 @@
       const showSuccessState = (form) => {
         if (!form) return;
 
+        const formContext = getFormContext(form);
         const emailInput = form.querySelector('input[name="EMAIL"]');
         const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
         const successMsg = form.querySelector('.success-msg');
@@ -4019,6 +4069,8 @@
           successMsg.classList.add('visible');
           renderSuccessShare(successMsg);
         }
+
+        trackEvent('waitlist_signup_success', formContext);
       };
 
       const showSubmitError = (form, defaultButtonLabel) => {
@@ -4155,6 +4207,9 @@
         form.addEventListener('submit', async (event) => {
           event.preventDefault();
           if (!emailInput || !emailInput.checkValidity()) return;
+
+          const formContext = getFormContext(form);
+          trackEvent('waitlist_form_submit', formContext);
 
           pendingForm = form;
           clearPendingFallback();
