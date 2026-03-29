@@ -4435,8 +4435,8 @@
       if (!heroInlineWaitlist) return;
 
       const updateStickyCtaVisibility = () => {
-        const triggerPoint = heroInlineWaitlist.getBoundingClientRect().bottom;
-        const shouldShow = triggerPoint < 120;
+        const waitlistRect = heroInlineWaitlist.getBoundingClientRect();
+        const shouldShow = waitlistRect.top < -80;
 
         [desktopFloatCta, mobileStickyCta].forEach((cta) => {
           if (!cta) return;
