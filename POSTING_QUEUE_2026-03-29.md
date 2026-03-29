@@ -7,6 +7,7 @@ Rule: one pain per post. Do not explain the whole app. Do not debate in public. 
 Use these source files:
 - `X_POST_PACK_2026-03-29.md`
 - `INSTAGRAM_POST_PACK_2026-03-29.md`
+- `IG_STORY_SET_2026-03-29.md`
 - `REDDIT_POST_PACK_2026-03-29.md`
 - `COMMENT_REPLY_BANK_2026-03-28.md`
 
