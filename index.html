@@ -3004,6 +3004,8 @@
           ],
           title: 'Join the beta now. Get first shot at the next invite wave for people already making sports bets with friends.',
           body: 'Join if you already make game bets with friends in texts, DMs, or group chats. We only need your email today. No app install. No payment info. Join first, then bring your crew in after. Early waitlist members get first shot when new beta spots open.',
+          emailPlaceholder: 'Enter your email for sports bet beta access',
+          emailAriaLabel: 'Email address for sports bet beta waitlist',
           button: 'Join Beta Waitlist',
           topCta: 'Join Beta Waitlist',
           disclaimer: 'No app install today. No payment info. No sportsbook account. Just beta invites and low-volume product updates for people making real game bets with friends.',
@@ -3080,6 +3082,8 @@
           ],
           title: 'Join the beta now. Get first shot at the next invite wave for people already making prop bets with friends.',
           body: 'Join if you already make player props, challenge bets, and funny side wagers with friends. We only need your email today. No app install. No payment info. Join first, then bring your crew in after. Early waitlist members get first shot when new beta spots open.',
+          emailPlaceholder: 'Enter your email for prop bet beta access',
+          emailAriaLabel: 'Email address for prop bet beta waitlist',
           button: 'Join Beta Waitlist',
           topCta: 'Join Beta Waitlist',
           disclaimer: 'No app install today. No payment info. No sportsbook account. Just beta invites and low-volume product updates for people making real prop bets with friends.',
@@ -3155,7 +3159,9 @@
             '&#10003; Settle however your crew already pays'
           ],
           title: 'Join the beta now. Get first shot at the next invite wave for people already making side deals with friends.',
-          body: 'Join if you already make challenge bets, punishments, and side deals with friends or coworkers. We only need your email today. No app install. No payment info. Join first, then bring your crew in after. Early waitlist members get first shot when new beta spots open.',
+          body: 'Join if you already make challenge bets, punishments, and side deals with friends or coworkers. We only need your email today. No app install. No payment info. Join first. Then bring your crew in after if you want a faster shot at the next invite wave. Early waitlist members get first shot when new beta spots open.',
+          emailPlaceholder: 'Enter your email for side deal beta access',
+          emailAriaLabel: 'Email address for side-deal beta waitlist',
           button: 'Join Beta Waitlist',
           topCta: 'Join Beta Waitlist',
           disclaimer: 'No app install today. No payment info. No wallet. Just beta invites and low-volume product updates for people making real side deals and punishment bets.',
@@ -3320,6 +3326,12 @@
 
         if (heroFormHeaderTitle) heroFormHeaderTitle.textContent = fitCopy.title;
         if (heroFormHeaderCopy) heroFormHeaderCopy.textContent = fitCopy.body;
+
+        document.querySelectorAll('.js-waitlist-form input[name="EMAIL"]').forEach((input) => {
+          input.placeholder = fitCopy.emailPlaceholder || 'Enter your email for the beta waitlist';
+          input.setAttribute('aria-label', fitCopy.emailAriaLabel || 'Email address for beta waitlist');
+        });
+
         if (navCtaButton) navCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Join Beta Waitlist';
         if (heroPrimaryCtaButton) heroPrimaryCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Join Beta Waitlist';
         if (heroInlineSubmitButton) heroInlineSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
