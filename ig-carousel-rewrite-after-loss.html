@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SideAction IG Carousel — Rewrite After the Loss</title>
+  <style>
+    :root {
+      --bg: #0A0A0F;
+      --surface: #14141C;
+      --surface-2: #1B1B26;
+      --border: rgba(255,255,255,0.09);
+      --text: #FFFFFF;
+      --muted: #A0A0B8;
+      --blue: #4D9FFF;
+      --red: #FF6B6B;
+      --green: #00D26A;
+      --shadow: 0 24px 80px rgba(0,0,0,0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: linear-gradient(180deg, #05060A 0%, #0A0A0F 100%);
+      color: var(--text);
+      padding: 32px;
+    }
+
+    .page-header {
+      max-width: 1200px;
+      margin: 0 auto 24px;
+    }
+
+    .page-header h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .page-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .slide {
+      aspect-ratio: 4 / 5;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at top right, rgba(77,159,255,0.18), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        var(--surface);
+      box-shadow: var(--shadow);
+      position: relative;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .slide-number,
+    .brand {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .slide-number { color: var(--muted); }
+    .brand { color: var(--blue); margin-left: auto; }
+
+    .slide-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .headline {
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin: 0 0 16px;
+      position: relative;
+      z-index: 2;
+      white-space: pre-line;
+    }
+
+    .headline .accent { color: var(--blue); }
+    .headline .danger { color: var(--red); }
+
+    .support {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.45;
+      color: var(--muted);
+      position: relative;
+      z-index: 2;
+      white-space: pre-line;
+    }
+
+    .foot {
+      margin-top: auto;
+      font-size: 13px;
+      color: rgba(255,255,255,0.54);
+      position: relative;
+      z-index: 2;
+    }
+
+    .chat-stack {
+      margin-top: auto;
+      display: grid;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+      opacity: 0.95;
+    }
+
+    .bubble {
+      max-width: 78%;
+      padding: 12px 14px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.4;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .bubble.left {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+    }
+
+    .bubble.right {
+      margin-left: auto;
+      background: rgba(77,159,255,0.16);
+      color: var(--text);
+      border-color: rgba(77,159,255,0.22);
+    }
+
+    .bubble.alert {
+      background: rgba(255,107,107,0.14);
+      border-color: rgba(255,107,107,0.25);
+      color: #FFD9D9;
+    }
+
+    .split-card {
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .amount-card,
+    .receipt-row,
+    .mini-card,
+    .check-card {
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+
+    .amount-card {
+      padding: 18px;
+      text-align: center;
+    }
+
+    .amount-card span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 10px;
+    }
+
+    .amount-card strong {
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    .amount-card.red strong { color: var(--red); }
+    .amount-card.blue strong { color: var(--blue); }
+
+    .amount-label {
+      margin-top: 14px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .center-copy {
+      margin: auto 0;
+    }
+
+    .receipt {
+      margin-top: auto;
+      display: grid;
+      gap: 10px;
+    }
+
+    .receipt-row {
+      padding: 16px;
+    }
+
+    .receipt-row span {
+      display: block;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 8px;
+    }
+
+    .receipt-row strong {
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    .mini-card {
+      margin-top: auto;
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .mini-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .badge {
+      border-radius: 999px;
+      background: rgba(77,159,255,0.14);
+      border: 1px solid rgba(77,159,255,0.24);
+      color: var(--blue);
+      font-weight: 800;
+      padding: 8px 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mini-grid .check-card {
+      padding: 14px;
+    }
+
+    .mini-grid span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 6px;
+    }
+
+    .mini-grid strong {
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .x-list {
+      margin-top: auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .x-item,
+    .check-item {
+      border-radius: 18px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .x-item .icon {
+      color: var(--red);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .check-item .icon {
+      color: var(--green);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .cta-box {
+      margin-top: auto;
+      border-radius: 24px;
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(77,159,255,0.14), rgba(77,159,255,0.05));
+      border: 1px solid rgba(77,159,255,0.24);
+    }
+
+    .cta-url {
+      margin: 16px 0 10px;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      word-break: break-word;
+    }
+
+    .cta-note {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-header">
+    <h1>Instagram Carousel — “Rewrite After the Loss”</h1>
+    <p>Ready-to-export slide mockups for the strongest SideAction pain hook. Open in browser, screenshot each slide, or rebuild in Canva using this as the visual spec.</p>
+  </div>
+
+  <div class="grid">
+    <section class="slide">
+      <div class="slide-top"><div class="slide-number">Slide 1</div><div class="brand">SideAction</div></div>
+      <h2 class="headline">Your friend does not change the bet
+until <span class="danger">he loses.</span></h2>
+      <p class="support">That is when the group chat turns into court.</p>
+      <div class="chat-stack">
+        <div class="bubble left">Chiefs -3.5 for $100?</div>
+        <div class="bubble right">Done. Loser pays right after the game.</div>
+        <div class="bubble alert">Bro that is not what we said.</div>
+      </div>
+      <div class="foot">Cold open. Pain first.</div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-top"><div class="slide-number">Slide 2</div><div class="brand">SideAction</div></div>
+      <h2 class="headline">“Bro that is <span class="accent">not what we said.</span>”</h2>
+      <p class="support">Now everybody is scrolling old texts trying to prove the line.</p>
+      <div class="chat-stack">
+        <div class="bubble left">I had +4.5 not +3.5</div>
+        <div class="bubble right">No chance. Scroll up.</div>
+        <div class="bubble alert">That screenshot is cropped.</div>
+      </div>
+      <div class="foot">Show the argument, not the app.</div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-top"><div class="slide-number">Slide 3</div><div class="brand">SideAction</div></div>
+      <h2 class="headline">One guy remembers <span class="danger">$50.</span>
+The other remembers <span class="accent">$100.</span></h2>
+      <p class="support">Same bet. Two versions.</p>
+      <div class="split-card">
+        <div class="amount-card red"><span>Version A</span><strong>$50</strong></div>
+        <div class="amount-card blue"><span>Version B</span><strong>$100</strong></div>
+      </div>
+      <div class="amount-label">same bet?</div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-top"><div class="slide-number">Slide 4</div><div class="brand">SideAction</div></div>
+      <div class="center-copy">
+        <h2 class="headline">The pick is not the problem.</h2>
+        <p class="support">The <span class="accent">rewrite after the loss</span> is.</p>
+      </div>
+      <div class="foot">This is the reframe slide.</div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-top"><div class="slide-number">Slide 5</div><div class="brand">SideAction</div></div>
+      <h2 class="headline">SideAction locks:</h2>
+      <p class="support">Before kickoff. Not during the argument.</p>
+      <div class="receipt">
+        <div class="receipt-row"><span>Lock 1</span><strong>The line</strong></div>
+        <div class="receipt-row"><span>Lock 2</span><strong>The stake</strong></div>
+        <div class="receipt-row"><span>Lock 3</span><strong>The proof rule</strong></div>
+        <div class="receipt-row"><span>Lock 4</span><strong>Who pays who</strong></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-top"><div class="slide-number">Slide 6</div><div class="brand">SideAction</div></div>
+      <h2 class="headline">One bet.
+One receipt.
+One version of the truth.</h2>
+      <p class="support">Both sides can point to the same record after the game.</p>
+      <div class="mini-card">
+        <div class="mini-card-header">
+          <div class="badge">Locked Receipt</div>
+          <div>Chiefs -3.5 vs Bills</div>
+        </div>
+        <div class="mini-grid">
+          <div class="check-card"><span>Stake</span><strong>$100 loser pays winner</strong></div>
+          <div class="check-card"><span>Proof</span><strong>Final score screenshot</strong></div>
+          <div class="check-card"><span>Terms</span><strong>Chiefs must win by 4+</strong></div>
+          <div class="check-card"><span>Payout</span><strong>Pay by midnight</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-top"><div class="slide-number">Slide 7</div><div class="brand">SideAction</div></div>
+      <h2 class="headline">Not a sportsbook.
+Not a wallet.</h2>
+      <p class="support">SideAction does not hold money. It holds the record.</p>
+      <div class="x-list">
+        <div class="x-item"><div class="icon">✕</div><div>Sportsbook odds and betting book</div></div>
+        <div class="x-item"><div class="icon">✕</div><div>Wallet, deposits, or holding funds</div></div>
+        <div class="check-item"><div class="icon">✓</div><div>Locked receipt for bets between friends</div></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-top"><div class="slide-number">Slide 8</div><div class="brand">SideAction</div></div>
+      <h2 class="headline">If you already bet with friends in group chats,
+<span class="accent">join the beta.</span></h2>
+      <p class="support">Best fit: people already making sports bets with the same crew.</p>
+      <div class="cta-box">
+        <div class="badge">Join now</div>
+        <div class="cta-url">sideactionapp.com</div>
+        <p class="cta-note">No app install today. No payment info. Just join the beta waitlist.</p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
