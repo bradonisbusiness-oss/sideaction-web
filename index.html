@@ -1470,6 +1470,14 @@
 
     .waitlist-form button:hover { opacity: 0.85; }
 
+    .waitlist-microcopy {
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
     .hero-inline-capture {
       width: 100%;
       max-width: 640px;
@@ -2234,7 +2242,7 @@
       <img src="./logo.png" alt="SideAction logo" style="height:40px;width:auto;object-fit:contain;" />
       <span>Side<span class="accent">Action</span></span>
     </a>
-    <a class="nav-cta" href="#hero-inline-waitlist" data-cta-source="nav">Get Beta Access</a>
+    <a class="nav-cta" href="#hero-inline-waitlist" data-cta-source="nav">Join Beta Waitlist</a>
   </nav>
 
   <section class="invite-page" id="invite-page">
@@ -2250,7 +2258,7 @@
 
       <div class="invite-actions">
         <a class="btn-primary" id="open-app-btn" href="sideaction://invite/sideaction">Open in SideAction App</a>
-        <a class="btn-secondary" id="fallback-btn" href="#invite-waitlist">Get Beta Access</a>
+        <a class="btn-secondary" id="fallback-btn" href="#invite-waitlist">Join Beta Waitlist</a>
       </div>
 
       <div class="invite-note">If the app is not installed yet, join the waitlist and keep this invite attached for the next beta wave.</div>
@@ -2289,7 +2297,7 @@
       <p class="hero-fit-selector-note">Pick one and we tailor the page to your kind of bet. Your spot on the beta list stays the same.</p>
     </div>
     <div class="hero-actions">
-      <a class="btn-primary" href="#hero-inline-waitlist" data-cta-source="hero-primary">Get Beta Access</a>
+      <a class="btn-primary" href="#hero-inline-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
       <a class="btn-secondary" href="#sample-receipt">See Locked Receipt</a>
     </div>
     <div class="hero-fast-lane" aria-label="Quick fit check before you join the beta waitlist">
@@ -2326,11 +2334,12 @@
         <input type="email" name="EMAIL" required placeholder="Enter your email for the beta waitlist" aria-label="Email address for fast beta signup" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
         <input type="hidden" name="MMERGE6" value="hero-inline">
         <input type="hidden" name="MMERGE7" value="sports-bets">
-        <button type="submit">Get Beta Access</button>
+        <button type="submit">Join Beta Waitlist</button>
         <div aria-hidden="true" style="position: absolute; left: -5000px;">
           <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
         </div>
       </form>
+      <p class="waitlist-microcopy">Takes 10 seconds. Email only. No app install or payment info.</p>
       <p class="success-msg" aria-live="polite"></p>
       <div class="hero-trust-strip" aria-label="Inline signup trust signals" style="margin-top: 12px;">
         <div class="hero-trust-pill" id="hero-inline-trust-1"><span>&#10003;</span><strong>Built for sports bets</strong></div>
@@ -2420,11 +2429,12 @@
         <input type="email" name="EMAIL" required placeholder="Enter your email for the beta waitlist" aria-label="Email address for beta waitlist" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
         <input type="hidden" name="MMERGE6" value="hero">
         <input type="hidden" name="MMERGE7" value="sports-bets">
-        <button type="submit">Get Beta Access</button>
+        <button type="submit">Join Beta Waitlist</button>
         <div aria-hidden="true" style="position: absolute; left: -5000px;">
           <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
         </div>
       </form>
+      <p class="waitlist-microcopy">Takes 10 seconds. Email only. No app install or payment info.</p>
       <p class="success-msg" aria-live="polite"></p>
       <p class="hero-form-disclaimer" style="margin: 12px 0 0; font-size: 12px; color: var(--text-tertiary); text-align: left;">No app install today. No payment info. No sportsbook account. Just beta invites and low-volume product updates.</p>
       <p class="hero-form-disclaimer" style="margin: 8px 0 0; font-size: 12px; color: #9fcdff; text-align: left;">Solo signup works. Want faster access? Join first, then bring in 1 real friend from the same betting group.</p>
@@ -2766,11 +2776,12 @@
             <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" placeholder="Enter your email for the beta waitlist" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" style="flex: 1; min-width: 200px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; color: var(--text); font-size: 15px; font-family: 'Inter', sans-serif; outline: none;">
             <input type="hidden" name="MMERGE6" id="waitlist-source-field" value="cta">
             <input type="hidden" name="MMERGE7" id="waitlist-fit-field" value="sports-bets">
-            <input type="submit" name="subscribe" id="mc-embedded-subscribe" value="Get Beta Access" style="background: var(--primary); color: #fff; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; white-space: nowrap;">
+            <input type="submit" name="subscribe" id="mc-embedded-subscribe" value="Join Beta Waitlist" style="background: var(--primary); color: #fff; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; white-space: nowrap;">
             <div aria-hidden="true" style="position: absolute; left: -5000px;">
               <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
             </div>
           </div>
+          <p class="waitlist-microcopy">Takes 10 seconds. Email only. No app install or payment info.</p>
           <p class="success-msg" aria-live="polite" style="text-align: center;"></p>
           <p style="margin: 12px 0 0; font-size: 12px; color: var(--text-tertiary); text-align: center;">We only send beta invites and product updates. No payment info. No spam.</p>
           <ul class="waitlist-trust" aria-label="waitlist reassurance">
@@ -2826,7 +2837,7 @@
       <strong id="mobile-sticky-cta-title">Still betting in group chats?</strong>
       <span id="mobile-sticky-cta-copy">Get beta access in 10 seconds.</span>
     </div>
-    <a href="#hero-inline-waitlist" data-cta-source="mobile-sticky">Get Beta Access</a>
+    <a href="#hero-inline-waitlist" data-cta-source="mobile-sticky">Join Beta Waitlist</a>
   </div>
 
   <iframe name="mailchimp-hidden-frame" title="Mailchimp subscription target" style="display:none;width:0;height:0;border:0;"></iframe>
@@ -3010,8 +3021,8 @@
           body: 'Join if you already make game bets with friends in texts, DMs, or group chats. We only need your email today. No app install. No payment info. Join first, then bring your crew in after. Early waitlist members get first shot when new beta spots open.',
           emailPlaceholder: 'Enter your email for sports bet beta access',
           emailAriaLabel: 'Email address for sports bet beta waitlist',
-          button: 'Get Beta Access',
-          topCta: 'Get Beta Access',
+          button: 'Join Beta Waitlist',
+          topCta: 'Join Beta Waitlist',
           disclaimer: 'No app install today. No payment info. No sportsbook account. Just beta invites and low-volume product updates for people making real game bets with friends.',
           points: [
             'You already bet spreads, moneylines, parlays, or totals with friends in group chats or texts.',
@@ -3088,8 +3099,8 @@
           body: 'Join if you already make player props, challenge bets, and funny side wagers with friends. We only need your email today. No app install. No payment info. Join first, then bring your crew in after. Early waitlist members get first shot when new beta spots open.',
           emailPlaceholder: 'Enter your email for prop bet beta access',
           emailAriaLabel: 'Email address for prop bet beta waitlist',
-          button: 'Get Beta Access',
-          topCta: 'Get Beta Access',
+          button: 'Join Beta Waitlist',
+          topCta: 'Join Beta Waitlist',
           disclaimer: 'No app install today. No payment info. No sportsbook account. Just beta invites and low-volume product updates for people making real prop bets with friends.',
           points: [
             'You already make player props, same-game side bets, or random bets in DMs and group chats.',
@@ -3166,8 +3177,8 @@
           body: 'Join if you already make challenge bets, punishments, and side deals with friends or coworkers. We only need your email today. No app install. No payment info. Join first. Then bring your crew in after if you want a faster shot at the next invite wave. Early waitlist members get first shot when new beta spots open.',
           emailPlaceholder: 'Enter your email for side deal beta access',
           emailAriaLabel: 'Email address for side-deal beta waitlist',
-          button: 'Get Beta Access',
-          topCta: 'Get Beta Access',
+          button: 'Join Beta Waitlist',
+          topCta: 'Join Beta Waitlist',
           disclaimer: 'No app install today. No payment info. No wallet. Just beta invites and low-volume product updates for people making real side deals and punishment bets.',
           points: [
             'You already make gym challenges, sales contests, punishments, or side deals in chats and texts.',
@@ -3336,11 +3347,11 @@
           input.setAttribute('aria-label', fitCopy.emailAriaLabel || 'Email address for beta waitlist');
         });
 
-        if (navCtaButton) navCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Get Beta Access';
-        if (heroPrimaryCtaButton) heroPrimaryCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Get Beta Access';
-        if (heroInlineSubmitButton) heroInlineSubmitButton.textContent = fitCopy.button || 'Get Beta Access';
-        if (heroFormSubmitButton) heroFormSubmitButton.textContent = fitCopy.button || 'Get Beta Access';
-        if (ctaWaitlistSubmitButton) ctaWaitlistSubmitButton.value = fitCopy.button || 'Get Beta Access';
+        if (navCtaButton) navCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Join Beta Waitlist';
+        if (heroPrimaryCtaButton) heroPrimaryCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Join Beta Waitlist';
+        if (heroInlineSubmitButton) heroInlineSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
+        if (heroFormSubmitButton) heroFormSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
+        if (ctaWaitlistSubmitButton) ctaWaitlistSubmitButton.value = fitCopy.button || 'Join Beta Waitlist';
         if (heroFormDisclaimer) heroFormDisclaimer.textContent = fitCopy.disclaimer;
 
         heroFormPoints.forEach((point, index) => {
@@ -4031,6 +4042,7 @@
   </script>
 </body>
 </html>
+
 
 
 
