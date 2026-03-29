@@ -444,6 +444,40 @@
       justify-content: center;
     }
 
+    .hero-objection-strip {
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 16px 0 20px;
+      text-align: left;
+    }
+
+    .hero-objection-item {
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-objection-item span {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .hero-objection-item p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+    }
+
     .hero-secondary-link {
       display: inline-flex;
       align-items: center;
@@ -2594,6 +2628,7 @@
       .hero-promise-strip,
       .hero-pain-strip,
       .hero-join-now-strip,
+      .hero-objection-strip,
       .inline-qualifier-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -2682,6 +2717,20 @@
     <div class="hero-actions">
       <a class="btn-primary" href="#hero-inline-waitlist" data-cta-source="hero-primary">Join Free Beta Waitlist</a>
       <a class="hero-secondary-link" id="hero-secondary-link" href="#sample-receipt" data-cta-source="hero-secondary">See example sports bet receipt first</a>
+    </div>
+    <div class="hero-objection-strip" aria-label="Quick answers before joining the beta waitlist">
+      <div class="hero-objection-item">
+        <span>Not a sportsbook</span>
+        <p>SideAction only locks the bet terms. Your crew still pays however they already pay.</p>
+      </div>
+      <div class="hero-objection-item">
+        <span>Join solo first</span>
+        <p>You do not need your full group today. Save your spot first, invite the same friends later.</p>
+      </div>
+      <div class="hero-objection-item">
+        <span>Email only</span>
+        <p>No app install, no payment info, and no long setup before you know it fits.</p>
+      </div>
     </div>
     <div class="hero-inline-capture" id="hero-inline-waitlist" aria-label="Fast beta signup">
       <div class="hero-inline-capture-copy" id="hero-inline-capture-copy">Already making bets with the same 1-5 friends every week? Join the free private beta waitlist in 10 seconds. Email only today. No app install. No crew needed yet.</div>
