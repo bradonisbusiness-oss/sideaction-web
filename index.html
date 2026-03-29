@@ -137,6 +137,37 @@
       margin-bottom: 18px;
     }
 
+    .hero-channel-strip {
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 0 18px;
+    }
+
+    .hero-channel-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .hero-channel-pill strong {
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     .hero-promise-strip {
       width: 100%;
       max-width: 640px;
@@ -2391,6 +2422,11 @@
     <h1 id="hero-headline">Lock every friend bet <span class="accent">before the loser rewrites it</span></h1>
     <div class="hero-hook" id="hero-hook">SideAction gives your group one locked receipt before kickoff, then shows exactly who owes what after.</div>
     <p id="hero-body-copy">Built for people already making sports bets with friends in texts, DMs, and group chats. SideAction is not a sportsbook. It locks the line, stake, proof, and pay-up rule before the game starts so nobody can change the story after the final score.</p>
+    <div class="hero-channel-strip" aria-label="Where SideAction fits into bets you already make">
+      <div class="hero-channel-pill"><strong>Texts</strong> already where the bet starts</div>
+      <div class="hero-channel-pill"><strong>Group chats</strong> before the screenshots pile up</div>
+      <div class="hero-channel-pill"><strong>Discord</strong> when the line gets messy fast</div>
+    </div>
     <div class="hero-fit-selector" aria-label="Pick the main kind of bet you want SideAction for">
       <span class="hero-fit-selector-label">What do you already bet on with friends?</span>
       <div class="hero-fit-selector-buttons">
