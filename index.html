@@ -3345,14 +3345,14 @@
           updateFitSelection(source);
 
           window.requestAnimationFrame(() => {
-            if (heroWaitlistSection) {
-              heroWaitlistSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (heroInlineWaitlistSection) {
+              heroInlineWaitlistSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
             window.setTimeout(() => {
-              if (heroWaitlistEmailInput) {
-                heroWaitlistEmailInput.focus({ preventScroll: true });
-                heroWaitlistEmailInput.select();
+              if (heroInlineWaitlistEmailInput) {
+                heroInlineWaitlistEmailInput.focus({ preventScroll: true });
+                heroInlineWaitlistEmailInput.select();
               }
             }, 250);
           });
