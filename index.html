@@ -511,6 +511,47 @@
       text-align: left;
     }
 
+    .hero-zero-friction {
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 16px 0 18px;
+      text-align: left;
+    }
+
+    .hero-zero-friction-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-zero-friction-item span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-zero-friction-item strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .hero-zero-friction-item p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
     .hero-fast-lane-item {
       padding: 14px 16px;
       border-radius: 16px;
@@ -2429,6 +2470,7 @@
       .hero-inline-decision-strip,
       .hero-beta-path-grid,
       .hero-fast-lane,
+      .hero-zero-friction,
       .hero-quick-filter,
       .hero-audience-bar,
       .hero-example-bets,
@@ -2547,6 +2589,23 @@
       <a class="hero-secondary-link" href="#sample-receipt" data-cta-source="hero-secondary">See example sports bet receipt first</a>
     </div>
     <div class="hero-cta-support"><strong>Best fit:</strong> people already making weekly bets with 1-5 friends. Join <strong>solo</strong> now, then bring in the same crew later.</div>
+    <div class="hero-zero-friction" aria-label="Fast answers before you join the beta waitlist">
+      <div class="hero-zero-friction-item">
+        <span>Need your crew?</span>
+        <strong>No. Join solo first.</strong>
+        <p>Lock your spot now, then invite the same friends you already bet with after your beta access opens.</p>
+      </div>
+      <div class="hero-zero-friction-item">
+        <span>Need the app today?</span>
+        <strong>No install right now.</strong>
+        <p>This first step is just the beta waitlist. Email only today so you can see if it fits before doing anything else.</p>
+      </div>
+      <div class="hero-zero-friction-item">
+        <span>Need payment info?</span>
+        <strong>No wallet. No deposits.</strong>
+        <p>SideAction is the receipt layer. Your crew still settles however you already pay each other.</p>
+      </div>
+    </div>
     <div class="hero-fast-lane" aria-label="Why joining now is low friction and high upside">
       <div class="hero-fast-lane-item">
         <span>10 seconds</span>
