@@ -428,6 +428,65 @@
       font-weight: 700;
     }
 
+    .hero-quick-compare {
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+      text-align: left;
+    }
+
+    .hero-quick-compare-card {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-quick-compare-card.bad {
+      border-color: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .hero-quick-compare-card.good {
+      border-color: rgba(77,159,255,0.24);
+      background: rgba(77,159,255,0.08);
+    }
+
+    .hero-quick-compare-card span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero-quick-compare-card.bad span {
+      color: #ff9b9b;
+    }
+
+    .hero-quick-compare-card.good span {
+      color: var(--primary);
+    }
+
+    .hero-quick-compare-card strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 6px;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    .hero-quick-compare-card p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
     .hero-inline-faq {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2064,6 +2123,18 @@
       <span id="hero-inline-trust-1">&#10003; <strong>10-second signup</strong></span>
       <span id="hero-inline-trust-2">&#10003; No app install today</span>
       <span id="hero-inline-trust-3">&#10003; No payment info</span>
+    </div>
+    <div class="hero-quick-compare" aria-label="Fast comparison between messy text bets and a locked SideAction receipt">
+      <div class="hero-quick-compare-card bad">
+        <span>Text thread bet</span>
+        <strong>The line lives in screenshots and memory.</strong>
+        <p>After the game, someone says the spread was different, the stake changed, or the loser can pay later.</p>
+      </div>
+      <div class="hero-quick-compare-card good">
+        <span>SideAction receipt</span>
+        <strong>The line, stake, proof, and payout rule are locked before kickoff.</strong>
+        <p>Both sides can point to one clean record instead of arguing in the group chat after the final score.</p>
+      </div>
     </div>
     <div class="hero-promise-strip" aria-label="Main SideAction promise">
       <div class="hero-promise-item">
