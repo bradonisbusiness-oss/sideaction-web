@@ -300,7 +300,12 @@
     }
 
     .hero-example-bets {
-      display: none;
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0 0 18px;
     }
 
     .hero-example-bet {
