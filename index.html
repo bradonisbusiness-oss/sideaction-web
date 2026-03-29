@@ -1510,6 +1510,38 @@
       margin: 0;
     }
 
+    .receipt-next-step {
+      width: 100%;
+      max-width: 640px;
+      margin: 18px auto 0;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(77,159,255,0.18);
+      background: linear-gradient(180deg, rgba(77,159,255,0.08), rgba(255,255,255,0.02));
+      text-align: center;
+    }
+
+    .receipt-next-step strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .receipt-next-step p {
+      max-width: 520px;
+      margin: 0 auto 14px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    .receipt-next-step-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .btn-primary {
       background: var(--primary);
       color: #fff;
@@ -3053,6 +3085,14 @@
         </div>
       </div>
       <p class="sample-receipt-footnote" id="sample-receipt-footnote">What SideAction gives you: one clean version of the deal, locked before the game, with the outcome recorded after.</p>
+    </div>
+    <div class="receipt-next-step" aria-label="Next step after reviewing the sample receipt">
+      <strong>If this would save one payout argument, join the beta waitlist now.</strong>
+      <p>Email only today. No app install, no payment info, and no full crew needed yet. Save your spot first, invite your people later.</p>
+      <div class="receipt-next-step-actions">
+        <a class="btn-primary" href="#hero-inline-waitlist" data-cta-source="sample-receipt-primary">Join Free Beta Waitlist</a>
+        <a class="btn-secondary" href="#waitlist" data-cta-source="sample-receipt-secondary">See Full Beta Signup</a>
+      </div>
     </div>
   </section>
 
