@@ -1491,6 +1491,49 @@
       color: var(--text-secondary);
     }
 
+    .hero-inline-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 12px 0 0;
+      text-align: left;
+    }
+
+    .hero-inline-step {
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(77,159,255,0.18);
+      background: rgba(77,159,255,0.08);
+    }
+
+    .hero-inline-step span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      background: rgba(77,159,255,0.2);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .hero-inline-step strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .hero-inline-step p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
     .success-msg {
       display: none;
       color: var(--success);
@@ -2006,6 +2049,7 @@
       .hero-form-urgency,
       .hero-inline-faq,
       .hero-inline-checks,
+      .hero-inline-steps,
       .hero-quick-filter,
       .hero-audience-bar,
       .hero-example-bets,
@@ -2124,6 +2168,23 @@
         <div class="hero-inline-check">
           <span>Next move</span>
           <p>Join first, then share your invite link with the same friends you already bet with.</p>
+        </div>
+      </div>
+      <div class="hero-inline-steps" aria-label="How beta invites work after you join">
+        <div class="hero-inline-step">
+          <span>1</span>
+          <strong>Join in 10 seconds</strong>
+          <p>Drop your email now so you are in line before the next invite wave opens.</p>
+        </div>
+        <div class="hero-inline-step">
+          <span>2</span>
+          <strong>Send your link to 1 real friend</strong>
+          <p>Pull in someone from the same betting group so we know this is a real crew, not random traffic.</p>
+        </div>
+        <div class="hero-inline-step">
+          <span>3</span>
+          <strong>Crews get first crack</strong>
+          <p>Beta spots open in waves, and connected groups beat solo lurkers when invites go out.</p>
         </div>
       </div>
       <p class="hero-inline-note" style="margin-top: 10px; font-size: 12px; color: var(--text-tertiary);">Best for people already betting with friends in group chats, texts, or DMs. No app install. No payment info. We prioritize real betting groups over random solo signups.</p>
