@@ -1505,6 +1505,38 @@
       text-align: left;
     }
 
+    .hero-inline-outcome-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0 0 14px;
+      text-align: left;
+    }
+
+    .hero-inline-outcome-item {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(10,10,15,0.42);
+      border: 1px solid var(--border);
+    }
+
+    .hero-inline-outcome-item span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-inline-outcome-item p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
     .hero-inline-check {
       padding: 12px;
       border-radius: 14px;
@@ -2126,6 +2158,7 @@
       .hero-form-urgency,
       .hero-inline-faq,
       .hero-inline-checks,
+      .hero-inline-outcome-strip,
       .hero-inline-steps,
       .hero-fast-lane,
       .hero-quick-filter,
@@ -2238,6 +2271,20 @@
     </div>
     <div class="hero-inline-capture" id="hero-inline-waitlist" aria-label="Fast beta signup">
       <div class="hero-inline-capture-copy" id="hero-inline-capture-copy">Already making sports bets, prop bets, or side deals with friends? Join the waitlist in 10 seconds, then bring your crew in right after. No app install. No payment info.</div>
+      <div class="hero-inline-outcome-strip" aria-label="What you get when you join the beta waitlist">
+        <div class="hero-inline-outcome-item">
+          <span>Join now</span>
+          <p>You lock your place before the next private beta wave fills up.</p>
+        </div>
+        <div class="hero-inline-outcome-item">
+          <span>After signup</span>
+          <p>You get a link you can send to 1 real friend from the same betting crew.</p>
+        </div>
+        <div class="hero-inline-outcome-item">
+          <span>Why it matters</span>
+          <p>Real groups move up faster than random solo emails when invites go out.</p>
+        </div>
+      </div>
       <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
         <input type="email" name="EMAIL" required placeholder="Enter your email for the beta waitlist" aria-label="Email address for fast beta signup" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
         <input type="hidden" name="MMERGE6" value="hero-inline">
