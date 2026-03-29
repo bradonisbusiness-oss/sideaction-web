@@ -2489,16 +2489,28 @@
         color: var(--text-secondary);
         margin-top: 2px;
       }
-      .mobile-sticky-cta a {
+      .mobile-sticky-cta-actions {
         flex-shrink: 0;
-        background: var(--primary);
-        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .mobile-sticky-cta a {
         text-decoration: none;
         padding: 12px 14px;
         border-radius: 12px;
         font-size: 13px;
         font-weight: 700;
         white-space: nowrap;
+      }
+      .mobile-sticky-cta-primary {
+        background: var(--primary);
+        color: #fff;
+      }
+      .mobile-sticky-cta-secondary {
+        background: rgba(255,255,255,0.04);
+        color: var(--text);
+        border: 1px solid rgba(255,255,255,0.1);
       }
       nav {
         padding: 16px 20px;
@@ -2549,6 +2561,10 @@
       .mobile-sticky-cta {
         flex-direction: column;
         align-items: stretch;
+      }
+      .mobile-sticky-cta-actions {
+        width: 100%;
+        flex-direction: column;
       }
       .mobile-sticky-cta a {
         text-align: center;
@@ -3219,7 +3235,10 @@
       <strong id="mobile-sticky-cta-title">Still betting in group chats?</strong>
       <span id="mobile-sticky-cta-copy">Join the beta waitlist in 10 seconds.</span>
     </div>
-    <a href="#hero-inline-waitlist" data-cta-source="mobile-sticky" id="mobile-sticky-cta-button">Join Beta Waitlist</a>
+    <div class="mobile-sticky-cta-actions">
+      <a href="#sample-receipt" class="mobile-sticky-cta-secondary" data-cta-source="mobile-sticky-proof">See Receipt</a>
+      <a href="#hero-inline-waitlist" class="mobile-sticky-cta-primary" data-cta-source="mobile-sticky" id="mobile-sticky-cta-button">Join Beta Waitlist</a>
+    </div>
   </div>
 
   <iframe name="mailchimp-hidden-frame" title="Mailchimp subscription target" style="display:none;width:0;height:0;border:0;"></iframe>
