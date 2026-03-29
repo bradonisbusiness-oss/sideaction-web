@@ -3074,7 +3074,7 @@
       <strong id="desktop-float-cta-title">Still betting in group chats?</strong>
       <span id="desktop-float-cta-copy">Join the beta waitlist in 10 seconds.</span>
     </div>
-    <span class="desktop-float-cta-badge">Join Waitlist</span>
+    <span class="desktop-float-cta-badge" id="desktop-float-cta-badge">Join Beta Waitlist</span>
   </a>
 
   <div class="mobile-sticky-cta" aria-label="Mobile waitlist shortcut">
@@ -3082,7 +3082,7 @@
       <strong id="mobile-sticky-cta-title">Still betting in group chats?</strong>
       <span id="mobile-sticky-cta-copy">Join the beta waitlist in 10 seconds.</span>
     </div>
-    <a href="#hero-inline-waitlist" data-cta-source="mobile-sticky">Join Beta Waitlist</a>
+    <a href="#hero-inline-waitlist" data-cta-source="mobile-sticky" id="mobile-sticky-cta-button">Join Beta Waitlist</a>
   </div>
 
   <iframe name="mailchimp-hidden-frame" title="Mailchimp subscription target" style="display:none;width:0;height:0;border:0;"></iframe>
@@ -3170,8 +3170,10 @@
       ];
       const desktopFloatCtaTitle = document.getElementById('desktop-float-cta-title');
       const desktopFloatCtaCopy = document.getElementById('desktop-float-cta-copy');
+      const desktopFloatCtaBadge = document.getElementById('desktop-float-cta-badge');
       const mobileStickyCtaTitle = document.getElementById('mobile-sticky-cta-title');
       const mobileStickyCtaCopy = document.getElementById('mobile-sticky-cta-copy');
+      const mobileStickyCtaButton = document.getElementById('mobile-sticky-cta-button');
       const heroMiniReceiptNote = document.getElementById('hero-mini-receipt-note');
       const heroMiniReceiptTitle = document.getElementById('hero-mini-receipt-title');
       const heroMiniReceiptCopy = document.getElementById('hero-mini-receipt-copy');
@@ -3293,7 +3295,8 @@
           ],
           secondaryCta: 'See example sports bet receipt first',
           stickyTitle: 'Still making sports bets in group chats?',
-          stickyCopy: 'Join the beta waitlist in 10 seconds.'
+          stickyCopy: 'Join the beta waitlist in 10 seconds.',
+          stickyButton: 'Join Sports Bet Beta'
         },
         'prop-bets': {
           heroTag: 'For people already making prop bets and side wagers with friends in DMs, group chats, and text threads',
@@ -3373,7 +3376,8 @@
           ],
           secondaryCta: 'See example prop receipt first',
           stickyTitle: 'Still making prop bets in DMs?',
-          stickyCopy: 'Get prop beta access in 10 seconds.'
+          stickyCopy: 'Get prop beta access in 10 seconds.',
+          stickyButton: 'Join Prop Bet Beta'
         },
         'side-deals': {
           heroTag: 'For people already making side deals, punishments, and challenge bets in texts, DMs, and work chats',
@@ -3453,7 +3457,8 @@
           ],
           secondaryCta: 'See example side-deal receipt first',
           stickyTitle: 'Still making side deals in text threads?',
-          stickyCopy: 'Get side-deal beta access in 10 seconds.'
+          stickyCopy: 'Get side-deal beta access in 10 seconds.',
+          stickyButton: 'Join Side-Deal Beta'
         }
       };
 
@@ -3646,8 +3651,10 @@
 
         if (desktopFloatCtaTitle) desktopFloatCtaTitle.textContent = fitCopy.stickyTitle || 'Still betting in group chats?';
         if (desktopFloatCtaCopy) desktopFloatCtaCopy.textContent = fitCopy.stickyCopy || 'Join the beta waitlist. No payment info.';
+        if (desktopFloatCtaBadge) desktopFloatCtaBadge.textContent = fitCopy.stickyButton || fitCopy.button || 'Join Beta Waitlist';
         if (mobileStickyCtaTitle) mobileStickyCtaTitle.textContent = fitCopy.stickyTitle || 'Still betting in group chats?';
         if (mobileStickyCtaCopy) mobileStickyCtaCopy.textContent = fitCopy.stickyCopy || 'Lock your beta spot before the next invite wave fills.';
+        if (mobileStickyCtaButton) mobileStickyCtaButton.textContent = fitCopy.stickyButton || fitCopy.button || 'Join Beta Waitlist';
 
         if (heroMiniReceiptNote) heroMiniReceiptNote.textContent = fitCopy.miniReceipt?.note || 'This is the part people stop arguing with later.';
         if (heroMiniReceiptTitle) heroMiniReceiptTitle.textContent = fitCopy.miniReceipt?.title || 'Chiefs -3.5 vs Bills for $100';
