@@ -457,6 +457,44 @@
       font-weight: 700;
     }
 
+    .hero-join-now-strip {
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 14px 0 18px;
+      text-align: left;
+    }
+
+    .hero-join-now-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(77,159,255,0.18);
+      background: rgba(77,159,255,0.08);
+    }
+
+    .hero-join-now-item span {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-join-now-item p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
+    .hero-join-now-item strong {
+      color: var(--text);
+    }
+
     .hero-secondary-link:hover {
       color: var(--primary);
     }
@@ -2466,6 +2504,7 @@
       .hero-example-bets,
       .hero-promise-strip,
       .hero-pain-strip,
+      .hero-join-now-strip,
       .inline-qualifier-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -2577,6 +2616,20 @@
     <div class="hero-actions">
       <a class="btn-primary" href="#hero-inline-waitlist" data-cta-source="hero-primary">Join Sports Bet Beta Waitlist</a>
       <a class="hero-secondary-link" href="#sample-receipt" data-cta-source="hero-secondary">See example sports bet receipt first</a>
+    </div>
+    <div class="hero-join-now-strip" aria-label="Why joining the beta waitlist now is worth it">
+      <div class="hero-join-now-item">
+        <span>Join now</span>
+        <p><strong>Hold your spot before the next invite wave.</strong> Beta access opens in small batches, not all at once.</p>
+      </div>
+      <div class="hero-join-now-item">
+        <span>Do later</span>
+        <p><strong>Bring your crew after you get access.</strong> You do not need to organize everyone before you join.</p>
+      </div>
+      <div class="hero-join-now-item">
+        <span>Get first</span>
+        <p><strong>Lock your username early.</strong> Early waitlist members get first shot before the public launch push.</p>
+      </div>
     </div>
     <div class="hero-cta-support"><strong>Best fit:</strong> people already making weekly bets with 1-5 friends. Join <strong>solo</strong> now, then bring in the same crew later.</div>
     <div class="hero-zero-friction" aria-label="Fast answers before you join the beta waitlist">
