@@ -202,6 +202,62 @@
       font-weight: 600;
     }
 
+    .hero-next-steps {
+      width: 100%;
+      max-width: 760px;
+      margin: 16px auto 0;
+      padding: 16px 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      text-align: left;
+    }
+
+    .hero-next-steps strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .hero-next-steps ol {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero-next-steps li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .hero-next-steps li span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--primary-dim);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      flex: 0 0 22px;
+      margin-top: 1px;
+    }
+
+    .hero-next-steps li strong {
+      display: inline;
+      margin: 0;
+      font-size: 13px;
+    }
+
 
     .hero-proof {
       list-style: none;
@@ -1272,7 +1328,7 @@
     <div class="hero-actions">
       <form class="hero-quick-join" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="_blank" novalidate>
         <input type="email" name="EMAIL" required placeholder="Enter your email for private beta access" aria-label="Email address for SideAction waitlist">
-        <input type="submit" class="btn-primary" value="Join Private Beta Waitlist">
+        <input type="submit" class="btn-primary" value="Get My Beta Invite">
         <div aria-hidden="true" style="position: absolute; left: -5000px;">
           <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
         </div>
@@ -1284,6 +1340,14 @@
         <li>No payment info needed</li>
         <li>Invite-only beta access</li>
       </ul>
+      <div class="hero-next-steps" aria-label="What happens after you join">
+        <strong>What happens after you join</strong>
+        <ol>
+          <li><span>1</span><div><strong>You get on the first invite list.</strong> We use the waitlist for the private beta wave.</div></li>
+          <li><span>2</span><div><strong>You get access when your wave opens.</strong> No extra setup or payment info needed today.</div></li>
+          <li><span>3</span><div><strong>You help shape the product.</strong> Early users influence the bet types and flows we build next.</div></li>
+        </ol>
+      </div>
     </div>
     <ul class="hero-proof">
       <li>Terms locked before it starts</li>
