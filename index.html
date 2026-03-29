@@ -1705,6 +1705,63 @@
       flex-shrink: 0;
     }
 
+    .hero-beta-path {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(77,159,255,0.16);
+      background: rgba(77,159,255,0.06);
+      text-align: left;
+    }
+
+    .hero-beta-path strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .hero-beta-path-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .hero-beta-path-step {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(10,10,15,0.42);
+      border: 1px solid var(--border);
+    }
+
+    .hero-beta-path-step span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      background: rgba(77,159,255,0.2);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .hero-beta-path-step p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .hero-beta-path-step p strong {
+      display: inline;
+      font-size: 13px;
+      margin: 0;
+      color: var(--text);
+    }
+
     .hero-inline-step span {
       display: inline-flex;
       align-items: center;
@@ -2251,6 +2308,7 @@
       .hero-inline-outcome-strip,
       .hero-inline-steps,
       .hero-inline-decision-strip,
+      .hero-beta-path-grid,
       .hero-fast-lane,
       .hero-quick-filter,
       .hero-audience-bar,
@@ -2404,6 +2462,23 @@
           <li><span>&#10003;</span><div>You get first shot at locking your @username before public launch.</div></li>
           <li><span>&#10003;</span><div>You get beta access and product updates before the wider rollout.</div></li>
         </ul>
+      </div>
+      <div class="hero-beta-path" aria-label="What the first beta experience looks like">
+        <strong>What the first beta run actually looks like</strong>
+        <div class="hero-beta-path-grid">
+          <div class="hero-beta-path-step">
+            <span>1</span>
+            <p><strong>You join solo now.</strong> We only need your email today. No app install and no full crew required yet.</p>
+          </div>
+          <div class="hero-beta-path-step">
+            <span>2</span>
+            <p><strong>You get an invite when your spot opens.</strong> Early waitlist members hear first when the next private beta wave goes out.</p>
+          </div>
+          <div class="hero-beta-path-step">
+            <span>3</span>
+            <p><strong>You bring in 1-2 people you already bet with.</strong> First use case is simple: lock one real receipt before the next game or side deal.</p>
+          </div>
+        </div>
       </div>
       <div class="hero-inline-faq" aria-label="Fast answers before you join the beta waitlist">
         <div class="hero-inline-faq-item">
