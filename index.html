@@ -4280,11 +4280,14 @@
         trackEvent('waitlist_signup_success', formContext);
       };
 
-      const showSubmitError = (form, defaultButtonLabel) => {
+      const showSubmitError = (form, defaultButtonLabel, options = {}) => {
         if (!form) return;
 
         const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
         const successMsg = form.querySelector('.success-msg');
+        const formContext = getFormContext(form);
+        const errorReason = options.reason || 'unknown';
+        const errorMessage = options.message || 'We could not confirm your signup. Please try again in a few seconds.';
 
         if (submitButton) {
           if (submitButton.tagName === 'INPUT') {
@@ -4298,9 +4301,15 @@
         }
 
         if (successMsg) {
-          successMsg.textContent = 'We could not confirm your signup. Please try again in a few seconds.';
+          successMsg.textContent = errorMessage;
           successMsg.classList.add('visible', 'error');
         }
+
+        trackEvent('waitlist_signup_error', {
+          ...formContext,
+          reason: errorReason,
+          message: errorMessage.slice(0, 160)
+        });
       };
 
       const clearPendingFallback = () => {
@@ -4443,7 +4452,10 @@
 
           submitFallbackTimer = window.setTimeout(() => {
             if (pendingForm !== form) return;
-            showSubmitError(form, defaultButtonLabel);
+            showSubmitError(form, defaultButtonLabel, {
+              reason: 'timeout',
+              message: 'Signup check timed out. Please try again in a few seconds.'
+            });
             pendingForm = null;
             clearPendingFallback();
           }, 7000);
@@ -4464,19 +4476,20 @@
               return;
             }
 
-            if (successMsg) {
-              successMsg.textContent = decodedMessage || 'We could not confirm your signup. Please try again in a few seconds.';
-              successMsg.classList.add('visible', 'error');
-            }
-
             pendingForm = null;
             clearPendingFallback();
-            showSubmitError(form, defaultButtonLabel);
+            showSubmitError(form, defaultButtonLabel, {
+              reason: normalizedResult || 'mailchimp_error',
+              message: decodedMessage || 'We could not confirm your signup. Please try again in a few seconds.'
+            });
           } catch (error) {
             if (pendingForm !== form) return;
             pendingForm = null;
             clearPendingFallback();
-            showSubmitError(form, defaultButtonLabel);
+            showSubmitError(form, defaultButtonLabel, {
+              reason: 'network_error',
+              message: 'We could not reach signup right now. Please try again in a few seconds.'
+            });
           }
         });
 
