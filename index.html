@@ -3836,6 +3836,36 @@
         });
       }
 
+      (() => {
+        const scrollMilestones = [25, 50, 75, 90];
+        const seenScrollMilestones = new Set();
+
+        const trackScrollDepth = () => {
+          const scrollTop = window.scrollY || window.pageYOffset || 0;
+          const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+          const pageHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight
+          );
+          const scrollPercent = Math.min(100, Math.round(((scrollTop + viewportHeight) / pageHeight) * 100));
+
+          scrollMilestones.forEach((milestone) => {
+            if (scrollPercent < milestone || seenScrollMilestones.has(milestone)) return;
+
+            seenScrollMilestones.add(milestone);
+            trackEvent('landing_scroll_depth', {
+              depth: milestone,
+              fit: getActiveFitSource() || ''
+            });
+          });
+        };
+
+        trackScrollDepth();
+        window.addEventListener('scroll', trackScrollDepth, { passive: true });
+      })();
+
       trackedWaitlistCtas.forEach((cta) => {
         cta.addEventListener("click", () => {
           const source = cta.getAttribute("data-cta-source") || "cta";
@@ -4031,10 +4061,10 @@
           <div class="success-share">
             <p><strong>You are in.</strong> If you want, send this to the same friends you already bet with so they can join the waitlist too. Solo signup is still fine.</p>
             <div class="success-share-actions">
-              <a href="sms:?&body=${encodeURIComponent(shareCopy)}">Text your group</a>
+              <a href="sms:?&body=${encodeURIComponent(shareCopy)}" data-share-action="sms">Text your group</a>
               <button type="button" class="js-copy-share-link">Copy crew link</button>
               <button type="button" class="js-native-share-link">Share with a friend</button>
-              <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareCopy)}" target="_blank" rel="noreferrer">Post on X</a>
+              <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareCopy)}" target="_blank" rel="noreferrer" data-share-action="x">Post on X</a>
             </div>
             <div class="success-share-note">Best move: send this to the same friends you already bet with so your crew is attached before the next invite wave.</div>
           </div>
@@ -4062,6 +4092,16 @@
             });
           }
         }
+
+        const shareLinks = successMsg.querySelectorAll('[data-share-action]');
+        shareLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            trackEvent('waitlist_share_link_click', {
+              fit: getActiveFitSource() || '',
+              action: link.getAttribute('data-share-action') || 'unknown'
+            });
+          });
+        });
 
         const copyButton = successMsg.querySelector('.js-copy-share-link');
         if (copyButton) {
