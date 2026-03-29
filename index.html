@@ -405,6 +405,22 @@
       justify-content: center;
     }
 
+    .hero-secondary-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .hero-secondary-link:hover {
+      color: var(--primary);
+    }
+
     .hero-cta-strip {
       width: 100%;
       max-width: 640px;
@@ -2328,8 +2344,8 @@
     </div>
     <div class="hero-actions">
       <a class="btn-primary" href="#hero-inline-waitlist" data-cta-source="hero-primary">Join Beta Waitlist</a>
-      <a class="btn-secondary" href="#sample-receipt">See Locked Receipt</a>
     </div>
+    <a class="hero-secondary-link" href="#sample-receipt">See example locked receipt first</a>
     <div class="hero-cta-strip" aria-label="Fast signup reassurance">
       <div class="hero-cta-pill"><span>&#10003;</span>No app install today</div>
       <div class="hero-cta-pill"><span>&#10003;</span>No payment info</div>
@@ -2920,6 +2936,7 @@
       ];
       const navCtaButton = document.querySelector('a.nav-cta[data-cta-source="nav"]');
       const heroPrimaryCtaButton = document.querySelector('a.btn-primary[data-cta-source="hero-primary"]');
+      const heroSecondaryLink = document.querySelector('.hero-secondary-link');
       const heroInlineWaitlistEmailInput = document.querySelector('#hero-inline-waitlist input[name="EMAIL"]');
       const heroWaitlistEmailInput = document.querySelector('#hero-waitlist input[name="EMAIL"]');
       const heroInlineWaitlistSourceField = document.querySelector('#hero-inline-waitlist input[name="MMERGE6"]');
@@ -3077,6 +3094,7 @@
             { title: 'Watch for your invite', copy: 'You will hear first when the next sports beta wave opens. Solo signup is fine.' },
             { title: 'Bring your crew later', copy: 'Once you get access, you can bring in the same friends you already make sports bets with.' }
           ],
+          secondaryCta: 'See example sports bet receipt first',
           stickyTitle: 'Still making sports bets in group chats?',
           stickyCopy: 'Join the beta waitlist in 10 seconds.'
         },
@@ -3155,6 +3173,7 @@
             { title: 'Watch for your invite', copy: 'You will hear first when the next prop bet beta wave opens. Solo signup is fine.' },
             { title: 'Bring your crew later', copy: 'Once you get access, you can bring in the same friends you already make prop bets and side wagers with.' }
           ],
+          secondaryCta: 'See example prop receipt first',
           stickyTitle: 'Still making prop bets in DMs?',
           stickyCopy: 'Get prop beta access in 10 seconds.'
         },
@@ -3233,6 +3252,7 @@
             { title: 'Watch for your invite', copy: 'You will hear first when the next side-deal beta wave opens. Solo signup is fine.' },
             { title: 'Bring your crew later', copy: 'Once you get access, you can bring in the same friends or coworkers you already make side deals and challenge bets with.' }
           ],
+          secondaryCta: 'See example side-deal receipt first',
           stickyTitle: 'Still making side deals in text threads?',
           stickyCopy: 'Get side-deal beta access in 10 seconds.'
         }
@@ -3384,6 +3404,7 @@
 
         if (navCtaButton) navCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Join Beta Waitlist';
         if (heroPrimaryCtaButton) heroPrimaryCtaButton.textContent = fitCopy.topCta || fitCopy.button || 'Join Beta Waitlist';
+        if (heroSecondaryLink) heroSecondaryLink.textContent = fitCopy.secondaryCta || 'See example locked receipt first';
         if (heroInlineSubmitButton) heroInlineSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
         if (heroFormSubmitButton) heroFormSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
         if (ctaWaitlistSubmitButton) ctaWaitlistSubmitButton.textContent = fitCopy.button || 'Join Beta Waitlist';
