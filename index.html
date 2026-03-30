@@ -476,7 +476,76 @@
       color: var(--primary);
     }
 
+    .conversion-section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 28px 92px;
+    }
+
+    .conversion-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 30px;
+      padding: 36px;
+    }
+
+    .conversion-card h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      max-width: 700px;
+    }
+
+    .conversion-card > p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .objection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .objection-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .objection-card strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .objection-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    .conversion-meta {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-top: 12px;
+    }
+
     @media (max-width: 980px) {
+      .conversion-section {
+        padding: 0 28px 80px;
+      }
+
+      .objection-grid {
+        grid-template-columns: 1fr;
+      }
+
       .how-it-works {
         padding: 0 28px 72px;
         text-align: center;
@@ -713,6 +782,42 @@
           <li>Keep future bets cleaner with a real record</li>
         </ul>
       </article>
+    </div>
+  </section>
+
+  <section class="conversion-section" aria-label="Join the SideAction beta">
+    <div class="conversion-card">
+      <span class="section-kicker">Join beta</span>
+      <h2>Get in before your group chat needs this.</h2>
+      <p>If you make bets, side deals, fantasy punishments, or pay-me-back promises with friends, get on the list now and help shape the first beta.</p>
+
+      <div class="objection-grid">
+        <article class="objection-card">
+          <strong>Not a gambling app</strong>
+          <p>SideAction does not hold money. It just keeps the record, proof, reminders, and payup status clean.</p>
+        </article>
+        <article class="objection-card">
+          <strong>Works for more than sports bets</strong>
+          <p>Use it for poker debts, side challenges, gym bets, fantasy punishments, and simple pay-me-back deals too.</p>
+        </article>
+        <article class="objection-card">
+          <strong>Early users shape the product</strong>
+          <p>You get first access, a better shot at your username, and direct input on what gets built next.</p>
+        </article>
+      </div>
+
+      <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
+        <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for beta signup" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
+        <input type="hidden" name="MMERGE6" value="bottom-conversion">
+        <input type="hidden" name="MMERGE7" value="objection-cta">
+        <button type="submit">Join Waitlist</button>
+        <div aria-hidden="true" style="position: absolute; left: -5000px;">
+          <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
+        </div>
+        <p class="success-msg" aria-live="polite"></p>
+      </form>
+
+      <p class="conversion-meta">No spam. No wallet connection. Just early access when the next beta wave opens.</p>
     </div>
   </section>
 
