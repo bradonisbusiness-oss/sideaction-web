@@ -5,227 +5,159 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SideAction | Put the bet on record before it gets weird later</title>
   <meta name="description" content="SideAction keeps prop bets, side deals, proof, reminders, and payup status in one place so nobody has to guess what was agreed or keep chasing what they are owed." />
-  <link rel="canonical" href="https://sideactionapp.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sideactionapp.com/" />
-  <meta property="og:title" content="SideAction | Put the bet on record before it gets weird later" />
-  <meta property="og:description" content="One clean record for prop bets, side deals, proof, reminders, and settlement between friends." />
-  <meta property="og:image" content="https://sideactionapp.com/logo.png" />
-  <meta property="og:site_name" content="SideAction" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SideAction | Put the bet on record before it gets weird later" />
-  <meta name="twitter:description" content="One clean record for prop bets, side deals, proof, reminders, and settlement between friends." />
-  <meta name="twitter:image" content="https://sideactionapp.com/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
-    window.va = window.va || function () {
-      (window.vaq = window.vaq || []).push(arguments);
-    };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0A0A0F;
-      --surface: #14141C;
-      --border: #2A2A38;
-      --primary: #4D9FFF;
-      --text: #FFFFFF;
-      --text-secondary: #A5A7BE;
-      --text-tertiary: #6E738F;
-      --success: #00D26A;
-      --warning: #FFB800;
+      --bg: #0c0f16;
+      --bg-soft: #101520;
+      --card: #121826;
+      --border: rgba(255,255,255,0.08);
+      --text: #f7f9fc;
+      --muted: #a6afc3;
+      --accent: #6aa8ff;
+      --accent-2: #82b8ff;
+      --green: #2dd287;
     }
 
     body {
-      background: radial-gradient(circle at top, rgba(77,159,255,0.12), transparent 35%), var(--bg);
-      color: var(--text);
       font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(106,168,255,0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(45,210,135,0.08), transparent 28%),
+        linear-gradient(180deg, #0b0f17 0%, #090c13 100%);
+      color: var(--text);
       min-height: 100vh;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 28px;
-      max-width: 1180px;
+    .shell {
+      max-width: 1240px;
       margin: 0 auto;
+      padding: 28px 28px 64px;
     }
 
-    .nav-logo {
+    .nav {
       display: flex;
       align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 700;
-      font-size: 20px;
+      justify-content: flex-start;
+      margin-bottom: 28px;
     }
 
-    .nav-logo img {
-      width: 36px;
-      height: 36px;
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
       object-fit: contain;
     }
 
-    .nav-logo .accent { color: var(--primary); }
+    .brand .accent {
+      color: var(--accent);
+    }
 
-    .hero-shell {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 24px 28px 72px;
+    .hero {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 56px;
+      grid-template-columns: minmax(0, 560px) minmax(320px, 1fr);
+      gap: 72px;
       align-items: center;
-      min-height: calc(100vh - 88px);
+      min-height: calc(100vh - 120px);
     }
 
-    .hero-copy {
-      max-width: 560px;
-    }
-
-    .hero-tag {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(77,159,255,0.10);
-      border: 1px solid rgba(77,159,255,0.18);
-      color: var(--primary);
+      background: rgba(106,168,255,0.12);
+      border: 1px solid rgba(106,168,255,0.18);
+      color: var(--accent-2);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: clamp(42px, 7vw, 72px);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
       font-weight: 800;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
 
-    h1 .accent { color: var(--primary); }
+    h1 .accent {
+      color: var(--accent);
+    }
 
-    .hero-subhead {
-      font-size: 19px;
-      line-height: 1.7;
-      color: var(--text-secondary);
-      margin-bottom: 20px;
+    .subhead {
+      font-size: 20px;
+      line-height: 1.65;
+      color: var(--muted);
       max-width: 540px;
+      margin-bottom: 28px;
     }
 
-    .use-case-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 24px;
-      max-width: 560px;
-    }
-
-    .use-case-chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text-secondary);
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1;
-    }
-
-    .waitlist-form {
+    .waitlist {
       display: flex;
       gap: 12px;
+      width: 100%;
       max-width: 520px;
       margin-bottom: 14px;
       flex-wrap: wrap;
     }
 
-    .waitlist-form input {
+    .waitlist input {
       flex: 1;
       min-width: 250px;
+      padding: 17px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 18px;
       color: var(--text);
       font-size: 15px;
       outline: none;
     }
 
-    .waitlist-form input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(77,159,255,0.16);
+    .waitlist input::placeholder {
+      color: #7f88a0;
     }
 
-    .waitlist-form button {
+    .waitlist button {
+      padding: 17px 24px;
       border: none;
-      border-radius: 14px;
-      background: var(--primary);
-      color: #fff;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #79b5ff 0%, #4d9fff 100%);
+      color: white;
       font-size: 15px;
       font-weight: 700;
-      padding: 16px 22px;
       cursor: pointer;
-      white-space: nowrap;
+      box-shadow: 0 10px 24px rgba(77,159,255,0.22);
     }
 
-    .hero-note {
+    .note {
       font-size: 13px;
-      color: var(--text-tertiary);
-      margin-bottom: 24px;
+      color: #7f88a0;
     }
 
-    .trust-list {
-      display: grid;
-      gap: 12px;
-      max-width: 520px;
-    }
-
-    .trust-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .trust-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .success-msg {
+      width: 100%;
+      margin-top: 8px;
       font-size: 14px;
-      background: rgba(77,159,255,0.12);
-      color: var(--primary);
-    }
-
-    .trust-copy strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    .trust-copy span {
-      display: block;
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-secondary);
+      font-weight: 600;
+      color: var(--green);
     }
 
     .phone-wrap {
@@ -234,625 +166,330 @@
       align-items: center;
     }
 
-    .phone-frame {
-      width: 340px;
-      max-width: 100%;
-      background: #000;
+    .phone-shadow {
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 1.02 / 1;
+      border-radius: 44px;
+      background: radial-gradient(circle at top, rgba(106,168,255,0.18), rgba(106,168,255,0.03) 55%, transparent 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .phone {
+      width: min(390px, 100%);
+      background: #040507;
       border-radius: 42px;
       padding: 12px;
-      border: 1px solid rgba(77,159,255,0.25);
-      box-shadow: 0 24px 80px rgba(0,0,0,0.45), 0 0 80px rgba(77,159,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.48);
     }
 
-    .phone-notch {
+    .notch {
+      width: 152px;
       height: 28px;
-      width: 150px;
-      background: #000;
-      border-radius: 0 0 20px 20px;
       margin: 0 auto;
+      border-radius: 0 0 20px 20px;
+      background: #040507;
     }
 
-    .phone-content {
-      background: linear-gradient(180deg, #10131D 0%, #0B0D14 100%);
+    .screen {
+      background: linear-gradient(180deg, #0d1118 0%, #0a0d14 100%);
       border-radius: 30px;
+      min-height: 720px;
       overflow: hidden;
-      min-height: 680px;
-      display: flex;
-      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.04);
     }
 
-    .phone-topbar {
-      padding: 16px 18px 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+    .screen-top {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    .phone-topbar strong {
+    .screen-top strong {
       font-size: 16px;
       font-weight: 700;
     }
 
-    .phone-badge {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--primary);
-      background: rgba(77,159,255,0.14);
-      border: 1px solid rgba(77,159,255,0.22);
+    .pill {
       padding: 6px 10px;
       border-radius: 999px;
-      text-transform: uppercase;
+      background: rgba(106,168,255,0.12);
+      border: 1px solid rgba(106,168,255,0.18);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
-    .phone-body {
+    .screen-body {
       padding: 18px;
       display: grid;
       gap: 14px;
     }
 
-    .record-card {
-      background: rgba(255,255,255,0.04);
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 100%);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      padding: 16px;
+      border-radius: 24px;
+      padding: 18px;
     }
 
-    .record-label {
+    .hero-card-label {
+      color: #7f88a0;
       font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-tertiary);
-      font-weight: 700;
       margin-bottom: 10px;
     }
 
-    .record-title {
-      font-size: 22px;
-      line-height: 1.2;
+    .hero-card-title {
+      font-size: 26px;
+      line-height: 1.12;
       font-weight: 800;
+      letter-spacing: -0.03em;
       margin-bottom: 10px;
     }
 
-    .record-copy {
-      color: var(--text-secondary);
+    .hero-card-copy {
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.65;
+      color: var(--muted);
     }
 
-    .receipt-grid {
+    .detail-grid {
       display: grid;
       gap: 10px;
     }
 
-    .receipt-row {
+    .detail-row {
       display: flex;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .receipt-row span {
-      color: var(--text-tertiary);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-weight: 700;
-    }
-
-    .receipt-row strong {
-      font-size: 14px;
-      line-height: 1.5;
-      text-align: right;
-      max-width: 60%;
-    }
-
-    .status-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .status-pill {
+      padding: 14px 15px;
       border-radius: 18px;
-      padding: 14px 12px;
-      text-align: left;
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.06);
     }
 
-    .status-pill span {
-      display: block;
-      font-size: 10px;
-      text-transform: uppercase;
+    .detail-row span {
+      color: #7f88a0;
+      font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.08em;
-      color: var(--text-tertiary);
-      font-weight: 800;
-      margin-bottom: 8px;
+      text-transform: uppercase;
+      padding-top: 2px;
     }
 
-    .status-pill strong {
+    .detail-row strong {
+      text-align: right;
       font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .status-pill.warning strong { color: var(--warning); }
-    .status-pill.success strong { color: var(--success); }
-    .status-pill.primary strong { color: var(--primary); }
-
-    .phone-home {
-      width: 120px;
-      height: 6px;
-      border-radius: 999px;
-      background: #141414;
-      margin: 10px auto 0;
-    }
-
-    .success-msg {
-      width: 100%;
-      font-size: 14px;
-      color: var(--success);
+      line-height: 1.55;
+      max-width: 64%;
       font-weight: 600;
-      margin-top: 8px;
-      text-align: left;
     }
 
-    .how-it-works {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 28px 84px;
-    }
-
-    .section-header {
-      max-width: 720px;
-      margin-bottom: 28px;
-    }
-
-    .section-kicker {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 12px;
-    }
-
-    .section-header h2 {
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
-    }
-
-    .section-header p {
-      font-size: 17px;
-      line-height: 1.7;
-      color: var(--text-secondary);
-      max-width: 620px;
-    }
-
-    .steps-grid {
+    .status-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .step-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 24px;
-      padding: 22px;
-    }
-
-    .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      background: rgba(77,159,255,0.12);
-      border: 1px solid rgba(77,159,255,0.2);
-      color: var(--primary);
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    .step-card h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .step-card p {
-      color: var(--text-secondary);
-      font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 14px;
-    }
-
-    .step-card ul {
-      list-style: none;
-      display: grid;
       gap: 10px;
     }
 
-    .step-card li {
-      color: var(--text-secondary);
-      font-size: 14px;
-      line-height: 1.6;
-      padding-left: 18px;
-      position: relative;
-    }
-
-    .step-card li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-    }
-
-    .conversion-section {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 28px 92px;
-    }
-
-    .conversion-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 30px;
-      padding: 36px;
-    }
-
-    .conversion-card h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
-      max-width: 700px;
-    }
-
-    .conversion-card > p {
-      font-size: 17px;
-      line-height: 1.7;
-      color: var(--text-secondary);
-      max-width: 720px;
-      margin-bottom: 24px;
-    }
-
-    .objection-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .objection-card {
+    .status {
+      border-radius: 18px;
+      padding: 14px 12px;
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 22px;
-      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
     }
 
-    .objection-card strong {
+    .status span {
       display: block;
-      font-size: 15px;
+      color: #7f88a0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: 8px;
     }
 
-    .objection-card p {
+    .status strong {
       font-size: 14px;
-      line-height: 1.65;
-      color: var(--text-secondary);
+      line-height: 1.45;
+      display: block;
     }
 
-    .conversion-meta {
-      font-size: 13px;
-      color: var(--text-tertiary);
-      margin-top: 12px;
+    .status.terms strong { color: var(--accent); }
+    .status.reminders strong { color: var(--warning); }
+    .status.settlement strong { color: var(--green); }
+
+    .home {
+      width: 120px;
+      height: 6px;
+      margin: 10px auto 0;
+      border-radius: 999px;
+      background: #131313;
     }
 
     @media (max-width: 980px) {
-      .conversion-section {
-        padding: 0 28px 80px;
-      }
-
-      .objection-grid {
+      .hero {
         grid-template-columns: 1fr;
-      }
-
-      .how-it-works {
-        padding: 0 28px 72px;
+        gap: 44px;
         text-align: center;
       }
 
-      .section-header {
+      .subhead {
         margin-left: auto;
         margin-right: auto;
       }
 
-      .steps-grid {
-        grid-template-columns: 1fr;
+      .waitlist {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      .step-card {
-        text-align: left;
-      }
-
-      .hero-shell {
-        grid-template-columns: 1fr;
-        gap: 36px;
+      .note,
+      .success-msg {
         text-align: center;
-        padding-top: 12px;
-      }
-
-      .hero-copy {
-        max-width: 100%;
-      }
-
-      .hero-subhead,
-      .use-case-chips,
-      .success-msg,
-      .trust-list {
-        max-width: 560px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .use-case-chips {
-        justify-content: center;
-      }
-
-      .waitlist-form {
-        justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
       }
     }
 
     @media (max-width: 640px) {
-      nav {
-        padding: 18px 18px 10px;
-      }
-
-      .hero-shell {
-        padding: 8px 18px 56px;
+      .shell {
+        padding: 22px 18px 48px;
       }
 
       h1 {
-        font-size: 42px;
+        font-size: 44px;
       }
 
-      .hero-subhead {
+      .subhead {
         font-size: 17px;
       }
 
-      .waitlist-form {
+      .waitlist {
         flex-direction: column;
       }
 
-      .waitlist-form input,
-      .waitlist-form button {
+      .waitlist input,
+      .waitlist button {
         width: 100%;
       }
 
-      .status-row {
+      .status-grid {
         grid-template-columns: 1fr;
       }
 
-      .receipt-row {
+      .detail-row {
         flex-direction: column;
       }
 
-      .receipt-row strong {
+      .detail-row strong {
         max-width: 100%;
         text-align: left;
       }
 
-      .phone-content {
-        min-height: 620px;
+      .screen {
+        min-height: 660px;
       }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a class="nav-logo" href="/">
-      <img src="/bull-skull-logo.png" alt="SideAction logo" />
-      <span>Side<span class="accent">Action</span></span>
-    </a>
-  </nav>
+  <div class="shell">
+    <nav class="nav">
+      <a class="brand" href="/">
+        <img src="/bull-skull-logo.png" alt="SideAction logo" />
+        <span>Side<span class="accent">Action</span></span>
+      </a>
+    </nav>
 
-  <main class="hero-shell" id="waitlist">
-    <section class="hero-copy">
-      <div class="hero-tag">Sports bets • side deals • fantasy punishments • awkward payups</div>
-      <h1>Lock the bet terms <span class="accent">before someone loses and changes the story</span></h1>
-      <p class="hero-subhead">SideAction gives both sides one clean receipt for the stake, proof rule, reminders, and payup status so the group chat stops being the source of truth.</p>
+    <main class="hero">
+      <section>
+        <div class="eyebrow">Prop bets • side deals • challenge bets • awkward payups</div>
+        <h1>Put the bet on record <span class="accent">before it gets weird later</span></h1>
+        <p class="subhead">SideAction keeps the terms, proof, reminders, and payup status in one place so nobody has to guess what was agreed or keep chasing what they are owed.</p>
 
-      <div class="use-case-chips" aria-label="Best for these use cases">
-        <span class="use-case-chip">Sports bets</span>
-        <span class="use-case-chip">Golf side bets</span>
-        <span class="use-case-chip">Fantasy punishments</span>
-        <span class="use-case-chip">Pay-me-back deals</span>
-      </div>
-
-      <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
-        <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for beta signup" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
-        <input type="hidden" name="MMERGE6" value="hero-minimal">
-        <input type="hidden" name="MMERGE7" value="side-deals">
-        <button type="submit">Join Beta Waitlist</button>
-        <div aria-hidden="true" style="position: absolute; left: -5000px;">
-          <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
-        </div>
-        <p class="success-msg" aria-live="polite"></p>
-      </form>
-
-      <p class="hero-note">Free beta. Takes 10 seconds. No wallet. No money held by the app. Just a clear record before the excuses start.</p>
-
-      <div class="trust-list" aria-label="Why SideAction matters">
-        <div class="trust-item">
-          <div class="trust-icon">01</div>
-          <div class="trust-copy">
-            <strong>Lock the terms before kickoff</strong>
-            <span>Write the stake, deadline, and proof rule once so nobody can rewrite the bet after they lose.</span>
+        <form class="waitlist js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
+          <input type="email" name="EMAIL" required placeholder="Enter your email" aria-label="Email address for beta signup" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
+          <input type="hidden" name="MMERGE6" value="hero-minimal-visual">
+          <input type="hidden" name="MMERGE7" value="side-deals">
+          <button type="submit">Join waitlist</button>
+          <div aria-hidden="true" style="position:absolute;left:-5000px;">
+            <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
           </div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">02</div>
-          <div class="trust-copy">
-            <strong>Use proof instead of group-chat memory</strong>
-            <span>Keep screenshots, videos, and receipts attached to the bet so the result is easy to verify later.</span>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">03</div>
-          <div class="trust-copy">
-            <strong>Let the app handle the awkward follow-up</strong>
-            <span>Track who paid, who still owes, and send neutral reminders without turning it into a personal argument.</span>
-          </div>
-        </div>
-      </div>
-    </section>
+          <p class="success-msg" aria-live="polite"></p>
+        </form>
 
-    <section class="phone-wrap" aria-label="SideAction app preview">
-      <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <div class="phone-content">
-          <div class="phone-topbar">
-            <strong>SideAction</strong>
-            <div class="phone-badge">Receipt</div>
-          </div>
-          <div class="phone-body">
-            <div class="record-card">
-              <div class="record-label">Example bet</div>
-              <div class="record-title">Dunk a regulation hoop by your 40th birthday</div>
-              <p class="record-copy">One clean record for the stake, proof, reminders, and whether it got settled.</p>
-            </div>
+        <p class="note">No wallet. No money held by the app.</p>
+      </section>
 
-            <div class="receipt-grid">
-              <div class="receipt-row">
-                <span>Stake</span>
-                <strong>$100 if he does it. If not, he pays.</strong>
+      <section class="phone-wrap" aria-label="SideAction app preview">
+        <div class="phone-shadow">
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="screen">
+              <div class="screen-top">
+                <strong>SideAction</strong>
+                <div class="pill">Receipt</div>
               </div>
-              <div class="receipt-row">
-                <span>Proof</span>
-                <strong>Video on a regulation hoop by July 8</strong>
-              </div>
-              <div class="receipt-row">
-                <span>Reminder</span>
-                <strong>App sends follow-up instead of you nagging</strong>
-              </div>
-              <div class="receipt-row">
-                <span>Status</span>
-                <strong>Terms locked. Waiting on proof / payup.</strong>
+
+              <div class="screen-body">
+                <div class="hero-card">
+                  <div class="hero-card-label">Example bet</div>
+                  <div class="hero-card-title">Dunk a regulation hoop by your 40th birthday</div>
+                  <div class="hero-card-copy">One clean record for the stake, proof, reminders, and whether it got settled.</div>
+                </div>
+
+                <div class="detail-grid">
+                  <div class="detail-row">
+                    <span>Stake</span>
+                    <strong>$100 if he does it. If not, he pays.</strong>
+                  </div>
+                  <div class="detail-row">
+                    <span>Proof</span>
+                    <strong>Video on a regulation hoop by July 8</strong>
+                  </div>
+                  <div class="detail-row">
+                    <span>Reminder</span>
+                    <strong>App sends follow-up instead of you nagging</strong>
+                  </div>
+                  <div class="detail-row">
+                    <span>Status</span>
+                    <strong>Terms locked. Waiting on proof / payup.</strong>
+                  </div>
+                </div>
+
+                <div class="status-grid">
+                  <div class="status terms">
+                    <span>Terms</span>
+                    <strong>Locked before anyone can rewrite them</strong>
+                  </div>
+                  <div class="status reminders">
+                    <span>Reminder</span>
+                    <strong>Neutral follow-up without awkward chasing</strong>
+                  </div>
+                  <div class="status settlement">
+                    <span>Settlement</span>
+                    <strong>Clear view of who paid and what is still owed</strong>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div class="status-row">
-              <div class="status-pill primary">
-                <span>Terms</span>
-                <strong>Locked before anyone can rewrite them</strong>
-              </div>
-              <div class="status-pill warning">
-                <span>Reminder</span>
-                <strong>Neutral follow-up without awkward chasing</strong>
-              </div>
-              <div class="status-pill success">
-                <span>Settlement</span>
-                <strong>Clear view of who paid and what is still owed</strong>
-              </div>
-            </div>
+            <div class="home"></div>
           </div>
         </div>
-        <div class="phone-home"></div>
-      </div>
-    </section>
-  </main>
-
-  <section class="how-it-works" aria-label="How SideAction works">
-    <div class="section-header">
-      <span class="section-kicker">How it works</span>
-      <h2>Make the bet clear before anyone can argue about it later</h2>
-      <p>Most bets do not fail because of the game. They fail because the terms were loose, the proof was fuzzy, or nobody wants to chase payout after the fact. SideAction fixes that in three simple steps.</p>
-    </div>
-
-    <div class="steps-grid">
-      <article class="step-card">
-        <div class="step-number">01</div>
-        <h3>Create the receipt</h3>
-        <p>Write the bet once so both sides can see the same terms before anything starts.</p>
-        <ul>
-          <li>Who is in the bet</li>
-          <li>What the stake is</li>
-          <li>What counts as a win or loss</li>
-        </ul>
-      </article>
-
-      <article class="step-card">
-        <div class="step-number">02</div>
-        <h3>Attach the proof rule</h3>
-        <p>Decide up front what proof settles it so nobody can move the goalposts later.</p>
-        <ul>
-          <li>Screenshots, video, or receipts</li>
-          <li>Deadline and outcome rules</li>
-          <li>Shared record both sides can point to</li>
-        </ul>
-      </article>
-
-      <article class="step-card">
-        <div class="step-number">03</div>
-        <h3>Track payup cleanly</h3>
-        <p>When the bet ends, SideAction keeps settlement visible without turning it into awkward personal chasing.</p>
-        <ul>
-          <li>See who paid and who still owes</li>
-          <li>Send neutral reminders</li>
-          <li>Keep future bets cleaner with a real record</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="conversion-section" aria-label="Join the SideAction beta">
-    <div class="conversion-card">
-      <span class="section-kicker">Join beta</span>
-      <h2>Get in before your next unpaid bet turns into a dumb argument.</h2>
-      <p>If your friends make bets, side deals, fantasy punishments, or pay-me-back promises, get on the list now and help shape the first beta before another payout turns into chasing.</p>
-
-      <div class="objection-grid">
-        <article class="objection-card">
-          <strong>Not a gambling app</strong>
-          <p>SideAction does not hold money. It just keeps the record, proof, reminders, and payup status clean.</p>
-        </article>
-        <article class="objection-card">
-          <strong>Works for more than sports bets</strong>
-          <p>Use it for poker debts, side challenges, gym bets, fantasy punishments, and simple pay-me-back deals too.</p>
-        </article>
-        <article class="objection-card">
-          <strong>Early users shape the product</strong>
-          <p>You get first access, a better shot at your username, and direct input on what gets built next.</p>
-        </article>
-      </div>
-
-      <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
-        <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for beta signup" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
-        <input type="hidden" name="MMERGE6" value="bottom-conversion">
-        <input type="hidden" name="MMERGE7" value="objection-cta">
-        <button type="submit">Join Waitlist</button>
-        <div aria-hidden="true" style="position: absolute; left: -5000px;">
-          <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
-        </div>
-        <p class="success-msg" aria-live="polite"></p>
-      </form>
-
-      <p class="conversion-meta">No spam. No wallet connection. Just early access when the next beta wave opens.</p>
-    </div>
-  </section>
+      </section>
+    </main>
+  </div>
 
   <iframe name="mailchimp-hidden-frame" title="Mailchimp subscription target" style="display:none;width:0;height:0;border:0;"></iframe>
 
@@ -864,62 +501,25 @@
       let responseHandled = false;
       let responseTimer = null;
 
-      const trackEvent = (name, payload) => {
-        if (typeof window.va !== 'function') return;
-        window.va('event', {
-          name,
-          data: payload
-        });
-      };
-
-      const getFormContext = (form) => ({
-        location: form.querySelector('input[name="MMERGE6"]')?.value || 'unknown',
-        angle: form.querySelector('input[name="MMERGE7"]')?.value || 'unknown'
-      });
-
-      const getEmailInput = (form) => form.querySelector('input[name="EMAIL"]');
-
-      const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
       const showMessage = (form, message, type) => {
         if (!form) return;
         const msg = form.querySelector('.success-msg');
         if (!msg) return;
         msg.textContent = message;
-        msg.style.color = type === 'error' ? '#ff8f8f' : '#00D26A';
+        msg.style.color = type === 'error' ? '#ff8f8f' : '#2dd287';
       };
 
       forms.forEach((form) => {
-        form.addEventListener('submit', (event) => {
-          const emailInput = getEmailInput(form);
-          const email = emailInput?.value.trim() || '';
-
-          if (!isValidEmail(email)) {
-            event.preventDefault();
-            showMessage(form, 'Enter a real email so we can send the beta invite.', 'error');
-            emailInput?.focus();
-            trackEvent('waitlist_invalid_email', getFormContext(form));
-            return;
-          }
-
-          if (emailInput) {
-            emailInput.value = email;
-          }
-
+        form.addEventListener('submit', () => {
           activeForm = form;
           responseHandled = false;
           if (responseTimer) clearTimeout(responseTimer);
           showMessage(form, '', 'success');
-          trackEvent('waitlist_submit', {
-            ...getFormContext(form),
-            domain: email.split('@')[1] || 'unknown'
-          });
           responseTimer = window.setTimeout(() => {
             if (!responseHandled && activeForm === form) {
-              showMessage(form, 'Signup sent. If you do not see a confirmation state here, try again in a few seconds.', 'error');
-              trackEvent('waitlist_pending_timeout', getFormContext(form));
+              showMessage(form, form.dataset.successMessage || 'You are on the beta waitlist. Watch your inbox for the next invite wave.', 'success');
             }
-          }, 4000);
+          }, 2500);
         });
       });
 
@@ -928,7 +528,6 @@
         responseHandled = true;
         if (responseTimer) clearTimeout(responseTimer);
         showMessage(activeForm, activeForm.dataset.successMessage || 'You are on the beta waitlist. Watch your inbox for the next invite wave.', 'success');
-        trackEvent('waitlist_success', getFormContext(activeForm));
       });
     })();
   </script>
