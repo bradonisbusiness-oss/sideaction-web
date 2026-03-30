@@ -5,164 +5,159 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SideAction | Put the bet on record before it gets weird later</title>
   <meta name="description" content="SideAction keeps prop bets, side deals, proof, reminders, and payup status in one place so nobody has to guess what was agreed or keep chasing what they are owed." />
-  <link rel="canonical" href="https://sideactionapp.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sideactionapp.com/" />
-  <meta property="og:title" content="SideAction | Put the bet on record before it gets weird later" />
-  <meta property="og:description" content="One clean record for prop bets, side deals, proof, reminders, and settlement between friends." />
-  <meta property="og:image" content="https://sideactionapp.com/logo.png" />
-  <meta property="og:site_name" content="SideAction" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SideAction | Put the bet on record before it gets weird later" />
-  <meta name="twitter:description" content="One clean record for prop bets, side deals, proof, reminders, and settlement between friends." />
-  <meta name="twitter:image" content="https://sideactionapp.com/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
-    window.va = window.va || function () {
-      (window.vaq = window.vaq || []).push(arguments);
-    };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0A0A0F;
-      --surface: #14141C;
-      --border: #2A2A38;
-      --primary: #4D9FFF;
-      --text: #FFFFFF;
-      --text-secondary: #A5A7BE;
-      --text-tertiary: #6E738F;
-      --success: #00D26A;
-      --warning: #FFB800;
+      --bg: #0c0f16;
+      --bg-soft: #101520;
+      --card: #121826;
+      --border: rgba(255,255,255,0.08);
+      --text: #f7f9fc;
+      --muted: #a6afc3;
+      --accent: #6aa8ff;
+      --accent-2: #82b8ff;
+      --green: #2dd287;
     }
 
     body {
-      background: radial-gradient(circle at top, rgba(77,159,255,0.12), transparent 35%), var(--bg);
-      color: var(--text);
       font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(106,168,255,0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(45,210,135,0.08), transparent 28%),
+        linear-gradient(180deg, #0b0f17 0%, #090c13 100%);
+      color: var(--text);
       min-height: 100vh;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 28px;
-      max-width: 1180px;
+    .shell {
+      max-width: 1240px;
       margin: 0 auto;
+      padding: 28px 28px 64px;
     }
 
-    .nav-logo {
+    .nav {
       display: flex;
       align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 700;
-      font-size: 20px;
+      justify-content: flex-start;
+      margin-bottom: 28px;
     }
 
-    .nav-logo img {
-      width: 36px;
-      height: 36px;
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
       object-fit: contain;
     }
 
-    .nav-logo .accent { color: var(--primary); }
+    .brand .accent {
+      color: var(--accent);
+    }
 
-    .hero-shell {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 24px 28px 72px;
+    .hero {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 56px;
+      grid-template-columns: minmax(0, 560px) minmax(320px, 1fr);
+      gap: 72px;
       align-items: center;
-      min-height: calc(100vh - 88px);
+      min-height: calc(100vh - 120px);
     }
 
-    .hero-copy {
-      max-width: 560px;
-    }
-
-    .hero-tag {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(77,159,255,0.10);
-      border: 1px solid rgba(77,159,255,0.18);
-      color: var(--primary);
+      background: rgba(106,168,255,0.12);
+      border: 1px solid rgba(106,168,255,0.18);
+      color: var(--accent-2);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: clamp(42px, 7vw, 72px);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
       font-weight: 800;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
 
-    h1 .accent { color: var(--primary); }
+    h1 .accent {
+      color: var(--accent);
+    }
 
-    .hero-subhead {
-      font-size: 19px;
-      line-height: 1.7;
-      color: var(--text-secondary);
-      margin-bottom: 28px;
+    .subhead {
+      font-size: 20px;
+      line-height: 1.65;
+      color: var(--muted);
       max-width: 540px;
+      margin-bottom: 28px;
     }
 
-    .waitlist-form {
+    .waitlist {
       display: flex;
       gap: 12px;
+      width: 100%;
       max-width: 520px;
       margin-bottom: 14px;
       flex-wrap: wrap;
     }
 
-    .waitlist-form input {
+    .waitlist input {
       flex: 1;
       min-width: 250px;
+      padding: 17px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 18px;
       color: var(--text);
       font-size: 15px;
       outline: none;
     }
 
-    .waitlist-form input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(77,159,255,0.16);
+    .waitlist input::placeholder {
+      color: #7f88a0;
     }
 
-    .waitlist-form button {
+    .waitlist button {
+      padding: 17px 24px;
       border: none;
-      border-radius: 14px;
-      background: var(--primary);
-      color: #fff;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #79b5ff 0%, #4d9fff 100%);
+      color: white;
       font-size: 15px;
       font-weight: 700;
-      padding: 16px 22px;
       cursor: pointer;
-      white-space: nowrap;
+      box-shadow: 0 10px 24px rgba(77,159,255,0.22);
     }
 
-    .hero-note {
+    .note {
       font-size: 13px;
-      color: var(--text-tertiary);
-      margin-bottom: 24px;
+      color: #7f88a0;
+    }
+
+    .success-msg {
+      width: 100%;
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green);
     }
 
     .phone-wrap {
@@ -171,326 +166,330 @@
       align-items: center;
     }
 
-    .phone-frame {
-      width: 340px;
-      max-width: 100%;
-      background: #000;
+    .phone-shadow {
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 1.02 / 1;
+      border-radius: 44px;
+      background: radial-gradient(circle at top, rgba(106,168,255,0.18), rgba(106,168,255,0.03) 55%, transparent 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .phone {
+      width: min(390px, 100%);
+      background: #040507;
       border-radius: 42px;
       padding: 12px;
-      border: 1px solid rgba(77,159,255,0.25);
-      box-shadow: 0 24px 80px rgba(0,0,0,0.45), 0 0 80px rgba(77,159,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.48);
     }
 
-    .phone-notch {
+    .notch {
+      width: 152px;
       height: 28px;
-      width: 150px;
-      background: #000;
-      border-radius: 0 0 20px 20px;
       margin: 0 auto;
+      border-radius: 0 0 20px 20px;
+      background: #040507;
     }
 
-    .phone-content {
-      background: linear-gradient(180deg, #10131D 0%, #0B0D14 100%);
+    .screen {
+      background: linear-gradient(180deg, #0d1118 0%, #0a0d14 100%);
       border-radius: 30px;
+      min-height: 720px;
       overflow: hidden;
-      min-height: 680px;
-      display: flex;
-      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.04);
     }
 
-    .phone-topbar {
-      padding: 16px 18px 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+    .screen-top {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    .phone-topbar strong {
+    .screen-top strong {
       font-size: 16px;
       font-weight: 700;
     }
 
-    .phone-badge {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--primary);
-      background: rgba(77,159,255,0.14);
-      border: 1px solid rgba(77,159,255,0.22);
+    .pill {
       padding: 6px 10px;
       border-radius: 999px;
-      text-transform: uppercase;
+      background: rgba(106,168,255,0.12);
+      border: 1px solid rgba(106,168,255,0.18);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
-    .phone-body {
+    .screen-body {
       padding: 18px;
       display: grid;
       gap: 14px;
     }
 
-    .record-card {
-      background: rgba(255,255,255,0.04);
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 100%);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      padding: 16px;
+      border-radius: 24px;
+      padding: 18px;
     }
 
-    .record-label {
+    .hero-card-label {
+      color: #7f88a0;
       font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-tertiary);
-      font-weight: 700;
       margin-bottom: 10px;
     }
 
-    .record-title {
-      font-size: 22px;
-      line-height: 1.2;
+    .hero-card-title {
+      font-size: 26px;
+      line-height: 1.12;
       font-weight: 800;
+      letter-spacing: -0.03em;
       margin-bottom: 10px;
     }
 
-    .record-copy {
-      color: var(--text-secondary);
+    .hero-card-copy {
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.65;
+      color: var(--muted);
     }
 
-    .receipt-grid {
+    .detail-grid {
       display: grid;
       gap: 10px;
     }
 
-    .receipt-row {
+    .detail-row {
       display: flex;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
-      padding: 12px 14px;
-      border-radius: 16px;
+      padding: 14px 15px;
+      border-radius: 18px;
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.06);
     }
 
-    .receipt-row span {
-      color: var(--text-tertiary);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+    .detail-row span {
+      color: #7f88a0;
+      font-size: 11px;
       font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding-top: 2px;
     }
 
-    .receipt-row strong {
-      font-size: 14px;
-      line-height: 1.5;
+    .detail-row strong {
       text-align: right;
-      max-width: 60%;
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 64%;
+      font-weight: 600;
     }
 
-    .status-row {
+    .status-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
     }
 
-    .status-pill {
+    .status {
       border-radius: 18px;
       padding: 14px 12px;
-      text-align: left;
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.06);
     }
 
-    .status-pill span {
+    .status span {
       display: block;
+      color: #7f88a0;
       font-size: 10px;
-      text-transform: uppercase;
+      font-weight: 700;
       letter-spacing: 0.08em;
-      color: var(--text-tertiary);
-      font-weight: 800;
+      text-transform: uppercase;
       margin-bottom: 8px;
     }
 
-    .status-pill strong {
+    .status strong {
       font-size: 14px;
       line-height: 1.45;
+      display: block;
     }
 
-    .status-pill.warning strong { color: var(--warning); }
-    .status-pill.success strong { color: var(--success); }
-    .status-pill.primary strong { color: var(--primary); }
+    .status.terms strong { color: var(--accent); }
+    .status.reminders strong { color: var(--warning); }
+    .status.settlement strong { color: var(--green); }
 
-    .phone-home {
+    .home {
       width: 120px;
       height: 6px;
-      border-radius: 999px;
-      background: #141414;
       margin: 10px auto 0;
-    }
-
-    .success-msg {
-      width: 100%;
-      font-size: 14px;
-      color: var(--success);
-      font-weight: 600;
-      margin-top: 8px;
-      text-align: left;
+      border-radius: 999px;
+      background: #131313;
     }
 
     @media (max-width: 980px) {
-      .hero-shell {
+      .hero {
         grid-template-columns: 1fr;
-        gap: 36px;
+        gap: 44px;
         text-align: center;
-        padding-top: 12px;
       }
 
-      .hero-copy {
-        max-width: 100%;
-      }
-
-      .hero-subhead,
-      .success-msg {
-        max-width: 560px;
+      .subhead {
         margin-left: auto;
         margin-right: auto;
       }
 
-      .waitlist-form {
+      .waitlist {
         justify-content: center;
         margin-left: auto;
         margin-right: auto;
       }
+
+      .note,
+      .success-msg {
+        text-align: center;
+      }
     }
 
     @media (max-width: 640px) {
-      nav {
-        padding: 18px 18px 10px;
-      }
-
-      .hero-shell {
-        padding: 8px 18px 56px;
+      .shell {
+        padding: 22px 18px 48px;
       }
 
       h1 {
-        font-size: 42px;
+        font-size: 44px;
       }
 
-      .hero-subhead {
+      .subhead {
         font-size: 17px;
       }
 
-      .waitlist-form {
+      .waitlist {
         flex-direction: column;
       }
 
-      .waitlist-form input,
-      .waitlist-form button {
+      .waitlist input,
+      .waitlist button {
         width: 100%;
       }
 
-      .status-row {
+      .status-grid {
         grid-template-columns: 1fr;
       }
 
-      .receipt-row {
+      .detail-row {
         flex-direction: column;
       }
 
-      .receipt-row strong {
+      .detail-row strong {
         max-width: 100%;
         text-align: left;
       }
 
-      .phone-content {
-        min-height: 620px;
+      .screen {
+        min-height: 660px;
       }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a class="nav-logo" href="/">
-      <img src="/bull-skull-logo.png" alt="SideAction logo" />
-      <span>Side<span class="accent">Action</span></span>
-    </a>
-  </nav>
+  <div class="shell">
+    <nav class="nav">
+      <a class="brand" href="/">
+        <img src="/bull-skull-logo.png" alt="SideAction logo" />
+        <span>Side<span class="accent">Action</span></span>
+      </a>
+    </nav>
 
-  <main class="hero-shell" id="waitlist">
-    <section class="hero-copy">
-      <div class="hero-tag">Prop bets • side deals • challenge bets • awkward payups</div>
-      <h1>Put the bet on record <span class="accent">before it gets weird later</span></h1>
-      <p class="hero-subhead">SideAction keeps the terms, proof, reminders, and payup status in one place so nobody has to guess what was agreed or keep chasing what they are owed.</p>
+    <main class="hero">
+      <section>
+        <div class="eyebrow">Prop bets • side deals • challenge bets • awkward payups</div>
+        <h1>Put the bet on record <span class="accent">before it gets weird later</span></h1>
+        <p class="subhead">SideAction keeps the terms, proof, reminders, and payup status in one place so nobody has to guess what was agreed or keep chasing what they are owed.</p>
 
-      <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
-        <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for beta signup" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
-        <input type="hidden" name="MMERGE6" value="hero-minimal">
-        <input type="hidden" name="MMERGE7" value="side-deals">
-        <button type="submit">Join Waitlist</button>
-        <div aria-hidden="true" style="position: absolute; left: -5000px;">
-          <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
-        </div>
-        <p class="success-msg" aria-live="polite"></p>
-      </form>
-
-      <p class="hero-note">No wallet. No money held by the app.</p>
-    </section>
-
-    <section class="phone-wrap" aria-label="SideAction app preview">
-      <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <div class="phone-content">
-          <div class="phone-topbar">
-            <strong>SideAction</strong>
-            <div class="phone-badge">Receipt</div>
+        <form class="waitlist js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
+          <input type="email" name="EMAIL" required placeholder="Enter your email" aria-label="Email address for beta signup" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
+          <input type="hidden" name="MMERGE6" value="hero-minimal-visual">
+          <input type="hidden" name="MMERGE7" value="side-deals">
+          <button type="submit">Join waitlist</button>
+          <div aria-hidden="true" style="position:absolute;left:-5000px;">
+            <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
           </div>
-          <div class="phone-body">
-            <div class="record-card">
-              <div class="record-label">Example bet</div>
-              <div class="record-title">Dunk a regulation hoop by your 40th birthday</div>
-              <p class="record-copy">One clean record for the stake, proof, reminders, and whether it got settled.</p>
-            </div>
+          <p class="success-msg" aria-live="polite"></p>
+        </form>
 
-            <div class="receipt-grid">
-              <div class="receipt-row">
-                <span>Stake</span>
-                <strong>$100 if he does it. If not, he pays.</strong>
-              </div>
-              <div class="receipt-row">
-                <span>Proof</span>
-                <strong>Video on a regulation hoop by July 8</strong>
-              </div>
-              <div class="receipt-row">
-                <span>Reminder</span>
-                <strong>App sends follow-up instead of you nagging</strong>
-              </div>
-              <div class="receipt-row">
-                <span>Status</span>
-                <strong>Terms locked. Waiting on proof / payup.</strong>
-              </div>
-            </div>
+        <p class="note">No wallet. No money held by the app.</p>
+      </section>
 
-            <div class="status-row">
-              <div class="status-pill primary">
-                <span>Terms</span>
-                <strong>Locked before anyone can rewrite them</strong>
+      <section class="phone-wrap" aria-label="SideAction app preview">
+        <div class="phone-shadow">
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="screen">
+              <div class="screen-top">
+                <strong>SideAction</strong>
+                <div class="pill">Receipt</div>
               </div>
-              <div class="status-pill warning">
-                <span>Reminder</span>
-                <strong>Neutral follow-up without awkward chasing</strong>
-              </div>
-              <div class="status-pill success">
-                <span>Settlement</span>
-                <strong>Clear view of who paid and what is still owed</strong>
+
+              <div class="screen-body">
+                <div class="hero-card">
+                  <div class="hero-card-label">Example bet</div>
+                  <div class="hero-card-title">Dunk a regulation hoop by your 40th birthday</div>
+                  <div class="hero-card-copy">One clean record for the stake, proof, reminders, and whether it got settled.</div>
+                </div>
+
+                <div class="detail-grid">
+                  <div class="detail-row">
+                    <span>Stake</span>
+                    <strong>$100 if he does it. If not, he pays.</strong>
+                  </div>
+                  <div class="detail-row">
+                    <span>Proof</span>
+                    <strong>Video on a regulation hoop by July 8</strong>
+                  </div>
+                  <div class="detail-row">
+                    <span>Reminder</span>
+                    <strong>App sends follow-up instead of you nagging</strong>
+                  </div>
+                  <div class="detail-row">
+                    <span>Status</span>
+                    <strong>Terms locked. Waiting on proof / payup.</strong>
+                  </div>
+                </div>
+
+                <div class="status-grid">
+                  <div class="status terms">
+                    <span>Terms</span>
+                    <strong>Locked before anyone can rewrite them</strong>
+                  </div>
+                  <div class="status reminders">
+                    <span>Reminder</span>
+                    <strong>Neutral follow-up without awkward chasing</strong>
+                  </div>
+                  <div class="status settlement">
+                    <span>Settlement</span>
+                    <strong>Clear view of who paid and what is still owed</strong>
+                  </div>
+                </div>
               </div>
             </div>
+            <div class="home"></div>
           </div>
         </div>
-        <div class="phone-home"></div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
+  </div>
 
   <iframe name="mailchimp-hidden-frame" title="Mailchimp subscription target" style="display:none;width:0;height:0;border:0;"></iframe>
 
@@ -507,7 +506,7 @@
         const msg = form.querySelector('.success-msg');
         if (!msg) return;
         msg.textContent = message;
-        msg.style.color = type === 'error' ? '#ff8f8f' : '#00D26A';
+        msg.style.color = type === 'error' ? '#ff8f8f' : '#2dd287';
       };
 
       forms.forEach((form) => {
