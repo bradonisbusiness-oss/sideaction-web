@@ -118,8 +118,29 @@
       font-size: 19px;
       line-height: 1.7;
       color: var(--text-secondary);
-      margin-bottom: 28px;
+      margin-bottom: 20px;
       max-width: 540px;
+    }
+
+    .use-case-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+      max-width: 560px;
+    }
+
+    .use-case-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1;
     }
 
     .waitlist-form {
@@ -576,11 +597,16 @@
       }
 
       .hero-subhead,
+      .use-case-chips,
       .success-msg,
       .trust-list {
         max-width: 560px;
         margin-left: auto;
         margin-right: auto;
+      }
+
+      .use-case-chips {
+        justify-content: center;
       }
 
       .waitlist-form {
@@ -649,18 +675,25 @@
       <h1>Put the bet on record <span class="accent">before it gets weird later</span></h1>
       <p class="hero-subhead">SideAction keeps the terms, proof, reminders, and payup status in one place so nobody has to guess what was agreed or keep chasing what they are owed.</p>
 
+      <div class="use-case-chips" aria-label="Best for these use cases">
+        <span class="use-case-chip">Sports bets</span>
+        <span class="use-case-chip">Golf side bets</span>
+        <span class="use-case-chip">Fantasy punishments</span>
+        <span class="use-case-chip">Pay-me-back deals</span>
+      </div>
+
       <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
         <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for beta signup" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
         <input type="hidden" name="MMERGE6" value="hero-minimal">
         <input type="hidden" name="MMERGE7" value="side-deals">
-        <button type="submit">Join Waitlist</button>
+        <button type="submit">Get Beta Access</button>
         <div aria-hidden="true" style="position: absolute; left: -5000px;">
           <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
         </div>
         <p class="success-msg" aria-live="polite"></p>
       </form>
 
-      <p class="hero-note">No wallet. No money held by the app.</p>
+      <p class="hero-note">Free beta. Takes 10 seconds. No wallet. No money held by the app.</p>
 
       <div class="trust-list" aria-label="Why SideAction matters">
         <div class="trust-item">
