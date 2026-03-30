@@ -877,6 +877,10 @@
         angle: form.querySelector('input[name="MMERGE7"]')?.value || 'unknown'
       });
 
+      const getEmailInput = (form) => form.querySelector('input[name="EMAIL"]');
+
+      const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
       const showMessage = (form, message, type) => {
         if (!form) return;
         const msg = form.querySelector('.success-msg');
@@ -886,17 +890,36 @@
       };
 
       forms.forEach((form) => {
-        form.addEventListener('submit', () => {
+        form.addEventListener('submit', (event) => {
+          const emailInput = getEmailInput(form);
+          const email = emailInput?.value.trim() || '';
+
+          if (!isValidEmail(email)) {
+            event.preventDefault();
+            showMessage(form, 'Enter a real email so we can send the beta invite.', 'error');
+            emailInput?.focus();
+            trackEvent('waitlist_invalid_email', getFormContext(form));
+            return;
+          }
+
+          if (emailInput) {
+            emailInput.value = email;
+          }
+
           activeForm = form;
           responseHandled = false;
           if (responseTimer) clearTimeout(responseTimer);
           showMessage(form, '', 'success');
-          trackEvent('waitlist_submit', getFormContext(form));
+          trackEvent('waitlist_submit', {
+            ...getFormContext(form),
+            domain: email.split('@')[1] || 'unknown'
+          });
           responseTimer = window.setTimeout(() => {
             if (!responseHandled && activeForm === form) {
-              showMessage(form, form.dataset.successMessage || 'You are on the beta waitlist. Watch your inbox for the next invite wave.', 'success');
+              showMessage(form, 'Signup sent. If you do not see a confirmation state here, try again in a few seconds.', 'error');
+              trackEvent('waitlist_pending_timeout', getFormContext(form));
             }
-          }, 2500);
+          }, 4000);
         });
       });
 
