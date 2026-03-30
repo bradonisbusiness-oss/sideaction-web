@@ -864,6 +864,19 @@
       let responseHandled = false;
       let responseTimer = null;
 
+      const trackEvent = (name, payload) => {
+        if (typeof window.va !== 'function') return;
+        window.va('event', {
+          name,
+          data: payload
+        });
+      };
+
+      const getFormContext = (form) => ({
+        location: form.querySelector('input[name="MMERGE6"]')?.value || 'unknown',
+        angle: form.querySelector('input[name="MMERGE7"]')?.value || 'unknown'
+      });
+
       const showMessage = (form, message, type) => {
         if (!form) return;
         const msg = form.querySelector('.success-msg');
@@ -878,6 +891,7 @@
           responseHandled = false;
           if (responseTimer) clearTimeout(responseTimer);
           showMessage(form, '', 'success');
+          trackEvent('waitlist_submit', getFormContext(form));
           responseTimer = window.setTimeout(() => {
             if (!responseHandled && activeForm === form) {
               showMessage(form, form.dataset.successMessage || 'You are on the beta waitlist. Watch your inbox for the next invite wave.', 'success');
@@ -891,6 +905,7 @@
         responseHandled = true;
         if (responseTimer) clearTimeout(responseTimer);
         showMessage(activeForm, activeForm.dataset.successMessage || 'You are on the beta waitlist. Watch your inbox for the next invite wave.', 'success');
+        trackEvent('waitlist_success', getFormContext(activeForm));
       });
     })();
   </script>
