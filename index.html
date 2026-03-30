@@ -73,17 +73,6 @@
 
     .nav-logo .accent { color: var(--primary); }
 
-    .nav-cta {
-      background: rgba(77,159,255,0.14);
-      color: var(--text);
-      border: 1px solid rgba(77,159,255,0.28);
-      padding: 10px 16px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
     .hero-shell {
       max-width: 1180px;
       margin: 0 auto;
@@ -174,28 +163,6 @@
       font-size: 13px;
       color: var(--text-tertiary);
       margin-bottom: 24px;
-    }
-
-    .hero-points {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-      color: var(--text-secondary);
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .hero-points li {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .hero-points li span {
-      color: var(--success);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-top: 2px;
     }
 
     .phone-wrap {
@@ -384,7 +351,6 @@
       }
 
       .hero-subhead,
-      .hero-points,
       .success-msg {
         max-width: 560px;
         margin-left: auto;
@@ -396,19 +362,11 @@
         margin-left: auto;
         margin-right: auto;
       }
-
-      .hero-points li {
-        text-align: left;
-      }
     }
 
     @media (max-width: 640px) {
       nav {
         padding: 18px 18px 10px;
-      }
-
-      .nav-cta {
-        display: none;
       }
 
       .hero-shell {
@@ -457,7 +415,6 @@
       <img src="/bull-skull-logo.png" alt="SideAction logo" />
       <span>Side<span class="accent">Action</span></span>
     </a>
-    <a class="nav-cta" href="#waitlist">Join Waitlist</a>
   </nav>
 
   <main class="hero-shell" id="waitlist">
@@ -468,22 +425,16 @@
 
       <form class="waitlist-form js-waitlist-form" action="https://sideactionapp.us7.list-manage.com/subscribe/post?u=c5cd13a3e0e302822388b1690&amp;id=30e9236f91&amp;f_id=0085dee3f0" method="post" target="mailchimp-hidden-frame" novalidate data-success-message="You are on the beta waitlist. Watch your inbox for the next invite wave.">
         <input type="email" name="EMAIL" required placeholder="Enter your email for beta access" aria-label="Email address for beta signup" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
-        <input type="hidden" name="MMERGE6" value="hero-simple">
+        <input type="hidden" name="MMERGE6" value="hero-minimal">
         <input type="hidden" name="MMERGE7" value="side-deals">
-        <button type="submit">Join Free Beta Waitlist</button>
+        <button type="submit">Join Waitlist</button>
         <div aria-hidden="true" style="position: absolute; left: -5000px;">
           <input type="text" name="b_c5cd13a3e0e302822388b1690_30e9236f91" tabindex="-1" value="">
         </div>
         <p class="success-msg" aria-live="polite"></p>
       </form>
 
-      <p class="hero-note">No wallet. No money held by the app. Email only today.</p>
-
-      <ul class="hero-points">
-        <li><span>✓</span><div><strong>Lock the deal once.</strong> Stop relying on screenshots, memory, and “that’s not what we said.”</div></li>
-        <li><span>✓</span><div><strong>Keep proof attached.</strong> Screenshots, deadlines, and updates stay tied to the actual bet.</div></li>
-        <li><span>✓</span><div><strong>Let the app do the reminding.</strong> Stop becoming the bad guy just for following up on what you’re owed.</div></li>
-      </ul>
+      <p class="hero-note">No wallet. No money held by the app.</p>
     </section>
 
     <section class="phone-wrap" aria-label="SideAction app preview">
@@ -492,7 +443,7 @@
         <div class="phone-content">
           <div class="phone-topbar">
             <strong>SideAction</strong>
-            <div class="phone-badge">Live receipt</div>
+            <div class="phone-badge">Receipt</div>
           </div>
           <div class="phone-body">
             <div class="record-card">
